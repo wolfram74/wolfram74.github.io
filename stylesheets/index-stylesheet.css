@@ -2,16 +2,16 @@ div.header{
 text-align:left;
 padding-left:10px;
 border:solid black 2px;
+height : 110px;
 /*position:fixed;*/
 }
 
 #emblem {
-height:150px;
-width:150px;
+height:100px;
+width:100px;
 position: absolute;
 right:10px;
-
-/*float:right;*/
+top: 10px;
 }
 
 div.link_bar{
