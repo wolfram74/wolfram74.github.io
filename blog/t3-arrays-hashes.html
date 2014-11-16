@@ -48,22 +48,32 @@
     <p class= "date_tag">2014-11-14 </p>
 
 <p>
-  So a pretty common way to introduce data structures is when you have a lot, potentially unknown amount of information. Say, a shopping list for food, or a favorite movies or maybe an address book with places and names.
+  So a pretty common way to introduce data structures is when you have a lot, potentially unknown amount of information. Say, a shopping list for food, or a collection of favorite movies or maybe an address book with places and names.
 </p>
 
 <p>
-  a
+  Quickly you'll realize that assigning a new variable for each piece of data isn't going to work. It's both super tedious, and it's inflexible. If you're getting a text stream it would be like modifying the source code each time more information came in. No, much better to have some kind of bucket that can just get stuff poured into it and be done with.
 </p>
 
 <p>
-  a
+  Enter the list, humblest amongst Turing's children. The simple list is merely a block of information where each item in the list comes after the last, imagine a roller coaster with an exceptionally large number of seats. We load it up in the front and after that each person is right behind the previous. Zero indexing is a common convention, so get used to it. Under that convention, the lead car, with nobody in front of it, would be the 0th car.
 </p>
 
 <p>
-  a
+  In a list, referring to stuff[2] is the 2nd from the front item. And that's all the reference it has. This might be nice if you have no particular hierrarchy in the information, or no relationships between them. But say there is hierrarchy, like say, length of words, or alphabetical ordering, or the information you are storing also has a time stamp and you want to process it first-come first-served. Then you might consider sorting the list. One thing that is nice about ruby is that it makes arbitrary sorting methods quite easy. Whether or not they are fast I have yet to be shown.
 </p>
 
+<p>
+  So lists are nice, they can disordered or ordered as our situations vary. But remember earlier, when I referred to possibly storing an unkown number of names and addresses? Well, that's an example of information that clearly exists in a kind of paired relationship. This sort of information pleads with us to be stored in a hash. This time, instead of putting things in a tidy little row like seats in a car, it's more scattered.
+</p>
 
+<p>
+  This scattering occurs when we decide that there are definite relationships between pieces of information. Say we want our rolodeck variable to be a hash of names and addresses. Names are faster, and due to our anthrocentric biases developed through evolution, will be how we tend to think about contacts. So we'll use those as the keys, rolodeck[person] points to person's address. In this example, a persons name is a key, and a person's address is a value. Now, this has a number of interesting uses for organization, say, mapping items to prices. But also has neat uses for counting or monitoring things.
+</p>
+
+<p>
+  The way a hash table is implemented impacts it's performance, but at the level we care about, the thing to keep in mind is that looking up a particular key-value pair is basically a constant effort/time (same thing, joules, seconds, planck yadda yadda yadda). So maybe you're getting a stream of information and you're like "Have I seen this before?" and you were keeping all the stuff in a list. Now you have to search through the whole list. If it is sorted and maintained carefully, that's a logarithmic load based on search space. If it's unsorted then the search grows linearly! But if you're checking whether or not it's in a hash, well, it's almost instantaneous when you first check your hash and it's empty, and it's almost instantaneous the millionth time when you have a million items in your hash. Hashes, they're kind of a big deal.
+</p>
 
 </div>
 
