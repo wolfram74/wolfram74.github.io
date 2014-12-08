@@ -83,3 +83,6 @@ test_board.print_kneck
 test_board.place_scale("d",0, "O")
 
 test_board.print_kneck
+board2 = FretBoard.new()
+board2.place_scale("c",0,"X")
+board2.print_kneck
