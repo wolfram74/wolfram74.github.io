@@ -1,0 +1,21 @@
+* {
+padding: .75em;
+}
+
+th {
+text-align: left;
+font-weight: normal;
+  width:25%;
+  /*height: 10%;*/
+}
+
+td{
+/*  width:25%;
+*/}
+div.example{
+border-bottom: dashed;
+}
+
+div.explanation{
+  text-align: right;
+}

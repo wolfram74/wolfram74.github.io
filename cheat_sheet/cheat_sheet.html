@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+  <link type="text/css" rel="stylesheet" href="../stylesheets/cheat_sheet.css"/>
+ </head>
+
+ <body>
+<p>
+  There are several built in ways of storing and representing data in Ruby, Hashes, Arrays, Strings and Integers being among them. We'll describe some basic methods using them, the convention we'll use is the object in an example will be lower cased.
+</p>
+
+   <table>
+  <tr>
+    <th>
+      <div class="example">integer = 0
+      </div>
+      <div class="explanation">Creating an integer by assigning an integer value to a variable.
+      </div>
+    </th>
+
+    <th>
+      <div class="example">integer += other_integer
+      </div>
+      <div class="explanation">Incrementing an integer by some other integer amount, the same formatting can be applied to other arithmetical operations like -, *, /, ** (exponentiation) and % (modulus)
+      </div>
+    </th>
+
+    <th>
+      <div class="example">integer % other_integer
+      </div>
+      <div class="explanation">Determines the remainder of the division operator.
+      </div>
+    </th>
+
+  </tr>
+  <tr>
+
+    <td>
+      <div class="example">string = String.new()
+      </div>
+      <div class="explanation">Explicitly creating a new string, will be empty
+      </div>
+    </td>
+
+    <td>
+      <div class="example">string = "an example"
+      </div>
+      <div class="explanation">Implicitly creating a new string, will start as the input string.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">string += another_string
+      </div>
+      <div class="explanation">Concatenates another string onto the first string.
+      </div>
+    </td>
+  </tr>
+  <tr>
+
+    <td>
+      <div class="example">string[index] = new_string
+      </div>
+      <div class="explanation">replaces the character at index, with the new string, effects only the character at the index.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">array = Array.new()
+      </div>
+      <div class="explanation">Explicitly creates a new array, will be empty by default.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">array = []
+      </div>
+      <div class="explanation">Implicitly creates a new empty array.
+      </div>
+    </td>
+  </tr>
+  <tr>
+
+    <td>
+      <div class="example">array << item
+      </div>
+      <div class="explanation">Inserts an item onto the back of the array.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">array += other_array
+      </div>
+      <div class="explanation">concatenates another array onto the back of the first array.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">array[index]
+      </div>
+      <div class="explanation">Returns the value of the array at that index.
+      </div>
+    </td>
+  </tr>
+  <tr>
+
+    <td>
+      <div class="example">array[index]= new_value
+      </div>
+      <div class="explanation">resets the value of the array at that index.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">hash = Hash.new()
+      </div>
+      <div class="explanation">Explicitly creates a new hash, empty by default.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">hash = {}
+      </div>
+      <div class="explanation">Implicitly creates an empty hash.
+      </div>
+    </td>
+  </tr>
+  <tr>
+
+    <td>
+      <div class="example">hash = {key => value}
+      </div>
+      <div class="explanation">creates a key-value pair in a hash.
+      </div>
+    </td>
+
+    <td>
+      <div class="example">hash[key]
+      </div>
+      <div class="explanation">accessing the value of a hash assigned to a particular key. (runs in constant time, very useful.)
+      </div>
+    </td>
+
+    <td>
+      <div class="example">hash[key] = new_value
+      </div>
+      <div class="explanation">Assigns a new value to a hash with that key.
+      </div>
+    </td>
+  </tr>
+</table>
+ </body></html>
