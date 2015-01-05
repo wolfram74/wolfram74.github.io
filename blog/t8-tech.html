@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+Rambling at the Void
+  </title>
+
+  <link type="text/css" rel="stylesheet" href="../stylesheets/blog-stylesheet.css"/>
+
+</head>
+
+<body>
+<div class="vert_bar"></div>
+
+<div class="header">
+  <h1>
+    <a href="http://wolfram74.github.io/">Too Smart by Half</a>
+  </h1>
+  <img src="../imgs/logo1.png" ID="emblem"/>
+</div>
+
+<div class="link_bar">
+  <ul class = "horizontal_top">
+  <li><a href = "../underdev.html" >Projects</a></li>
+  <li><a href = "../underdev.html" >Curricula Vitae</a></li>
+  <li><a href = "../underdev.html" >Contact</a></li>
+  <li><a href = "../blog_archive.html" >Blog and Ruminations</a></li>
+  <li><a href = "../underdev.html" >Friends and Collaborators</a></li>
+
+  </ul>
+
+</div>
+
+<div class = "right_bar">
+  <h2>Tweets</h2>
+  <ul class ="vertical_right">
+    <p>tweeting like the first of the north star, he strikes with the fury of a thousand hands against the wrongs committed by the unjust.</p>
+  </ul>
+</div>
+
+<div class = "main_body" >
+<img src="#" class="blog_title_image">
+    <a href="#">
+      <h2> I had 98 problems, then I used recursion to solve one of them.</h2>
+      <h3>Now I have 99 problems.</h3>
+    </a>
+    <p class= "date_tag">02015-01-02 </p>
+
+<p>
+As a youngen' my parents would oft tell me that "Reptition is the mother of memory". As an upstart programmer, most people will readily tell you that "Recusion is the mother of insanity", though perhaps not in as many words.
+</p>
+
+<p>
+Recursion is incredibly powerful though, so let's dwell on it at least momentarily. A recursive function or relation is something that is self referencing. In other words, a function, say, "split_rock" that runs a series of commands, maybe identify_rock, sort_rock and move_rock but eventually it also uses the command split_rock inside of itself. Eventually maybe you've made rocks to small identify, sort or move and you stop splitting, this would be the base case, where it stops making sense in the context of your function to keep recursing.
+</p>
+
+<p>
+Examples are nice so we're going to talk about the collatz conjecture. Take a simple pair of rules to apply to numbers.
+<br>
+1) odd numbers are multiplied by 3 and then increased by 1. (n*3 +1)
+<br>
+2) even numbers are divided by 2. (n/2)
+<br>
+If you starte with 1, you'd go to 4, then 2, then back to 1. A nice tidy loop. The collatz conjecture is that all the natural numbers (integers 0 or larger) will eventually get on that tidy loop. It's a conjecture because while we've checked all the numbers that are less than, I dunno, 15, 20 digits long? Some ridiculously large number of them, I'm writing this without internet at the moment so I can't pinpoint the frontier there. Anyway, checking them only provides reassurance that a proof exists, because there's an infinite number of numbers, you'll need to do some analysis. So I'm going to write up two methods that will return the path from some number n as it heads towards 1.
+</p>
+
+<p>
+  <pre><code>
+def collatz_rec (n, path)
+      path << n
+  return n, path if n == 1
+  return n%2 ==0 ? collatz_rec(n/2, path ) : collatz_rec(n*3 + 1, path )
+end
+</code></pre>
+</p>
+
+<p>
+  <pre><code>
+def collatz_itr(n)
+  path = []
+  while n!= 1 do
+    path << n
+    n%2 ==0 ? n = n/2 : n = n*3+1
+  end
+    path  << n
+  return path
+end
+</pre></code>
+</p>
+
+<p>
+Both functions work, so we can't judge on that criterion. The iterative method is a bit faster, about 10-20%, but that's not a tremendous performance difference, so you could make stylistic or design arguments. They are nearly the same length, differing only by a character. The primary argument in this case, that I can muster, is merely a fondness for recursive functions.
+</p>
+
+<p>
+I spent some time trying to find a write up on how recursion is impacted by an object oriented paradigm, in particular Ruby, and the general vibe that I picked up was "Don't". I suspect that recursion holds the same place in commercial programmers minds as algebra does journalists or calculus for engineers, something that they have to acknowledge is very powerful, but doesn't typically make their immediate activities easier. But I'll hold off on that assumption for awhile.
+</p>
+
+<p>
+Now, I'm just lazy as the next fellow, but I see in recursion the same insinuation of power and subtlety that lies in group theory and differential equations, that hint that something really fundamental is going on. I covet that strength and wish to make some of it my own. I'm kind of stupid and greedy like that.
+</p>
+
+<p>
+The parallels between recursion and iteration are complete, the argument goes that since you can make a turing machine with only iteration, or only with recursion, you can thus accompish any recursive method with an iterative one, otherwise one of the earlier statements about them being turing machines would have been false. So everything you can do with recursion can also be done with iteration.
+</p>
+
+<p>
+The same can be said of different coordinate systems. Cartesian is reall easy to work with, partially because of familiarity. And linear equations are represented realy easily. Trying to integrate over the volume of a sphere in cartesian and you'll see that different representations can make things way easier from time to time. So I'll keep recursion in that part of my mind, a different way to try things from time to time.
+</p>
+
+</div>
+
+
+</body>
+
+</html>
+
+<!--
+
+-->

@@ -72,11 +72,11 @@ height: 50px;}
 div.footer{
 text-align:center;}
 
-/*div.vert_bar{
-margin-left:50%;
-background-color:#000000;
-width:3px;
-height:4000px;
-position:absolute;}
+code {
+  text-align: justify;
+  background-color: #f5f5f5;
+}
 
-*/
+pre {
+
+}
