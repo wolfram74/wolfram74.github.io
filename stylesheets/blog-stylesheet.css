@@ -2,6 +2,8 @@ div.header{
 text-align:left;
 padding-left:10px;
 border:solid black 2px;
+border-radius: 10px;
+background-color: #cfcfff;
 height : 110px;
 /*position:fixed;*/
 }
@@ -10,8 +12,8 @@ height : 110px;
 height:100px;
 width:100px;
 position: absolute;
-right:10px;
-top: 10px;
+right:16px;
+top: 15px;
 }
 
 div.link_bar{
@@ -26,7 +28,21 @@ margin-left:15px;
   margin:10px;
   font-size:15px;
   border: 1px dashed;
-  padding: 5px;
+  padding: 7px;
+  background-color: #a2dfcf;
+  border-radius: 10px;
+
+}
+
+.link_bar a {
+  padding: 7px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 10px;
+}
+
+.link_bar a:hover {
+  background-color: #32bf2f;
 }
 
 ul.horizontal_top{
@@ -67,7 +83,16 @@ margin-right: 15px;
 width: 50px;
 height: 50px;}
 
+.main_body p {
+  /*background-color:#000000;*/
+  margin-left: 15px;
 
+}
+
+.main_body p:nth-child(even) {
+  background-color:#dfdfdf;
+  padding: 15px;
+}
 
 div.footer{
 text-align:center;}
