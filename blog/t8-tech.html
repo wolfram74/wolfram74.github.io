@@ -65,7 +65,6 @@ Examples are nice so we're going to talk about the collatz conjecture. Take a si
 If you starte with 1, you'd go to 4, then 2, then back to 1. A nice tidy loop. The collatz conjecture is that all the natural numbers (integers 0 or larger) will eventually get on that tidy loop. It's a conjecture because while we've checked all the numbers that are less than, I dunno, 15, 20 digits long? Some ridiculously large number of them, I'm writing this without internet at the moment so I can't pinpoint the frontier there. Anyway, checking them only provides reassurance that a proof exists, because there's an infinite number of numbers, you'll need to do some analysis. So I'm going to write up two methods that will return the path from some number n as it heads towards 1.
 </p>
 
-<p>
   <pre><code>
 def collatz_rec (n, path)
       path << n
@@ -73,9 +72,8 @@ def collatz_rec (n, path)
   return n%2 ==0 ? collatz_rec(n/2, path ) : collatz_rec(n*3 + 1, path )
 end
 </code></pre>
-</p>
 
-<p>
+
   <pre><code>
 def collatz_itr(n)
   path = []
@@ -87,7 +85,7 @@ def collatz_itr(n)
   return path
 end
 </pre></code>
-</p>
+
 
 <p>
 Both functions work, so we can't judge on that criterion. The iterative method is a bit faster, about 10-20%, but that's not a tremendous performance difference, so you could make stylistic or design arguments. They are nearly the same length, differing only by a character. The primary argument in this case, that I can muster, is merely a fondness for recursive functions.
