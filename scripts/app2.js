@@ -64,48 +64,47 @@ function renderSet(x0, y0, magnify, gradient_resolution){
 }
 
 function keyParser(event){
-  console.log(event.keyCode)
-  var input = event.keyCode
+  var input = String.fromCharCode(event.keyCode)
   var bounds = Math.pow(2, 1-magnify);
   var increment = (bounds*2)/size;
 
-  if(input == 112){ //P -> render
+  if(input == "p"){ //P -> render
     renderSet(center[0], center[1], magnify, gradientResolution)
     $("#dx").text(0)
     $("#dy").text(0)
   }
-  if(input == 119){ // w -> move up
+  if(input == "w"){ // w -> move up
     center[1] = center[1] + 16*increment
     $("#dy").text(parseInt($("#dy").text(),10)+1)
   }
-  if(input == 97){ // a -> move left
+  if(input == "a"){ // a -> move left
     center[0] = center[0] - 16*increment    
     $("#dx").text(parseInt($("#dx").text(),10)-1)
   }
-  if(input == 115){ // s-> move down
+  if(input == "s"){ // s-> move down
     center[1] = center[1] - 16*increment
     $("#dy").text(parseInt($("#dy").text(),10)-1)
   }
-  if(input == 100){ // d-> move right
+  if(input == "d"){ // d-> move right
     center[0] = center[0] + 16*increment    
     $("#dx").text(parseInt($("#dx").text(),10)+1)
   }
-  if(input == 114){ // r-> coarser image
+  if(input == "r"){ // r-> coarser image
     gradientResolution = gradientResolution/2
     $("#grad").text(gradientResolution)
     renderSet(center[0], center[1], magnify, gradientResolution)
   }
-  if(input == 102){ // f-> smoother image
+  if(input == "f"){ // f-> smoother image
     gradientResolution = gradientResolution*2
     $("#grad").text(gradientResolution)
     renderSet(center[0], center[1], magnify, gradientResolution)
   }
-  if(input == 105){ // I-> move/zoom in
+  if(input == "i"){ // I-> move/zoom in
     magnify++
     $("#zoom").text(magnify)
     renderSet(center[0], center[1], magnify, gradientResolution)
   }
-  if(input == 111){ // O-> move/zoom out
+  if(input == "o"){ // O-> move/zoom out
     magnify--
     $("#zoom").text(magnify)
     renderSet(center[0], center[1], magnify, gradientResolution)    
