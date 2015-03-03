@@ -11,7 +11,7 @@ $("#canvas").css("height", samples)
 // $(document).append(fftjs.fft())
 
 function colorMap(number){
-  if (number ==0){return [0,0,0]};
+  if (number ==0){return [50,50,50]};
   var norm = number/255
   var g = -((norm+0.5)*(norm-0.5)*4)
   var r = -((norm-0.5)*(norm-1.5)*4)
