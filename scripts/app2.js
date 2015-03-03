@@ -67,7 +67,7 @@ function keyParser(event){
   var input = String.fromCharCode(event.keyCode)
   var bounds = Math.pow(2, 1-magnify);
   var increment = (bounds*2)/size;
-
+  console.log(input)
   if(input == "p"){ //P -> render
     renderSet(center[0], center[1], magnify, gradientResolution)
     $("#dx").text(0)
