@@ -11,7 +11,11 @@ $("#canvas").css("height", samples)
 // $(document).append(fftjs.fft())
 
 function colorMap(number){
-  return [number, 255-number,0]
+  var norm = number/255
+  var g = -((norm+0.5)*(norm-0.5)*4)
+  var r = -((norm-0.5)*(norm-1.5)*4)
+  var b = -((norm)*(norm-1)*4)
+  return [255*r, 255*g, 255*b]
 }
 
 function drawColumn(colNum){
