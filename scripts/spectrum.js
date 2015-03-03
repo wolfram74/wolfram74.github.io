@@ -1,6 +1,6 @@
 var fftjs = new FFTJS()
 var samples = Math.pow(2, 10)
-fftjs.init(samples)
+fftjs.init(samples*2)
 $("#canvas").attr("height", samples)
 $("#canvas").attr("width", 800)
 $("#canvas").css("height", samples)
