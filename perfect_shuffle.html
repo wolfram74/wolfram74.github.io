@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+<body>
+  This visualizes the path of cards undergoing a perfect shuffle repeatedly. Decks of size (prime number +1) May be a bit noisy.<br>
+  <form>
+    Size of deck (will coerce by +1 to an even number)
+    <input type="text" name="decksize" value= "52">
+    <br>
+    Color scheme 
+    <input type ="radio" name="color" value="1" checked=true>1
+<!--     <input type ="radio" name="color" value="2">2
+    <input type ="radio" name="color" value="3">3
+ -->    <br>
+    <input type="submit" value="Render">
+  </form>
+  <div id="drawing"></div>
+</body>
+<script src="./scripts/shuffle/jquery-1.11.2.min.js"></script>
+<script src="./scripts/shuffle/svg.min.js"></script>
+<script src="./scripts/shuffle/sylvester.js"></script>
+<script src="./scripts/shuffle/math.js"></script>
+</html>

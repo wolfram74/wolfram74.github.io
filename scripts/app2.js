@@ -31,12 +31,12 @@ function timeOfFlight(xi, yi, max, options){
 }
 
 function heatMap(n, max){
-  norm = n/max
-  if (norm === 1){ return [0,0,0,255]}
-  var r = (1-norm)*255
-  var g = (norm)*(1-norm)*4*255
-  var b = norm*255
-  return [r,g,b, 255]
+  norm = n/max;
+  if (norm === 1||norm === 0){ return [0,0,0,255]};
+  var r = (1-norm)*255;
+  var g = (norm)*(1-norm)*4*255;
+  var b = norm*255;
+  return [r,g,b, 255];
 } 
 
 function renderSet(x0, y0, magnify, gradient_resolution){
