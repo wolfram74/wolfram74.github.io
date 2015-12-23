@@ -3,7 +3,7 @@ var spaces = {
     tasks: [
       {
         title: 'sweep',
-        wekkPeriod: 1,
+        weekPeriod: 1,
         description:'',
         completionSigns:''
       },
@@ -13,7 +13,7 @@ var spaces = {
     tasks: [
       {
         title: '',
-        wekkPeriod: 1,
+        weekPeriod: 1,
         description:'',
         completionSigns:''
       },
@@ -23,7 +23,7 @@ var spaces = {
     tasks: [
       {
         title: '',
-        wekkPeriod: 1,
+        weekPeriod: 1,
         description:'',
         completionSigns:''
       },
@@ -33,7 +33,7 @@ var spaces = {
     tasks: [
       {
         title: '',
-        wekkPeriod: 1,
+        weekPeriod: 1,
         description:'',
         completionSigns:''
       },
@@ -43,15 +43,9 @@ var spaces = {
     tasks: [
       {
         title: '',
-        wekkPeriod: 1,
+        weekPeriod: 1,
         description:'',
         completionSigns:''
-      },
-    ]
-  },
-  pass: {
-    tasks: [
-      {
       },
     ]
   }
