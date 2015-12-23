@@ -3,6 +3,7 @@
 <html>
 <head>
   <script src="./scripts/public/jquery-1.11.2.min.js"></script>
+  <script src="./scripts/public/handlebars-v4.0.5.js"></script>
   <script src="./scripts/public/sylvester.js"></script>
   <script src="./schmutz_jager/scripts/spaces.js"></script>
   <script src="./schmutz_jager/scripts/main.js"></script>
@@ -37,7 +38,122 @@
  <div>
   it begins
  </div>
+
+ <table style="width:75%">
+  <tr class='heads'>
+    <td></td>
+    <td>Living room</td>
+    <td>Dining room</td>
+    <td>Bath room</td>
+    <td>Kitchen</td>
+    <td> Hall and stair case</td>
+  </tr>
+  <tr class='heads'>
+    <td>This week</td>
+    <td>
+      <ul>
+        <li class='title'>
+          Sweep
+        </li>
+        <li style="display:none" class='description'>
+          Use a broom or vacuum cleaner to get clean the floor
+        </li>
+        <li style="display:none" class='completionSigns'>
+          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
+        </li>
+      </ul>
+      <button>details</button>
+    </td>
+    <td>
+      <ul>
+        <li class='title'>
+          Sweep
+        </li>
+        <li style="display:none" class='description'>
+          Use a broom or vacuum cleaner to get clean the floor
+        </li>
+        <li style="display:none" class='completionSigns'>
+          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
+        </li>
+      </ul>
+      <button>details</button>
+    </td>
+    <td>
+      <ul>
+        <li class='title'>
+          Sweep
+        </li>
+        <li style="display:none" class='description'>
+          Use a broom or vacuum cleaner to get clean the floor
+        </li>
+        <li style="display:none" class='completionSigns'>
+          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
+        </li>
+      </ul>
+      <button>details</button>
+    </td>
+    <td>
+      <ul>
+        <li class='title'>
+          Sweep
+        </li>
+        <li style="display:none" class='description'>
+          Use a broom or vacuum cleaner to get clean the floor
+        </li>
+        <li style="display:none" class='completionSigns'>
+          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
+        </li>
+      </ul>
+      <button>details</button>
+    </td>
+    <td>
+      <ul>
+        <li class='title'>
+          Sweep
+        </li>
+        <li style="display:none" class='description'>
+          Use a broom or vacuum cleaner to get clean the floor
+        </li>
+        <li style="display:none" class='completionSigns'>
+          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
+        </li>
+      </ul>
+      <button>details</button>
+   </td>
+  </tr>
+ </table>
 </body>
+
+<script id='templateName' type="text/x-handlebars-template">
+
+</script>
+
+<script id='spaceTemplate' type="text/x-handlebars-template">
+  <td>
+    <h4 class='label'>{{location}}</h4>
+    <h4 class='{{person}}'>{{person}}</h4>
+    <ul>
+      {{#each tasks}}
+        {{> taskPartial }}
+      {{/each}}
+    </ul>
+  </td>
+</script>
+
+<script id='taskTemplate' type="text/x-handlebars-template">
+  <div class='task'>
+    <p class='title'>
+      {{title}}
+    </p>
+    <p class='optional description'>
+      {{description}}
+    </p>
+    <p class='optional completionSigns'>
+      {{completionSigns}}
+    </p>
+    <button>Details</button>
+  </div>
+</script>
 
 
 </html>
