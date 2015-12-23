@@ -5,10 +5,10 @@ $(document).ready(function(){
   var spaceTemplate = Handlebars.compile($('#spaceTemplate').html())
   for(var room in thisWeek){
     var cell = $(spaceTemplate(thisWeek[room]))
-    console.log(cell)
     row.append(cell)
   };
   $('table').append(row)
+  $('table').on('click', 'button', buttonListener)
 })
 console.log('get eet done')
 
@@ -36,4 +36,9 @@ function makeActive(number){
     offSet+=1
   }
   return activeSpaces
+}
+
+function buttonListener(event){
+  var $button = $(this)
+  $button.parent().children('.optional').toggle()
 }

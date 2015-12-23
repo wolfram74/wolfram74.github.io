@@ -40,87 +40,6 @@
  </div>
 
  <table style="width:75%">
-  <tr class='heads'>
-    <td></td>
-    <td>Living room</td>
-    <td>Dining room</td>
-    <td>Bath room</td>
-    <td>Kitchen</td>
-    <td> Hall and stair case</td>
-  </tr>
-  <tr class='heads'>
-    <td>This week</td>
-    <td>
-      <ul>
-        <li class='title'>
-          Sweep
-        </li>
-        <li style="display:none" class='description'>
-          Use a broom or vacuum cleaner to get clean the floor
-        </li>
-        <li style="display:none" class='completionSigns'>
-          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
-        </li>
-      </ul>
-      <button>details</button>
-    </td>
-    <td>
-      <ul>
-        <li class='title'>
-          Sweep
-        </li>
-        <li style="display:none" class='description'>
-          Use a broom or vacuum cleaner to get clean the floor
-        </li>
-        <li style="display:none" class='completionSigns'>
-          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
-        </li>
-      </ul>
-      <button>details</button>
-    </td>
-    <td>
-      <ul>
-        <li class='title'>
-          Sweep
-        </li>
-        <li style="display:none" class='description'>
-          Use a broom or vacuum cleaner to get clean the floor
-        </li>
-        <li style="display:none" class='completionSigns'>
-          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
-        </li>
-      </ul>
-      <button>details</button>
-    </td>
-    <td>
-      <ul>
-        <li class='title'>
-          Sweep
-        </li>
-        <li style="display:none" class='description'>
-          Use a broom or vacuum cleaner to get clean the floor
-        </li>
-        <li style="display:none" class='completionSigns'>
-          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
-        </li>
-      </ul>
-      <button>details</button>
-    </td>
-    <td>
-      <ul>
-        <li class='title'>
-          Sweep
-        </li>
-        <li style="display:none" class='description'>
-          Use a broom or vacuum cleaner to get clean the floor
-        </li>
-        <li style="display:none" class='completionSigns'>
-          You've swept over the floor and moved furniture at some point, it's hard to see hair while standing.
-        </li>
-      </ul>
-      <button>details</button>
-   </td>
-  </tr>
  </table>
 </body>
 
@@ -134,7 +53,9 @@
     <h4 class='{{person}}'>{{person}}</h4>
     <ul>
       {{#each tasks}}
-        {{> taskPartial }}
+        <li>
+          {{> taskPartial }}
+        </li>
       {{/each}}
     </ul>
   </td>

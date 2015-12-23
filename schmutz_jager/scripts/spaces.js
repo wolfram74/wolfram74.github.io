@@ -25,40 +25,40 @@ var spaces = {
   kitchen: {
     tasks: [
       {
-        title: '',
+        title: 'blank',
         weekPeriod: 1,
-        description:'',
-        completionSigns:''
+        description:'things',
+        completionSigns:'stuff'
       },
     ]
   },
   bathRoom: {
     tasks: [
       {
-        title: '',
+        title: 'blank',
         weekPeriod: 1,
-        description:'',
-        completionSigns:''
+        description:'things',
+        completionSigns:'stuff'
       },
     ]
   },
   diningSpace: {
     tasks: [
       {
-        title: '',
+        title: 'blank',
         weekPeriod: 1,
-        description:'',
-        completionSigns:''
+        description:'things',
+        completionSigns:'stuff'
       },
     ]
   },
   hallStairs: {
     tasks: [
       {
-        title: '',
+        title: 'blank',
         weekPeriod: 1,
-        description:'',
-        completionSigns:''
+        description:'things',
+        completionSigns:'stuff'
       },
     ]
   }

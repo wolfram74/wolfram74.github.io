@@ -2,6 +2,22 @@
   border: 1px solid black;
 }
 
+td {
+  width: 20%;
+  vertical-align: top;
+}
+
+td ul {
+  padding:0px;
+}
+
+li {
+  list-style-type: none;
+}
+
+p.optional {
+  display: none;
+}
 
 /*
   http://stackoverflow.com/questions/10023799/css-grid-with-1px-border
