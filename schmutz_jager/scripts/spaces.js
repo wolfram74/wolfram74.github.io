@@ -17,7 +17,7 @@ var spaces = {
         title: 'Wipe down table',
         weekPeriod: 2,
         description:'Using a moist cloth wipe down table',
-        completionSigns: "You "
+        completionSigns: "You got something moist at some point."
       },
 
     ]
@@ -25,40 +25,40 @@ var spaces = {
   kitchen: {
     tasks: [
       {
-        title: 'blank',
+        title: 'sweep',
         weekPeriod: 1,
-        description:'things',
-        completionSigns:'stuff'
+        description:'Use a broom or vacuum cleaner to get clean the floor',
+        completionSigns:"You've swept over the floor and moved furniture at some point, it's hard to see hair while standing."
       },
     ]
   },
   bathRoom: {
     tasks: [
       {
-        title: 'blank',
+        title: 'sweep',
         weekPeriod: 1,
-        description:'things',
-        completionSigns:'stuff'
+        description:'Use a broom or vacuum cleaner to get clean the floor',
+        completionSigns:"You've swept over the floor and moved furniture at some point, it's hard to see hair while standing."
       },
     ]
   },
   diningSpace: {
     tasks: [
       {
-        title: 'blank',
+        title: 'sweep',
         weekPeriod: 1,
-        description:'things',
-        completionSigns:'stuff'
+        description:'Use a broom or vacuum cleaner to get clean the floor',
+        completionSigns:"You've swept over the floor and moved furniture at some point, it's hard to see hair while standing."
       },
     ]
   },
   hallStairs: {
     tasks: [
       {
-        title: 'blank',
+        title: 'sweep',
         weekPeriod: 1,
-        description:'things',
-        completionSigns:'stuff'
+        description:'Use a broom or vacuum cleaner to get clean the floor',
+        completionSigns:"You've swept over the floor and moved furniture at some point, it's hard to see hair while standing."
       },
     ]
   }
