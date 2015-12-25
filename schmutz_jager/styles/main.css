@@ -11,6 +11,18 @@ td ul {
   padding:0px;
 }
 
+.Cari {
+  background-color: #dddddd;
+}
+
+.Peter {
+  background-color: #00cccc;
+}
+
+.Ryan {
+  background-color: #aaaaaa
+}
+
 li {
   list-style-type: none;
 }
