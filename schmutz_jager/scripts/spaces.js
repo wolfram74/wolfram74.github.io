@@ -76,6 +76,12 @@ var spaces = {
         description:'Use some towel or brush to clean off some of the residue on the sink. relocate objects to ensure you get all the surfaces.',
         completionSigns:"You've gotten something wet and there are no visible stains on the surface."
       },
+      {
+        title: 'scrub tub',
+        weekPeriod: 4,
+        description:'Use toilet brush to remove water stain on bowl.',
+        completionSigns:"You've gotten the brush wet and at least the upper portion of the bowl is clean."
+      },
     ]
   },
   diningSpace: {
