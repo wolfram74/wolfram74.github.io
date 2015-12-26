@@ -1,10 +1,11 @@
 * {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
 td {
   width: 20%;
   vertical-align: top;
+  border: 1px solid black;
 }
 
 td ul {
@@ -12,7 +13,8 @@ td ul {
 }
 
 .Cari {
-  background-color: #dddddd;
+  background-color: #0018B3;
+  color: #fff;
 }
 
 .Peter {
@@ -25,12 +27,17 @@ td ul {
 
 li {
   list-style-type: none;
+  background-color: #e7e7e7;
+  border-radius: 1em;
+  /*padding: 2px;*/
+}
+
+li p {
+  text-align: center;
+  /*padding: 5px;*/
 }
 
 p.optional {
   display: none;
 }
 
-/*
-  http://stackoverflow.com/questions/10023799/css-grid-with-1px-border
-*/

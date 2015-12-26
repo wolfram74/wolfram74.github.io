@@ -54,6 +54,18 @@ var spaces = {
         description:'self explanatory',
         completionSigns: "The drying wrack is empty."
       },
+      {
+        title: 'Clean stove top',
+        weekPeriod: 2,
+        description:'take off the risers for the stove and wash them and surrounding areas.',
+        completionSigns: "You'd feel comfortable leaving a sandwich on the stove for a few minutes then eating it."
+      },
+      {
+        title: 'Clean sink',
+        weekPeriod: 4,
+        description:'Get some disinfectant and wipe down the sing area',
+        completionSigns: "You used chemicals on the sink area."
+      },
     ]
   },
   bathRoom: {
