@@ -8,6 +8,12 @@ var spaces = {
         completionSigns:"You've swept over the floor and moved furniture at some point, it's hard to see hair while standing."
       },
       {
+        title: 'tidy couch',
+        weekPeriod: 1,
+        description:'Fold the blankets and stow them plausibly, rearrange the pillows',
+        completionSigns:"It looks picturesque, pictures might be appropriate at some point."
+      },
+      {
         title: 'Clear table',
         weekPeriod: 1,
         description:'Get the coffee table clear of clutter',
@@ -18,6 +24,12 @@ var spaces = {
         weekPeriod: 2,
         description:'Using a moist cloth wipe down table',
         completionSigns: "You got something moist at some point."
+      },
+      {
+        title: 'Clean couch cushions',
+        weekPeriod: 2,
+        description:'Lift up the cushions and clean the grit off them.',
+        completionSigns: "At some point the couch was partially disassembled."
       },
 
     ]
