@@ -8,7 +8,26 @@ Peter Haugen
 </head>
 
 <body>
-content
+  <article>
+    <h2>
+      Error Propagation
+    </h2>
+    <h3 class='date'>
+      2016-01-17
+    </h3>
+    <p>
+      This is the first article in a series I hope to continue through the year roughly covering the subjects I'm going over at the time. As: one, I'm pushing my borders on many of these subjects, and two, for much of it, these posts are the most contact with another person on the subject rather than a book or digital lecture, it's highly likely that you the reader may find a mistake or some aspect that I've overlooked.
+    </p>
+    <p>
+      Over the solstice holidays I visited home and picked up an interesting book at a trendy used book store that I've often found having a nice science section. It was <a href="https://books.google.com/books/about/Landmark_Experiments_in_Twentieth_Centur.html?id=YOQ9fi5yQ4sC">Landmark Experiments in Twentieth Century Physics</a> by George Trigg. In addition to getting a really neat peek at some of the challenges that experimentalists have faced and ingenuity that they've used, it's also driven home the importance of rigorously propagating errors through calculations. For example, the anomalous electron magnetic dipole moment would have been noticed nearly a decade earlier by Kinsler had he been more thorough assessing his errors and noticing that his results did measurably show it was not exactly two like the prevailing theory of the time said it must have been.
+    </p>
+    <p>
+      So what do we talk about when we're talking about error propagation? Rarely in research do we get to measure exactly the property of a system we're most interested in. Much more frequently we measure one or more properties, <math>X_1,x_2,...</math> and then some other understanding of what we're working with allows us to piece together the property we were looking for in the beginning.
+    </p>
+    <p>
+      Say we have a sample of some strange element, and we have a detector with a decent clock on it at some known distance away from the sample, and set up an electric field of a known strength, and can reliably ionize the element so it has a charge +1 electron. This would let us calculate 1) the force on atoms of the sample, 2) the time of flight of the sample, and 3) how far they traveled. From that it's basic kinematics <math>∆x=a/2*∆t^2</math>. We could do some algebra and piece together what the mass of the element is. But! We don't have an exact measurement for the field strength, distance traveled or time it took! How can we trust our inferred mass measurement if none of direct measurements are exactly correct?
+    </p>
+  </article>
 </body>
 
 </html>
