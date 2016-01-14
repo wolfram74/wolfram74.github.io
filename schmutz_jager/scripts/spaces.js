@@ -108,7 +108,7 @@ var spaces = {
       },
     ]
   },
-  diningSpace: {
+  diningSpaceandStairs: {
     tasks: [
       {
         title: 'sweep',
@@ -130,16 +130,6 @@ var spaces = {
       },
     ]
   },
-  hallStairs: {
-    tasks: [
-      {
-        title: 'sweep',
-        weekPeriod: 1,
-        description:'Use a broom or vacuum cleaner to get clean the floor',
-        completionSigns:"You've swept over the floor and moved furniture at some point, it's hard to see hair while standing."
-      },
-    ]
-  }
 }
 
 var residents = ["Cari","Peter","Ryan"]
