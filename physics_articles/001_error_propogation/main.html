@@ -25,9 +25,16 @@ Peter Haugen
       So what do we talk about when we're talking about error propagation? Rarely in research do we get to measure exactly the property of a system we're most interested in. Much more frequently we measure one or more properties, <math>X_1,x_2,...</math> and then some other understanding of what we're working with allows us to piece together the property we were looking for in the beginning.
     </p>
     <p>
-      Say we have a sample of some strange element, and we have a detector with a decent clock on it at some known distance away from the sample, and set up an electric field of a known strength, and can reliably ionize the element so it has a charge +1 electron. This would let us calculate 1) the force on atoms of the sample, 2) the time of flight of the sample, and 3) how far they traveled. From that it's basic kinematics <math>∆x=a/2*∆t^2</math>. We could do some algebra and piece together what the mass of the element is. But! We don't have an exact measurement for the field strength, distance traveled or time it took! How can we trust our inferred mass measurement if none of direct measurements are exactly correct?
+      Say we have a sample of some strange element, and we have a detector with a decent clock on it at some known distance away from the sample, and set up an electric field of a known strength, and can reliably ionize the element so it has a charge +1 electron. This would let us calculate 1) the force on atoms of the sample, 2) the time of flight of the sample, and 3) how far they traveled. From that it's basic kinematics <math>∆x=A/2*∆t^2</math>. We could do some algebra and piece together what the mass of the element is. But! We don't have an exact measurement for the field strength, distance traveled or time it took! How can we trust our inferred mass measurement if none of direct measurements are exactly correct?
+    </p>
+    <p>
+      Now, during lunch or over drinks, you might be satisfied with the rough calculation and just assert you're within an order of magnitude. Or maybe even a factor of two if you're feeling cheeky. Maybe it's a calculation for an assignment that requires you put error bars on it and you're particularly weary that day, so you slap a <math>±10%</math> on it and hope for partial credit. But in reality, the engineers will cry out, "even with our most inventive designs, we only have 5% tolerances on the mass of this compound!", and the nuclear physicists remark, "If this element has isotopes, it might be a mass difference of only 1%, how can we make any conclusions with such shoddy work?" and as you continue on to use this value in other calculations eventually the more precise you make this measurement the more you open up as options with it.
+    </p>
+    <p>
+      So let's break down our experiment. we're going to work with <math>∆x=A/2*∆t^2</math> and try to find the mass of an atom. The variable A is our acceleration, which is equivalent to <math>A=F/m</math>, oh, hey, mass has finally shown up. Because we've cleverly arranged our experiment to have a constant electric field over the entire apparatus and nothing else is happening and the atoms are all singly ionized, our force is just <math>E*q</math>, so given these expressions we can set up our final function for mass as <math>m=(q/2)(E/∆x)*∆t^2</math>. We're gonna treat the q/2 as an exactly known quantity of 1.602E-19 coulombs
     </p>
   </article>
 </body>
 
 </html>
+9.1E-31/1.67E-27
