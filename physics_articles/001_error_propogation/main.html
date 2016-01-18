@@ -25,16 +25,53 @@ Peter Haugen
       So what do we talk about when we're talking about error propagation? Rarely in research do we get to measure exactly the property of a system we're most interested in. Much more frequently we measure one or more properties, <math>X_1,x_2,...</math> and then some other understanding of what we're working with allows us to piece together the property we were looking for in the beginning.
     </p>
     <p>
-      Say we have a sample of some strange element, and we have a detector with a decent clock on it at some known distance away from the sample, and set up an electric field of a known strength, and can reliably ionize the element so it has a charge +1 electron. This would let us calculate 1) the force on atoms of the sample, 2) the time of flight of the sample, and 3) how far they traveled. From that it's basic kinematics <math>∆x=A/2*∆t^2</math>. We could do some algebra and piece together what the mass of the element is. But! We don't have an exact measurement for the field strength, distance traveled or time it took! How can we trust our inferred mass measurement if none of direct measurements are exactly correct?
+      Say we have a sample of some strange element, and we have a detector with a decent clock on it at some known distance away from the sample, and set up an electric field of a known strength, and can reliably ionize the element so it has a charge +1 electron. This would let us calculate 1) the force on atoms of the sample, 2) the time of flight of the sample, and 3) how far they traveled. From that it's basic kinematics <math>x=A/2*t^2</math>. We could do some algebra and piece together what the mass of the element is. But! We don't have an exact measurement for the field strength, distance traveled or time it took! How can we trust our inferred mass measurement if none of direct measurements are exactly correct?
     </p>
     <p>
-      Now, during lunch or over drinks, you might be satisfied with the rough calculation and just assert you're within an order of magnitude. Or maybe even a factor of two if you're feeling cheeky. Maybe it's a calculation for an assignment that requires you put error bars on it and you're particularly weary that day, so you slap a <math>±10%</math> on it and hope for partial credit. But in reality, the engineers will cry out, "even with our most inventive designs, we only have 5% tolerances on the mass of this compound!", and the nuclear physicists remark, "If this element has isotopes, it might be a mass difference of only 1%, how can we make any conclusions with such shoddy work?" and as you continue on to use this value in other calculations eventually the more precise you make this measurement the more you open up as options with it.
+      Now, during lunch or over drinks, you might be satisfied with the rough calculation and just assert you're within an order of magnitude. Or maybe even a factor of two if you're feeling cheeky. Maybe it's a calculation for an assignment that requires you put error bars on it and you're particularly weary that day, so you slap a <math>±10%</math> on it and hope for partial credit. But in reality, the engineers will cry out, "even with our most inventive designs, we only have 5% tolerances on the mass of this compound! Is it still going to work?", and the nuclear physicists remark, "If this element has isotopes, it might be a mass difference of only 1%, how can we make any conclusions with such shoddy work?" and as you continue on to use this value in other calculations eventually the more precise you make this measurement the more you open up as options with it.
     </p>
     <p>
-      So let's break down our experiment. we're going to work with <math>∆x=A/2*∆t^2</math> and try to find the mass of an atom. The variable A is our acceleration, which is equivalent to <math>A=F/m</math>, oh, hey, mass has finally shown up. Because we've cleverly arranged our experiment to have a constant electric field over the entire apparatus and nothing else is happening and the atoms are all singly ionized, our force is just <math>E*q</math>, so given these expressions we can set up our final function for mass as <math>m=(q/2)(E/∆x)*∆t^2</math>. We're gonna treat the q/2 as an exactly known quantity of 1.602E-19 coulombs
+      First lets distinguish relative error from absolute error. If I measure how tall a red wood is, and find it to be 100 meters tall, but because of the way the wind is swaying it around I'm not quite sure about that last meter we might say there is an absolute error of 1 meter. And if I'm visiting my friend and am astounded by their <a href="https://s-media-cache-ak0.pinimg.com/236x/09/5d/b0/095db02cc16f4d52d00868a00301ddb0.jpg">leonberger</a> and insist on measuring how tall it is, and find it to be a meter, but am not quite sure of the last centimeter because it's furr is so fluffy we would say there is an absolute error of .01 meters. Now while these are very different levels of precision, the relative errors are the same, because both end up as 1% of the conclusion we made about the thing being measured. Absolute error of some measurement X is often denoted as <math>∆X</math> or <math>\sigma_X</math>.
+    </p>
+    <p>
+      So let's break down our experiment. we're going to work with <math>x=A/2*t^2</math> and try to find the mass of an atom. The variable A is our acceleration, which is equivalent to <math>A=F/m</math>, oh, hey, mass has finally shown up. Because we've cleverly arranged our experiment to have a constant electric field over the entire apparatus and nothing else is happening and the atoms are all singly ionized, our force is just <math>E*q</math>, so given these expressions we can set up our final function for mass as <math>m=(q/2)(E/x)*t^2</math>.
+   </p>
+    <p>
+      On to our measurement errors. We're gonna treat the q/2 as an exactly known quantity of 0.8011E-19 coulombs and not propagate the uncertainty in that measurement because we know that value out to a huge number of digits. Our ruler is accurate down the milimeter, or <math>sigma_x=.001</math> meters. Our electric field is a bit harder to measure and we have an absolute error of <math>sigma_E=.1</math> volts per meter. And we're pretty chuffed about our timer, it's accurate down to 10 microseconds, or <math>sigma_t=.00001=1E-5</math> gotta be good enough for us, right?
+    </p>
+    <p>
+      So what do we actually end up measuring? a travel distance of 2 meters, a field strength of 10 volts per meter and a travel time of 8.7E-4 seconds. Throwing this into the expression we got earlier, we have a final value of about 3.0314E-25, or if we divide through by the atomic mass unit, which is about one nucleon, we get 182.5, Hooray, the calculator has given us numbers, it says we could totally tell isotopes apart! But how do we calculate the error due to our rough measurements?
+    </p>
+    <p>
+      This is where the math kicks in. In reality our measurement errors trickle over each other and complicate things, but we're going to assume that each measurement is slightly wrong for completely independent reasons. For example, the fact that our ruler only measured down to millimeters really doesn't have any impact on our stop watch only going down to the tenths of milliseconds. The general form for calculating the error in a function <math>F(x,y,...)</math> is <math>sigma_F=sqrt((df/dx*sigma_x)^2+(df/dy*sigma_y)^2+...)</math> until you've accounted for all your all variables. Lets get down to some partial derivatives then!
+    </p>
+    <p>
+      Derivative with respect to field, <math>dm/dE = (q/2)(1/x)*t^2</math> time of flight, <math>dm/dt = (q)(E/x)*t</math> and distance traveled, <math>dm/dx = (-q/2)(E/x^2)*t^2</math>. Just looking at this we infer that if we wanted to try and cut down errors we might explore setting it up so that our time of flight is smaller, or our vacuum chamber were longer. But what's our final calculation come out to? Evaluating these partial derivatives at our measured values and calculating our error in mass we get around 7.61E-27 kg, or, in amu, 4.58. Oh, dear. that's alarming. So that means according to our measurements we can say with confidence the element we're working with weights 182±4 amu. We can't really be confident of any decimal places, because our errors wash them out. This large of an error also means we have no idea if this element has any isotopes either, I chose tungsten as our mystery compound which has isotopes that weigh from 180 amu to 186, so our measurements definitely leave something to be desired.
     </p>
   </article>
+  <div>
+    <h3>Exploration</h3>
+    <p>
+    So here's a little toy where I've set it up to show how as errors are reduced, more features might be visible in data. This is a superposition of two gaussians where you can tune the error and see how precise we'd need to get to tell two isotopes apart.
+    </p>
+    <form>
+      <ul>
+        <li>
+          <input></input>
+        </li>
+        <li>
+          <input></input>
+        </li>
+        <li>
+          <input></input>
+        </li>
+      </ul>
+    </form>
+  </div>
 </body>
-
+<!-- <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script> -->
+<script src='./scripts/main.js'></script>
 </html>
-9.1E-31/1.67E-27
+<math></math>
+<a href="http://lectureonline.cl.msu.edu/~mmp/labs/error/e2.htm">Michigan state university</a>
+<a href="http://www.itl.nist.gov/div898/handbook/mpc/section5/mpc55.htm">Engineering statistics handbook</a>
