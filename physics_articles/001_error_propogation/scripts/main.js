@@ -40,8 +40,8 @@ var formListener = function(event){
   window[$button.attr('class')]($button.siblings('input').eq(0))
   var errors = $('#error-size').find('input')
   console.log(errors)
-  for(var value=0; value++ ; value < 3){
-    console.log(errors[value])
+  for(var value=0;  value < 3 ; value++ ){
+    console.log(value)
   }
 };
 
