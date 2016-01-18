@@ -29,3 +29,28 @@ var test = {
   t:.00087, dt:.00001,
   x:2, dx:.001
 }
+
+$(document).on('ready', function(){
+  console.log('prepped')
+  $('#error-size').on('click', 'button', formListener)
+});
+
+var formListener = function(event){
+  var $button = $(this)
+  window[$button.attr('class')]($button.siblings('input').eq(0))
+  var errors = $('#error-size').find('input')
+  console.log(errors)
+  for(var value=0; value++ ; value < 3){
+    console.log(errors[value])
+  }
+};
+
+var more = function($element){
+  $element.val($element.val()*1.1)
+}
+var less = function($element){
+  $element.val($element.val()*0.9)
+}
+var reset = function($element){
+  $element.val($element.attr('default'))
+}

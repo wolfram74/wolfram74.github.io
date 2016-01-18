@@ -54,22 +54,35 @@ Peter Haugen
     <p>
     So here's a little toy where I've set it up to show how as errors are reduced, more features might be visible in data. This is a superposition of two gaussians where you can tune the error and see how precise we'd need to get to tell two isotopes apart.
     </p>
-    <form>
+    <form id="error-size">
       <ul>
         <li>
-          <input></input>
+          <input id="dE" value =".1" default= ".1" >
+          <button type='button' class = 'more'>more error</button>
+          <button type='button' class = 'less'>less error</button>
+          <button type='button' class = 'reset'>reset</button>
+          field strength error
         </li>
         <li>
-          <input></input>
+          <input id="dx" value =".001" default= ".001" >
+          <button type='button' class = 'more'>more error</button>
+          <button type='button' class = 'less'>less error</button>
+          <button type='button' class = 'reset'>reset</button>
+          distance error
         </li>
         <li>
-          <input></input>
+          <input id="dt" value =".00001" default= ".00001" >
+          <button type='button' class = 'more'>more error</button>
+          <button type='button' class = 'less'>less error</button>
+          <button type='button' class = 'reset'>reset</button>
+          time error
         </li>
       </ul>
     </form>
   </div>
 </body>
 <!-- <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script> -->
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
 <script src='./scripts/main.js'></script>
 </html>
 <math></math>
