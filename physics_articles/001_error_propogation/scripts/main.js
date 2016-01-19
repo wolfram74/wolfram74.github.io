@@ -124,3 +124,6 @@ var updateDisplay = function(field, distance, time){
   $('#dx').siblings('span').html((distance/amu).toFixed(2) + 'amu ')
   $('#dt').siblings('span').html((time/amu).toFixed(2) + 'amu ')
 };
+MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
