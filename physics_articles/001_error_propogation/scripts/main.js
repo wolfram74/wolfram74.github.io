@@ -94,13 +94,22 @@ var sum = function(list1, list2){
   return combo
 };
 
+var max = function(list){
+  var highest = 0;
+  for(var i=0; i< list.length; i++){
+    if(list[i]>highest){highest = list[i]}
+  };
+  return highest
+};
+
 var plot = function(y_values, width, height, lower, upper){
   var context = $('canvas')[0].getContext('2d')
   context.clearRect(0,0, width, height);
   context.fillStyle = 'rgba(0,0,0,1)'
+  var peak = max(y_values)
   for(var i = 0; i< y_values.length; i++){
     context.beginPath()
-    context.arc(i, height-y_values[i]*height/2, 1, 0, 2*Math.PI)
+    context.arc(i, height-(y_values[i]/peak * 0.9 * height), 1, 0, 2*Math.PI)
     context.fill()
     context.closePath()
   };
