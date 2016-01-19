@@ -52,7 +52,7 @@ Peter Haugen
   <div>
     <h3>Exploration</h3>
     <p>
-    So here's a little toy where I've set it up to show how as errors are reduced, more features might be visible in data. This is a superposition of two gaussians where you can tune the error and see how precise we'd need to get to tell two isotopes apart.
+    So here's a little toy where I've set it up to show how as errors are reduced, more features might be visible in data. This is a superposition of two gaussians where you can tune the error and see how precise we'd need to get to tell two isotopes apart. The x-axis ranges over 172 amu to 192 amu and the y-axis roughly maps to the distribution of masses you measure.
     </p>
     <form id="error-size">
       <ul>
@@ -61,25 +61,33 @@ Peter Haugen
           <button type='button' class = 'more'>more error</button>
           <button type='button' class = 'less'>less error</button>
           <button type='button' class = 'reset'>reset</button>
-          field strength error
+          <span></span>
+           field strength error
         </li>
         <li>
           <input type='text' id="dx" name="dx" value =".001" default= ".001" >
           <button type='button' class = 'more'>more error</button>
           <button type='button' class = 'less'>less error</button>
           <button type='button' class = 'reset'>reset</button>
-          distance error
+          <span></span>
+           distance error
         </li>
         <li>
           <input type='text' id="dt" name="dt" value =".00001" default= ".00001" >
           <button type='button' class = 'more'>more error</button>
           <button type='button' class = 'less'>less error</button>
           <button type='button' class = 'reset'>reset</button>
-          time error
+          <span></span>
+           time error
         </li>
       </ul>
     </form>
-    <canvas width="400px" height='200px'
+    <canvas width="400px" height='200px'>
+  </div>
+  <div>
+    further reading.
+    <a href="http://lectureonline.cl.msu.edu/~mmp/labs/error/e2.htm">Michigan state university</a>
+    <a href="http://www.itl.nist.gov/div898/handbook/mpc/section5/mpc55.htm">Engineering statistics handbook</a>
   </div>
 </body>
 <!-- <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script> -->
@@ -87,5 +95,3 @@ Peter Haugen
 <script src='./scripts/main.js'></script>
 </html>
 <math></math>
-<a href="http://lectureonline.cl.msu.edu/~mmp/labs/error/e2.htm">Michigan state university</a>
-<a href="http://www.itl.nist.gov/div898/handbook/mpc/section5/mpc55.htm">Engineering statistics handbook</a>

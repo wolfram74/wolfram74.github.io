@@ -14,10 +14,11 @@ var calcs = (function(){
     var qtx = q*t/x
     var dmdt = E * qtx
     var dmdE = t * qtx / 2
-    var dmdx = -E*t * qtx / 2
+    var dmdx = E*t * qtx / 2
     var errT = Math.pow(dmdt * dt,2)
     var errE = Math.pow(dmdE * dE,2)
     var errX = Math.pow(dmdx * dx,2)
+    updateDisplay(errE, errX, errT)
     return Math.pow(errT+errE+errX,.5)
   };
   API.mass = function(values){
@@ -60,10 +61,10 @@ var formListener = function(event){
 };
 
 var more = function($element){
-  $element.val($element.val()*1.1)
+  $element.val($element.val()*2)
 }
 var less = function($element){
-  $element.val($element.val()*0.9)
+  $element.val($element.val()*0.5)
 }
 var reset = function($element){
   $element.val($element.attr('default'))
@@ -114,3 +115,12 @@ var plot = function(y_values, width, height, lower, upper){
     context.closePath()
   };
 }
+
+var updateDisplay = function(field, distance, time){
+  field = Math.pow(field, .5)
+  distance = Math.pow(distance, .5)
+  time = Math.pow(time, .5)
+  $('#dE').siblings('span').html((field/amu).toFixed(2) + 'amu ')
+  $('#dx').siblings('span').html((distance/amu).toFixed(2) + 'amu ')
+  $('#dt').siblings('span').html((time/amu).toFixed(2) + 'amu ')
+};
