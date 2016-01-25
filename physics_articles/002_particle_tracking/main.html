@@ -19,7 +19,30 @@ Peter Haugen
       2016-01-31
     </h4>
     <p>
-
+      I've lately been collaborating loosely with a physics group in Iowa because they have an interesting problem that struck kind of close to something I'd been working with on and off again for awhile. This group is doing some neat things with filming dusty plasma analogs, which, glibly, are plasmas that have, in addtion to electrons and nuclei (like, argon in a lab, or hydrogen in space) also have larger particles (like polystyrene in the lab, or grains of sand in the asteroid belt). These dust particles become effectively very massive extra species added to the complex dance that is plasma dynamics. From an experimental perspective though, they have the added benefit of being big enough and slow enough to capture on off the shelf camera technology.
+    </p>
+    <p>
+      How is that a big deal? Well, besides new opportunities for documentarians, filming the plasma in situ permits a variety of measurements that would make <a href="https://en.wikipedia.org/wiki/William_Thomson,_1st_Baron_Kelvin">Lord Kelvin</a> break down in tears. The pipe line works as follows, take a video of the plasma, break the video down into individual frames, make use of well researched computer vision algorithms to do centroid detection of individual particles, turning a still image into a list of x-y pairs where your particles are. We'll refer to those as text-frames as they are a text file that has compressed the most important parts of these image frames. Then, take two adjacent text-frames, now, ideally each x-y pair in the first text-frame will have a corresponding pair in the second text-frame, because conservation of mass is generally a thing. However you have to have a little give, because the field of view of the camera does not encapsulate the entire experiment. This impacts things in the overall sense, but not relevant to the nature of this particular discussion.
+    </p>
+    <p>
+      So, the obvious thing to do is, if we have one list, which has in it a pair for a member of another list as decided by some metric, all we have to do is just go through each member of the candidates and pair them up one at a time. This is very straightforward and understandable. But it is also somewhat labor intensive, which in the computing sense means you set it running over night and realize in the morning that something went wrong and you have to change something in the code you wrote and then try again and again and then toss your laptop out the window and go join a bakery, because at least bread works right. Or you could debug on smaller data sets, so at least you grow confident that it works before you run it on bigger sets. But there's a problem. The piece by piece comparison means that if we have X particles in our first text-frame, and Y particles in our second text-frame, we're going to compare each X particle to Y other particles and make X*Y comparisons over all!
+    </p>
+    <p>
+      Ok, you might say. That's not so bad, the smaller sets with about a hundred particles or so ran in about a hundredth of a second. How bad could it be?
+    </p>
+    <note>insert full frame here</note>
+    <p>
+      Merciful Turing, these slides have like, thousands of particles in them. Ok, ok, calm down, that just means that if we have 30 times as many particles, we have 900 times as much work, that still only means it takes about 9 seconds to stitch together 2 text-frames. Oh, wait, some of these films have thousands of frames? It takes a few seconds to film it, and then the better part of a day to start interpreting the data. Is there better way to go about doing this?
+    </p>
+    <p>
+      There is! This problem is effectively an iterated nearest neighbor search, which has a variety of clever solutions for arbitrary situations. We're in a two dimensional space, so implementing a quad tree would provide very good improvements, however, we're not in arbitrary space with the most general case possible, we don't need to figure out how to implement a quad tree to get most of the benefits it would offer. Look back at that picture,
+    </p>
+    <note>insert small cropping of frame</note>
+    <p>
+      Everyone of those dots have two features that will simplify the problem of stitching them together. First, they have mass, so if we film at a high enough frame rate, we can be confident they won't move more than a certain distance. And secondly and more importantly, they have charge. This means they naturally want to maintain a relatively even spacing between each other, like atoms in a salt crystal. Quad trees are great for storing proximity data in systems that are only barely structured, like when you're doing an n-body simulation and you want to use the <a href="https://en.wikipedia.org/wiki/Barnes%E2%80%93Hut_simulation">Barnes Hut Algorithm.</a>
+    </p>
+    <p>
+      These features allow us to have a much simpler data structure to store candidates in. Instead of a fully dynamic tree, we just have a nested collection of arrays, or think of them as chessboard-style collection of buckets. So now we have two lists (first and second), and a big grid of empty buckets. We now take the second list, figure out what bucket each particle belongs to and put it there. After this, we can teak each particle from the first list, figure out what bucket <em>it</em> belongs to, but instead of putting it there, we just look at what's in it, and the buckets adjacent to it, ideally we would only find one particle, but in practice it might be 3 or 4 or if we made our buckets grossly too large, hundreds. But given the physical constraints of the data we're looking at, we are much more likely to have between 1 and 10 particles.
     </p>
   </article>
   <div>
@@ -27,6 +50,7 @@ Peter Haugen
   </div>
   <div>
     <h3>Further Reading</h3>
+    <a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search"></a>
   </div>
 </body>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -35,3 +59,4 @@ Peter Haugen
 <link type="text/css" rel="stylesheet" href="./styles.css"/>
 </html>
 <math></math>
+<note></note>
