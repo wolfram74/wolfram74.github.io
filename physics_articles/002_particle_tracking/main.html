@@ -53,19 +53,31 @@ Peter Haugen
     <p>
       Ok, you might say. That's not so bad, the smaller sets with about a hundred particles or so ran in about a hundredth of a second. How bad could it be?
     </p>
-    <note>insert full frame here</note>
+    <img src='./cW__0001.png'/>
     <p>
-      Merciful Turing, these slides have like, thousands of particles in them. Ok, ok, calm down, that just means that if we have 30 times as many particles, we have 900 times as much work, that still only means it takes about 9 seconds to stitch together 2 text-frames. Oh, wait, some of these films have thousands of frames? It takes a few seconds to film it, and then the better part of a day to start interpreting the data. Is there better way to go about doing this?
+      Merciful Turing, these slides have like, thousands of particles in them! Ok, ok, calm down, that just means that if we have 30 times as many particles, we have 900 times as much work, that still only means it takes about 9 seconds to stitch together 2 text-frames. Oh, wait, some of these films have thousands of frames? It takes a few seconds to film it, and then the better part of a day to start interpreting the data. Is there better way to go about doing this?
     </p>
     <p>
       There is! This problem is effectively an iterated nearest neighbor search, which has a variety of clever solutions for arbitrary situations. We're in a two dimensional space, so implementing a quad tree would provide very good improvements, however, we're not in arbitrary space with the most general case possible, we don't need to figure out how to implement a quad tree to get most of the benefits it would offer. Look back at that picture,
     </p>
-    <note>insert small cropping of frame</note>
+    <img src='./cW__0001_mini.png'/>
     <p>
       Everyone of those dots have two features that will simplify the problem of stitching them together. First, they have mass, so if we film at a high enough frame rate, we can be confident they won't move more than a certain distance. And secondly and more importantly, they have charge. This means they naturally want to maintain a relatively even spacing between each other, like atoms in a salt crystal. Quad trees are great for storing proximity data in systems that are only barely structured, like when you're doing an n-body simulation and you want to use the <a href="https://en.wikipedia.org/wiki/Barnes%E2%80%93Hut_simulation">Barnes Hut Algorithm.</a>
     </p>
     <p>
-      These features allow us to have a much simpler data structure to store candidates in. Instead of a fully dynamic tree, we just have a nested collection of arrays, or think of them as chessboard-style collection of buckets. So now we have two lists (first and second), and a big grid of empty buckets. We now take the second list, figure out what bucket each particle belongs to and put it there. After this, we can teak each particle from the first list, figure out what bucket <em>it</em> belongs to, but instead of putting it there, we just look at what's in it, and the buckets adjacent to it, ideally we would only find one particle, but in practice it might be 3 or 4 or if we made our buckets grossly too large, hundreds. But given the physical constraints of the data we're looking at, we are much more likely to have between 1 and 10 particles.
+      These features allow us to have a much simpler data structure to store candidates in. Instead of a fully dynamic tree, we just have a nested collection of arrays, or think of them as chessboard-style collection of buckets. So now we have two lists (first and second), and a big grid of empty buckets.
+    </p>
+    <canvas id='empty-bins' width=200 height=200></canvas>
+    <p>
+      We now take the second list, figure out what bucket each particle belongs to and put it there.
+    </p>
+    <canvas id='filled-red-bins' width=200 height=200></canvas>
+    <p>
+      After this, we can teak each particle from the first list, figure out what bucket <em>it</em> belongs to, but instead of putting it there, we just look at what's in it, and the buckets adjacent to it.
+    </p>
+    <canvas id='blue-check-bins' width=200 height=200></canvas>
+    <p>
+      Ideally we would only find one particle, but in practice it might be 3 or 4 or if we made our buckets grossly too large, hundreds. But given the physical constraints of the data we're looking at, we are much more likely to have between 1 and 10 particles.
     </p>
   </article>
   <div>
