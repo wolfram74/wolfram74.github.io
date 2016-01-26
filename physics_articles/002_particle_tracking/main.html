@@ -19,13 +19,36 @@ Peter Haugen
       2016-01-31
     </h4>
     <p>
-      I've lately been collaborating loosely with a physics group in Iowa because they have an interesting problem that struck kind of close to something I'd been working with on and off again for awhile. This group is doing some neat things with filming dusty plasma analogs, which, glibly, are plasmas that have, in addtion to electrons and nuclei (like, argon in a lab, or hydrogen in space) also have larger particles (like polystyrene in the lab, or grains of sand in the asteroid belt). These dust particles become effectively very massive extra species added to the complex dance that is plasma dynamics. From an experimental perspective though, they have the added benefit of being big enough and slow enough to capture on off the shelf camera technology.
+      I've lately been collaborating loosely with a physics group in Iowa because they have an interesting problem that struck kind of close to something I'd been working with on and off again for awhile. This group is doing some neat things with filming dusty plasma analogs, which, glibly, are plasmas that have, in addtion to electrons and nuclei (like, argon in a lab, or hydrogen in space) also have larger particles (like polystyrene in the lab, or grains of sand in the asteroid belt). These dust particles become effectively very massive extra species added to the complex dance that is plasma dynamics. From an experimental perspective though, they have the added benefit of being big enough and slow enough to capture on off-the-shelf video equipment.
     </p>
     <p>
-      How is that a big deal? Well, besides new opportunities for documentarians, filming the plasma in situ permits a variety of measurements that would make <a href="https://en.wikipedia.org/wiki/William_Thomson,_1st_Baron_Kelvin">Lord Kelvin</a> break down in tears. The pipe line works as follows, take a video of the plasma, break the video down into individual frames, make use of well researched computer vision algorithms to do centroid detection of individual particles, turning a still image into a list of x-y pairs where your particles are. We'll refer to those as text-frames as they are a text file that has compressed the most important parts of these image frames. Then, take two adjacent text-frames, now, ideally each x-y pair in the first text-frame will have a corresponding pair in the second text-frame, because conservation of mass is generally a thing. However you have to have a little give, because the field of view of the camera does not encapsulate the entire experiment. This impacts things in the overall sense, but not relevant to the nature of this particular discussion.
+      How is that a big deal? Well, besides new opportunities for documentarians, filming the plasma in situ permits a variety of measurements that would make <a href="https://en.wikipedia.org/wiki/William_Thomson,_1st_Baron_Kelvin">Lord Kelvin</a> break down in tears. The pipe line works as follows, take a video of the plasma, break the video down into individual frames.
+    </p>
+    <canvas id='small-sample-blue' width=200 height=200></canvas> +
+    <canvas id='small-sample-red' width=200 height=200></canvas> =
+    <canvas id='small-sample-both' width=200 height=200></canvas>
+    <p>
+      Next, make use of well researched computer vision algorithms to do centroid detection of individual particles, turning a still image into a list of x-y pairs where your particles are.
     </p>
     <p>
-      So, the obvious thing to do is, if we have one list, which has in it a pair for a member of another list as decided by some metric, all we have to do is just go through each member of the candidates and pair them up one at a time. This is very straightforward and understandable. But it is also somewhat labor intensive, which in the computing sense means you set it running over night and realize in the morning that something went wrong and you have to change something in the code you wrote and then try again and again and then toss your laptop out the window and go join a bakery, because at least bread works right. Or you could debug on smaller data sets, so at least you grow confident that it works before you run it on bigger sets. But there's a problem. The piece by piece comparison means that if we have X particles in our first text-frame, and Y particles in our second text-frame, we're going to compare each X particle to Y other particles and make X*Y comparisons over all!
+      $&blue=[(x_0,y_0),(x_1,y_1),(x_2,y_2),...]&$ and $&red=[(x_0,y_0),(x_1,y_1),(x_2,y_2),...]&$
+    </p>
+    <p>
+      We'll refer to those as text-frames as they are a text file that has compressed the most important parts of these image frames. Then, take two adjacent text-frames, now, ideally each x-y pair in the first text-frame will have a corresponding pair in the second text-frame, because conservation of mass is generally a thing.
+    </p>
+    <p>
+      $&paths=[
+      ((x_{b0},y_{b0}),(x_{r1},y_{r1}),...),
+      ((x_{b1},y_{b1}),(x_{r7},y_{r7}),...),
+      ((x_{b2},y_{b2}),(x_{r84},y_{r84}),...),
+      ...
+      ]&$
+    </p>
+    <p>
+      However you have to have a little give, because the field of view of the camera does not encapsulate the entire experiment. This impacts things in the overall sense, but not relevant to the nature of this particular discussion.
+    </p>
+    <p>
+      So, the obvious thing to do is, if we have one list, which has in it a pair for a member of another list as decided by some metric (say, a euclidean distance less than 5 pixels), all we have to do is just go through each member of the candidates and pair them up one at a time. This is very straightforward and understandable. But it is also somewhat labor intensive, which in the computing sense means you set it running over night and realize in the morning that something went wrong and you have to change something in the code you wrote and then try again and again and then toss your laptop out the window and go join a bakery, because at least bread works right. Or you could debug on smaller data sets, so at least you grow confident that it works before you run it on bigger sets. But there's a problem. The piece by piece comparison means that if we have X particles in our first text-frame, and Y particles in our second text-frame, we're going to compare each X particle to Y other particles and make X*Y comparisons over all!
     </p>
     <p>
       Ok, you might say. That's not so bad, the smaller sets with about a hundred particles or so ran in about a hundredth of a second. How bad could it be?
@@ -47,6 +70,13 @@ Peter Haugen
   </article>
   <div>
     <h3>Exploration</h3>
+    <form id="controls">
+      <input type='range'
+      id='bin-ratio-controls'
+      min='-10'
+      max='10'>
+      </input>
+    </form>
   </div>
   <div>
     <h3>Further Reading</h3>
