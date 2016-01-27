@@ -7,3 +7,12 @@ body {
 canvas {
   border:1px solid black;
 }
+#demo-area div {
+  display: inline-block;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
