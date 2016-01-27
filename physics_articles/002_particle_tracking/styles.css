@@ -9,6 +9,7 @@ canvas {
 }
 #demo-area div {
   display: inline-block;
+  vertical-align: top;
 }
 .left {
   float: left;

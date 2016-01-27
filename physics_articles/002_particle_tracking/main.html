@@ -82,7 +82,7 @@ Peter Haugen
   </article>
   <div>
     <h3>Exploration</h3>
-    So it's possible to get considerable speed ups with an appropriate data structure which filters out how many other particles we want to check. But how do we decide how much to filter out? Lets say for the sake of argument that setting aside the memory to make a bin takes about as much time and/or computational effort as checking the distance between two particles. Below is a little exhibit of how too large of bins means we don't get much time savings on checking particles, but too tiny of bins means we spend too much time making the bins. The lime green bar is how much work is being done checking particles, and the light blue bar is how much work is being done making bins.
+    So it's possible to get considerable speed ups with an appropriate data structure which filters out how many other particles we want to check. But how do we decide how much to filter out? Lets say for the sake of argument that setting aside the memory to make a bin takes about as much time and/or computational effort as checking the distance between two particles. Below is a little exhibit of how too large of bins means we don't get much time savings on checking particles, but too tiny of bins means we spend too much time making the bins. The lime green bar is how much work is being done checking particles, and the light blue bar is how much work is being done making bins. Fiddle around with the slider to see how the trade off works.
     <div id='demo-area'>
       <div id='visual'>
         <canvas id='demo-zone' width=400 height=300></canvas>
