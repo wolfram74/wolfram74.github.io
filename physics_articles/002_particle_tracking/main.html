@@ -48,7 +48,7 @@ Peter Haugen
       However you have to have a little give, because the field of view of the camera does not encapsulate the entire experiment. This will impact some of the particulars of an implementation, but not relevant to the nature of this particular discussion which is a more high level approach on the matter.
     </p>
     <p>
-      So, the obvious thing to do is, if we have one list, which has in it a pair for a member of another list as decided by some metric (say, a euclidean distance less than 5 pixels), all we have to do is just go through each member of the candidates and pair them up one at a time. This is very straightforward and understandable. But it is also somewhat labor intensive, say we start off with subsets with only about 100 particles.
+      So, the obvious thing to do is, if we have one list, which has in it a pair for a member of another list as decided by some metric (say, a euclidean distance less than 5 pixels), all we have to do is just go through each member of the candidates and pair them up one at a time. This is very straightforward and understandable. But it is also somewhat labor intensive, say we start off with subsets with only about 100 particles. We take each of those blue particles, check each of the red particles for which one is closest, and say they make a path. So for each of the hundred blues, we'll need to look at all hundred of the reds, because as a simple list, we can't really tell which ones closest. Or about 10000 comparisons over all, 100*100.
     </p>
     <p>
       Ok, you might say. That's not so bad, the smaller sets with about a hundred particles or so ran in about a hundredth of a second. How bad could it be?

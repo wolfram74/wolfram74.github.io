@@ -11,6 +11,9 @@ canvas {
   display: inline-block;
   vertical-align: top;
 }
+#bin-spacing-controls{
+  width: 100%;
+}
 .left {
   float: left;
 }
