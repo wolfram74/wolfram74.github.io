@@ -31,6 +31,23 @@ Peter Haugen
     <p>
       Lastly of the major properties is $&\vec{B}&$, which is the magnetic field. It's a vector unlike the other two quantities, which are scalars. This means it not only has a magnitude but also a direction. Like the question "what floor is my friends apartment on?" has a scalar answer, ranging from 1 to 163(if they lived in the Burj Khalifa), but "where is my friends apartment from my place?" has a vector answer, because it is not just some number of kilometers away, it's also in a particular direction. The fact that plasmas contain large amounts of charged particles means they are effected by magnetic fields. Primarily by flowing along in the same direction as the field is pointing and spinning around it, so often times we'll talk about properties that are perpendicular and parallel to the field as they are different cases. Velocity for example, another vector, would be tracked as both $&\vec{v}=\vec{v_\parallel}+\vec{v_\perp}&$.
     </p>
+    <h3>Plasma Frequency $&\omega_p&$</h3>
+    <p>
+      One of the most important time scales in a plasma is the plasma frequency. Most plasmas are, when you zoom out and squint, neutral. It's when you get close up that there are variations in that neutrality. The reason for it being over all neutral is because electric fields act over infinite distances if there's a net charge, and it will add roaming charges distinctiveness as part of the plasma whole, their kinetic energy adapted to serve the collective. But internally there are fluctuations as waves, like in the surface of a pond change the local height of the water line, that change the local charge density so that pockets of net charge crop up. These kinds of changes happen on the scale of the plasma frequency which is
+      $&\omega_p = \sqrt{\frac{n_0e^2}{\epsilon_0 m_e}}=\sqrt{k_p n_0}&$
+      and is derived from one of the most egregious spherical-cow methods I've had the pleasure of following along  so far. It's right up there with assuming stars are cubes to figure out the minimum mass of a black hole, which is a beautiful kind of hilarity in it's own right. The gist of it is we model the plasma as being comprised of two overlapping slabs that interact via electric fields, immobile ions in one slab, light weight electrons in the other. We then pull the electron slab over to the side somewhat so they no longer fully overlap and now there's a positive charge density on one side and negative charge density on the other, this causes attraction, restored overlapping and then overshooting, starting the whole process over again. A bit of calculus produces the result that this process has the frequency above, which we elevate to the position of $&\omega_p&$, it then turns out that this value repeatedly comes up over and over again and it's rather amazing that it can be derived in such a simple way. I've included a little toy below where you can see how frequency changes with density.
+    </p>
+    <p id='plasma_oscillation_demo'>
+      <canvas width=200px height=200px id='plasma_oscilation'></canvas>
+      <form>
+        <input type='range' id='plasma_density'
+          min='1'
+          max='100'
+          value='20'
+        > Adjust plasma density
+      </form>
+
+    </p>
     <h3>Ion Collision Frequency $&\nu_{ei}&$</h3>
     <p>
       So these are basic properties of plasma systems. What are some characteristics of plasma that we can calculate from them and how do they help us distinguish lightening from a candle flame? Well, let's talk about the first weirdness. Gas particles are constantly moving about, they're tiny so we don't notice the little dots of nitrogen flitting around, but they are. And there's a reasonably large amount of them in the air, so they're constantly bumping into each other. The average distance they travel between bumps is called the mean free path, which is a length, so it's sometimes given the symbol $&l&$ because dang it if we're not an inventive group of people. The mean free path is pretty easy to calculate, if you have the collision frequency $&\nu_c&$. It's just $&l=\frac{v}{\nu_c}&$.
@@ -43,13 +60,37 @@ Peter Haugen
       For a neutral atom, the electron will bounce off it hits it but not really notice before then.
     </p>
     <p id='neutral_impact_parameter'>
-      insert demo for neutral impact here
+      <input type='range' id='en_velocity'
+        min='10'
+        max='27'
+        value='20'
+      >
+      <canvas width=200px height=200px id='neutral_collision_display'></canvas>
+      <input type='range' id='en_distance'
+        min='0'
+        max='200'
+        value = '50'
+        orient='vertical'
+      >
+      <input type='button' id='en_start' value = 'run simulation'/>
     </p>
     <p>
       so we end up with something within an order of magnitude of $&\pi a_0^2&$ where $&a_0&$ is the bohr radius, a piddling tiny distance clocking in at about $&5*10^{-11}&$ meters. Which is a really insignificantly tiny number. For context, if all the information in a reasonable quality copy of the film The Shawshank Redemption(700~ megabytes) represented 1 whole meter, the width of an atom is roughly the first bit, the first 1 or 0 of that movie. So, less than a single pixel of a single frame. Unless the electron is almost moving directly at the atom it's going to do nothing at all in response to it's existence. But that's neutral atoms, plasma's are fun because it's the ions and electrons that are doing the cool stuff, how do ions effect the path of an electron?
     </p>
     <p id='ion_impact_parameter'>
-      insert demo for ion impact here
+      <input type='range' id='ei_velocity'
+        min='10'
+        max='27'
+        value='20'
+      >
+      <canvas width=200px height=200px id='ion_collision_display'></canvas>
+      <input type='range' id='ei_distance'
+        min='0'
+        max='200'
+        value = '50'
+        orient='vertical'
+      >
+      <input type='button' id='ei_start' value = 'run simulation'/>
     </p>
     <p>
       Oh dang, you get some pretty wicked redirections going inside that circle, but even never going near it you can see pretty noticeable bending. What's going on here? Well, one useful way to approach this problem is through thinking about potential energy. The same way a bicycle will want to roll down a hill, an electron will want to "roll" down to an ion. The given height of the hill can be either positive or negative depending on if it's opposite or similar charges and goes like $&\frac{1}{r}&$, so as you get really close, the hill gets incredibly steep. But it never goes quite to zero, even far away. So you can kind of imagine the potential for a charged particle being like the horn of a trombone or cone the flairs out towards the edges. Meanwhile for a neutral particle, a reasonable metaphor would just be a cylinder that goes up forever, nothing's getting any closer than the surface of the barrel.
@@ -76,19 +117,14 @@ Peter Haugen
       . Slap that into our collision frequency expression and we get
       $&\nu_c =n_i v_e \frac{\pi k^2}{v_e^4} = \frac{n_i \pi k^2}{v_e^3}&$ which, after this whirlwind of a journey gets us a mean free path of $&l = \frac{v_e}{\nu_c} = v_e  \frac{v_e^3}{n_i \pi k^2} = \frac{v_e^4}{n_i \pi k^2}&$.
     </p>
-    <h3>Plasma Frequency $&\omega_p&$</h3>
-    <p>
-      One of the most important time scales in a plasma is the plasma frequency. Most plasmas are, when you zoom out and squint, neutral. It's when you get close up that there are variations in that neutrality. The reason for it being over all neutral is because electric fields act over infinite distances if there's a net charge, and it will add roaming charges distinctiveness as part of the plasma whole, their kinetic energy adapted to serve the collective. But internally there are fluctuations as waves, like in the surface of a pond change the local height of the water line, that change the local charge density so that pockets of net charge crop up. These kinds of changes happen on the scale of the plasma frequency which is
-      $&\omega_p = \sqrt{\frac{n_0e^2}{\epsilon_0 m_e}}=\sqrt{k_p n_0}&$
-      and is derived from one of the most egregious spherical-cow methods I've had the pleasure of following along  so far. It's right up there with assuming stars are cubes to figure out the minimum mass of a black hole, which is a beautiful kind of hilarity in it's own right. The gist of it is we model the plasma as being comprised of two overlapping slabs that interact via electric fields, immobile ions in one slab, light weight electrons in the other. We then pull the electron slab over to the side somewhat so they no longer fully overlap and now there's a positive charge density on one side and negative charge density on the other, this causes attraction, restored overlapping and then overshooting, starting the whole process over again. A bit of calculus produces the result that this process has the frequency above, which we elevate to the position of $&\omega_p&$, it then turns out that this value repeatedly comes up over and over again and it's rather amazing that it can be derived in such a simple way. I've included a little toy below where you can see how frequency changes with density.
-    </p>
-    <p>
-      include plasma oscillation demo here.
-    </p>
     <h3>ratios $&\frac{\nu}{\omega_p}&$</h3>
     <p>
-      So this provides with two different time scales, one on which electrostatic phenomenon take place, and one on which particle-particle phenomenon take place.
-
+      So this provides with two different time scales, one on which electrostatic phenomenon take place, and one on which particle-particle phenomenon take place. The resulting ratio is a more rigorous way to ask the question "Yes, these collisions are happening, but are they happening enough to matter?". Collisions cause entropy to increase and are generally the source of a lot of hairiness in describing a plasma with math. Knowing when they can be ignored safely is a nice thing to be able to do. Comparing collision frequency with the plasma frequency is a rigorous way to do this, as they both represent time scales on which things happen. If the collision frequency is much much smaller than the plasma frequency, their ratio is basically 0 and collisions will play a very small part in how the plasma changes. This relationship can be described, ignoring coefficients as
+      $&\frac{\nu}{\omega_p}\propto
+      \frac{\sqrt{n_0}}{v_e^3}\approx
+      \frac{\sqrt{n_0}}{\tau^{3/2}}
+      &$
+      . We see that high densities and lower temperatures lead to collisional systems. The problem
     </p>
   </article>
   <div>
@@ -101,20 +137,10 @@ Peter Haugen
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src='../../scripts/public/jquery-1.11.2.min.js'></script>
 <script src='./scripts/main.js'></script>
+<script src='./scripts/world.js'></script>
+<script src='./scripts/utilities.js'></script>
+<script src='./scripts/vector.js'></script>
+<script src='./scripts/mover.js'></script>
 <link type="text/css" rel="stylesheet" href="./styles.css"/>
 </html>
 <math></math>
-<!--
-peter:
-Peter roll
-super california
-rock'n'roll
-soren:
-Red Dragon Roll
-Yojimbo Roll
-Rainbow Roll
-jessie:
-rainbow roll
-salmon avocado
-ebi roll
- -->

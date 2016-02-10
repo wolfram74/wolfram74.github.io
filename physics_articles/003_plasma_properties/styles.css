@@ -3,3 +3,27 @@ body {
   left: 10%;
   width: 80%;
 }
+
+canvas {
+  border:1px solid black;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+#ei_distance {
+  -webkit-appearance: slider-vertical;
+  height:200px;
+  width: 15px;
+}
+#en_distance {
+  -webkit-appearance: slider-vertical;
+  height:200px;
+  width: 15px;
+}
+#plasma_density {
+  width:200px;
+}
+
