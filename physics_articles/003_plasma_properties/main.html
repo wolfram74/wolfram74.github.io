@@ -10,32 +10,49 @@ Peter Haugen
 <body>
   <article>
     <h2>
-      sploop
+      Time Scales in Plasmas
     </h2>
     <h3>
-      de doop
+      Ride the wave or stick with the buddy system?
     </h3>
     <h4 class='date'>
       2016-02-14
     </h4>
     <p>
-      Plasmas, for the unfamiliar are gases and fluids that have a significant enough amount of charged particles in them that they are heavily impacted by electromagnetic forces. This open ended description allows many, many, <em>many</em> things fall under the purview of plasma physics. Things as cold and tenuous as intergalactic space, things as intense as the cores of stars and centers of nuclear explosions, things as ephemeral as lightening, things as placid as a candle flame. All of those are plasmas. To make any progress at all, one must make some thoughts on how to distinguish those very different kinds, or regimes, of plasma phenomena. When you're starting out thinking about plasmas there are 3 major properties that you deal with and help you to distinguish between kinds of plasmas the way you distinguish solids from gases, $&n&$, $&\tau&$, and $&\vec{B}&$.
+      Plasmas being significantly comprised of charged particles have an interesting feature, namely that they are heavily affected by electromagnetic fields. This means that regions of plasma can distribute energy and impact other regions of plasma without using the typical method of collisions. For example when you start using a space heater in a room, part of how the heat gets distributed throughout is by the collision of gas particles. But with plasmas, how important are these field effects and how important are particle-particle collision effects? We're going to talk about density and temperature a bit first, then get into how they impact the rate at which different effects take place.
     </p>
     <h3>Getting down to basics.</h3>
     <p>
-       $&n&$ is the density of particles, however since you typically have at the very least two different kinds of particles, some negative species (often electrons) and some positive species (atomic ions, like hydrogen or helium), in most mathematical treatments you break up the density into how much of each species you have $&n_s&$ so if you have say, an equal distribution of hydrogen and helium and electrons all hot enough to be stripped of all their electrons and uniformly distributed through out, you would have $&n_0=n_H=n_{He}=\frac{1}{3}n_e&$. Density is measure in quantity per unit volume, such as cubic meters, cubic centimeters, or cubic light years.
+
+       $&n&$
+        is the density of particles, however since you typically have at the very least two different kinds of particles, some negative species (often electrons) and some positive species (atomic ions, like hydrogen or helium), in most mathematical treatments you break up the density into how much of each species you have
+       $&n_s&$
+        so if you have say, an equal distribution of hydrogen and helium and electrons all hot enough to be stripped of all their electrons and uniformly distributed through out, you would have
+       $&n_0=n_H=n_{He}=\frac{1}{3}n_e&$
+       . Density is measured in quantity per unit volume, such as cubic meters, cubic centimeters, or cubic light years.
     </p>
     <p>
-      $&\tau&$ is the temperature of the system. In many disciplines, temperatures are talked about in units Kelvin, or maybe Celsius, or heaven forbid Rankine. Then when they want to do actual math with them they multiply them by boltzmann's constant to turn them into some unit of energy, like Joules or Ergs or electron Volts (eV). This is because that's what temperature is, it's an aggregate kinetic energy, a system with twice the temperature will have particles that, on average, have twice the kinetic energy. Now, physicists, being people, are incredibly lazy, and whenever presented the chance will write less. So instead of doing $&k_b*T&$ over and over again, we just write $&\tau&$. <em>This almost never gets confusing when we also use $&\tau&$ as a way to denote time.</em> In addition to why we forgo kelvin often is because often plasmas get hot enough that the numbers get big very quickly, since we're dealing with ionized gasses, the natural temperature scale is on the order of 1-10 eV, because that's how much energy it takes to strip an electron from an atom. 1 eV is over eleven thousand kelvin. While we can still do math on big numbers as thoroughly as we can on small numbers, it is harder to keep in mind relative scale the larger things get. Trying to keep things simple is important, especially when things get intrinsically weirder.
-    </p>
-    <p>
-      Lastly of the major properties is $&\vec{B}&$, which is the magnetic field. It's a vector unlike the other two quantities, which are scalars. This means it not only has a magnitude but also a direction. Like the question "what floor is my friends apartment on?" has a scalar answer, ranging from 1 to 163(if they lived in the Burj Khalifa), but "where is my friends apartment from my place?" has a vector answer, because it is not just some number of kilometers away, it's also in a particular direction. The fact that plasmas contain large amounts of charged particles means they are effected by magnetic fields. Primarily by flowing along in the same direction as the field is pointing and spinning around it, so often times we'll talk about properties that are perpendicular and parallel to the field as they are different cases. Velocity for example, another vector, would be tracked as both $&\vec{v}=\vec{v_\parallel}+\vec{v_\perp}&$.
+
+      $&\tau&$
+       is the temperature of the system. In many disciplines, temperatures are talked about in units Kelvin, or maybe Celsius, or heaven forbid Rankine. Then when they want to do actual math with them they multiply them by Boltzmann's constant to turn them into some unit of energy, like Joules or Ergs or electron Volts (eV). This is because that's what temperature is, it's an aggregate kinetic energy, a system with twice the temperature will have particles that, on average, have twice the kinetic energy. This also means that
+      $&\tau&$
+       and
+      $&mv^2&$
+       can be swapped back and forth with some care and things will stay consistent. Now, physicists, being people, are incredibly lazy, and whenever presented with the choice will write less. So instead of doing
+      $&k_b*T&$
+       over and over again, we just write
+      $&\tau&$
+      . <em>This almost never gets confusing when we also use
+      $&\tau&$
+       as a way to denote time.</em> In addition to why we forgo kelvin often is because frequently plasmas get hot enough that the numbers get big very quickly, since we're dealing with ionized gases, the natural temperature scale is on the order of 1 to 10 eV, because that's how much energy it takes to strip an electron from an atom. 1 eV is over ten thousand kelvin. While we can still do math on big numbers as thoroughly as we can on small numbers, it is harder to keep in mind relative scale the larger things get. Trying to keep things simple is important, especially when things get intrinsically weirder.
     </p>
     <h3>Plasma Frequency $&\omega_p&$</h3>
     <p>
-      One of the most important time scales in a plasma is the plasma frequency. Most plasmas are, when you zoom out and squint, neutral. It's when you get close up that there are variations in that neutrality. The reason for it being over all neutral is because electric fields act over infinite distances if there's a net charge, and it will add roaming charges distinctiveness as part of the plasma whole, their kinetic energy adapted to serve the collective. But internally there are fluctuations as waves, like in the surface of a pond change the local height of the water line, that change the local charge density so that pockets of net charge crop up. These kinds of changes happen on the scale of the plasma frequency which is
+      One of the most important time scales in a plasma is the plasma frequency. Most plasmas are, when you zoom out and squint, neutral. It's when you get close up that there are variations in that neutrality. The reason for it being over all neutral is because electric fields act over infinite distances if there's a net charge, and it will add roaming charges distinctiveness as part of the plasma whole, their kinetic energy adapted to serve the collective. But internally there are fluctuations that propagate as waves. Like how a pond over all has a level surface, but when you drop a stone in it, ripples form that give a particular region deeper or shallower. Now the same thing happens in plasmas, only instead of depth, it's charge density. These kinds of changes happen on the scale of the plasma frequency which is
       $&\omega_p = \sqrt{\frac{n_0e^2}{\epsilon_0 m_e}}=\sqrt{k_p n_0}&$
-      and is derived from one of the most egregious spherical-cow methods I've had the pleasure of following along  so far. It's right up there with assuming stars are cubes to figure out the minimum mass of a black hole, which is a beautiful kind of hilarity in it's own right. The gist of it is we model the plasma as being comprised of two overlapping slabs that interact via electric fields, immobile ions in one slab, light weight electrons in the other. We then pull the electron slab over to the side somewhat so they no longer fully overlap and now there's a positive charge density on one side and negative charge density on the other, this causes attraction, restored overlapping and then overshooting, starting the whole process over again. A bit of calculus produces the result that this process has the frequency above, which we elevate to the position of $&\omega_p&$, it then turns out that this value repeatedly comes up over and over again and it's rather amazing that it can be derived in such a simple way. I've included a little toy below where you can see how frequency changes with density.
+      and is derived from one of the most egregious spherical-cow methods I've had the pleasure of following along so far. It's right up there with assuming stars are cubes to figure out the minimum mass of a black hole, which is a beautiful kind of hilarity in it's own right. The gist of it is we model the plasma as being comprised of two overlapping slabs that interact via electric fields, immobile ions in one slab, light weight electrons in the other. We then pull the electron slab over to the side somewhat so that they no longer fully overlap. Now there's a positive charge density on one side and negative charge density on the other, this causes attraction, restored overlapping and then overshooting, starting the whole process over again. A bit of calculus produces the result that this process has the frequency above, which we elevate to the position of
+      $&\omega_p&$
+      , it then turns out that this value repeatedly comes up over and over again and it's rather amazing that it can be derived in such a simple way. I've included a little toy below where you can see how frequency changes with density. Density being presented as the opacity of the two slabs.
     </p>
     <p id='plasma_oscillation_demo'>
       <canvas width=200px height=200px id='plasma_oscilation'></canvas>
@@ -50,14 +67,14 @@ Peter Haugen
     </p>
     <h3>Ion Collision Frequency $&\nu_{ei}&$</h3>
     <p>
-      So these are basic properties of plasma systems. What are some characteristics of plasma that we can calculate from them and how do they help us distinguish lightening from a candle flame? Well, let's talk about the first weirdness. Gas particles are constantly moving about, they're tiny so we don't notice the little dots of nitrogen flitting around, but they are. And there's a reasonably large amount of them in the air, so they're constantly bumping into each other. The average distance they travel between bumps is called the mean free path, which is a length, so it's sometimes given the symbol $&l&$ because dang it if we're not an inventive group of people. The mean free path is pretty easy to calculate, if you have the collision frequency $&\nu_c&$. It's just $&l=\frac{v}{\nu_c}&$.
+      So the the time scale on which electromagnetic interactions happen is pretty tidy and the derivation was concise. Maybe this whole plasma business isn't so hard after all? next up we have collision frequency
+      $&\nu_c&$
+      . Well, if we're trying to figure out how often something collides with some set of targets, we think about how big is the target, how many targets are there, and how fast the thing is moving through the targets. Ok, how many is easy, that's just density, particles per volume. How fast the thing is moving through targets is also easy, that's just velocity of our subject, we'll say it's an electron for now. so we're at
+      $&\nu_c=n_t*v_e*area&$
+      , well, how do we calculate area?
     </p>
-      <note>see if font can be changed to improve distinctiveness of nu and v.</note>
     <p>
-      Cool, ok, so what's $&\nu_c&$? Well, if we're trying to figure out how often something collides with some set of targets, we think about how big is the target, how many targets are there, and how fast the thing is moving through the targets. Ok, how many is easy, that's just density, particles per volume. How fast the thing is moving through targets is also easy, that's just velocity of our subject, we'll say it's an electron for now. so we're at $&\nu_c=n_t*v_e*area&$, well, how do we calculate area?
-    </p>
-    <p>
-      For a neutral atom, the electron will bounce off it hits it but not really notice before then.
+      For a neutral atom, the electron will bounce off it hits it but not really notice otherwise.
     </p>
     <p id='neutral_impact_parameter'>
       <input type='range' id='en_velocity'
@@ -75,7 +92,13 @@ Peter Haugen
       <input type='button' id='en_start' value = 'run simulation'/>
     </p>
     <p>
-      so we end up with something within an order of magnitude of $&\pi a_0^2&$ where $&a_0&$ is the bohr radius, a piddling tiny distance clocking in at about $&5*10^{-11}&$ meters. Which is a really insignificantly tiny number. For context, if all the information in a reasonable quality copy of the film The Shawshank Redemption(700~ megabytes) represented 1 whole meter, the width of an atom is roughly the first bit, the first 1 or 0 of that movie. So, less than a single pixel of a single frame. Unless the electron is almost moving directly at the atom it's going to do nothing at all in response to it's existence. But that's neutral atoms, plasma's are fun because it's the ions and electrons that are doing the cool stuff, how do ions effect the path of an electron?
+      so we end up with something within an order of magnitude of
+      $&\pi a_0^2&$
+       where
+      $&a_0&$
+       is the bohr radius, a piddling tiny distance clocking in at about
+      $&5*10^{-11}&$
+       meters. Which is a really insignificantly tiny number. For context, if all the information in a reasonable quality copy of the film The Shawshank Redemption(700~ megabytes) represented 1 whole meter, the width of an atom is roughly the first bit, the first 1 or 0 of that movie. So, less than a single pixel of a single frame. Unless the electron is almost moving directly at the atom it's going to do nothing at all in response to it's existence. But that's neutral atoms, plasma's are fun because it's the ions and electrons that are doing the cool stuff, how do ions effect the path of an electron?
     </p>
     <p id='ion_impact_parameter'>
       <input type='range' id='ei_velocity'
@@ -93,7 +116,9 @@ Peter Haugen
       <input type='button' id='ei_start' value = 'run simulation'/>
     </p>
     <p>
-      Oh dang, you get some pretty wicked redirections going inside that circle, but even never going near it you can see pretty noticeable bending. What's going on here? Well, one useful way to approach this problem is through thinking about potential energy. The same way a bicycle will want to roll down a hill, an electron will want to "roll" down to an ion. The given height of the hill can be either positive or negative depending on if it's opposite or similar charges and goes like $&\frac{1}{r}&$, so as you get really close, the hill gets incredibly steep. But it never goes quite to zero, even far away. So you can kind of imagine the potential for a charged particle being like the horn of a trombone or cone the flairs out towards the edges. Meanwhile for a neutral particle, a reasonable metaphor would just be a cylinder that goes up forever, nothing's getting any closer than the surface of the barrel.
+      Oh dang, you get some pretty wicked redirections going inside that circle, but even never going near it you can see pretty noticeable bending. What's going on here? Well, one useful way to approach this problem is through thinking about potential energy. The same way a bicycle will want to roll down a hill, an electron will want to "roll" down to an ion. The given height of the hill can be either positive or negative depending on if it's opposite or similar charges and goes like
+      $&\frac{1}{r}&$
+      , so as you get really close, the hill gets incredibly steep. But it never goes quite to zero, even far away. So you can kind of imagine the potential for a charged particle being like the horn of a trombone or cone the flairs out towards the edges. Meanwhile for a neutral particle, a reasonable metaphor would just be a cylinder that goes up forever, nothings getting any closer than the surface of the barrel.
     </p>
     <p>
       So saying we know what the electron's initial velocity is, we know it's kinetic energy
@@ -115,16 +140,16 @@ Peter Haugen
       . This'll make other expressions a bit easier to work with and we'll unpack it later. For a bit of context, if the electron has a kinetic energy of 1 eV (moderately warm, but nothing exceptional), $&r_c&$ would be about a hundred times larger than the bohr radius we talked about earlier. So, we have a radius, area is just radius squared times pi,
       $&A_c = \pi r_c^2 = \frac{\pi k^2}{v_e^4}&$
       . Slap that into our collision frequency expression and we get
-      $&\nu_c =n_i v_e \frac{\pi k^2}{v_e^4} = \frac{n_i \pi k^2}{v_e^3}&$ which, after this whirlwind of a journey gets us a mean free path of $&l = \frac{v_e}{\nu_c} = v_e  \frac{v_e^3}{n_i \pi k^2} = \frac{v_e^4}{n_i \pi k^2}&$.
+      $&\nu_c =n_i v_e \frac{\pi k^2}{v_e^4} = \frac{n_i \pi k^2}{v_e^3}&$.
     </p>
-    <h3>ratios $&\frac{\nu}{\omega_p}&$</h3>
+    <h3>Considering $&\frac{\nu}{\omega_p}&$</h3>
     <p>
       So this provides with two different time scales, one on which electrostatic phenomenon take place, and one on which particle-particle phenomenon take place. The resulting ratio is a more rigorous way to ask the question "Yes, these collisions are happening, but are they happening enough to matter?". Collisions cause entropy to increase and are generally the source of a lot of hairiness in describing a plasma with math. Knowing when they can be ignored safely is a nice thing to be able to do. Comparing collision frequency with the plasma frequency is a rigorous way to do this, as they both represent time scales on which things happen. If the collision frequency is much much smaller than the plasma frequency, their ratio is basically 0 and collisions will play a very small part in how the plasma changes. This relationship can be described, ignoring coefficients as
       $&\frac{\nu}{\omega_p}\propto
       \frac{\sqrt{n_0}}{v_e^3}\approx
       \frac{\sqrt{n_0}}{\tau^{3/2}}
       &$
-      . We see that high densities and lower temperatures lead to collisional systems. The problem
+      . We see that high densities and lower temperatures lead to collisional systems. The problem, though, is that if you have a lot of particles in close proximity that aren't very hot, the inter particle forces will encourage it to be a gas, or even a liquid or a solid. This results in most collisional plasmas being found in the centers of stars or on the wave fronts of explosions.
     </p>
   </article>
   <div>
