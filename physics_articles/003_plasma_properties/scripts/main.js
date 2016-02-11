@@ -1,3 +1,11 @@
+var MKS = {
+  Me: 9.109 * Math.pow(10,-31), // electron mass
+  Mp: 1.673 * Math.pow(10,-27), // proton mass
+  q: 1.602  * Math.pow(10,-19), // fundamental charge
+  e0: 8.854 * Math.pow(10,-12), // permitivity free space
+  pi: Math.PI,                // circle constant, you troglodyte.
+}
+
 $(document).on('ready', function(){
   console.log('ready')
   MathJax.Hub.Config({
@@ -29,21 +37,12 @@ var eiRun = function(){
     group: true,
     canvas: view
   })
-  var world = new World({
-    bodies: [testCharge],
-    canvas: view,
-    rule: function(body){
+  var callback = function(body){
       var displace = Vector.sub(new Vector([100,100]), body.location)
       var field = (75/displace.dot(displace))
       body.applyForce(displace.normalize().mult(field))
     }
-  })
-  iterator(300,
-    function(){
-      world.update()
-      world.display({overlay: true})
-    },
-    30)
+  simulation(testCharge, callback)
 }
 
 var enRun = function(){
@@ -56,10 +55,7 @@ var enRun = function(){
     canvas: view
   })
   testCharge.bounced = false
-  var world = new World({
-    bodies: [testCharge],
-    canvas: view,
-    rule: function(body){
+  var callback = function(body){
       var displace = Vector.sub(new Vector([100,100]), body.location)
       if(!body.bounced && displace.mag() < 10 ){
         console.log(Math.atan2(displace.values[1], displace.values[0]))
@@ -70,6 +66,14 @@ var enRun = function(){
         body.bounced = true
       }
     }
+  simulation(testCharge, callback)
+}
+
+var simulation = function(body, rule){
+  var world = new World({
+    bodies: [body],
+    canvas: body.view,
+    rule: rule
   })
   iterator(300,
     function(){
@@ -77,7 +81,7 @@ var enRun = function(){
       world.display({overlay: true})
     },
     30)
-}
+};
 
 var sliderListener = function(){
   console.log('slide noises')
@@ -120,14 +124,6 @@ var states = {
     velocity:20,
     canvasID: '#neutral_collision_display'
   }
-}
-
-var MKS = {
-  Me: 9.109 * Math.pow(10,-31), // electron mass
-  Mp: 1.673 * Math.pow(10,-27), // proton mass
-  q: 1.602  * Math.pow(10,-19), // fundamental charge
-  e0: 8.854 * Math.pow(10,-12), // permitivity free space
-  pi: Math.PI,                // circle constant, you troglodyte.
 }
 
 var plasma_freq = function(density){
@@ -177,10 +173,9 @@ var shoState = {
 var updateShoState = function(){
   var newRho = 1*$('#plasma_density').val()
   var newW = .1*Math.sqrt(newRho)
-  var newPhase = shoState.t*(shoState.w0-newW)+shoState.phase
-  shoState.w0 = newW
   shoState.density = newRho
-  shoState.phase = newPhase
+  shoState.w0 = newW
+  shoState.phase = shoState.t*(shoState.w0-newW)+shoState.phase
 }
 
 var drawOscilator =function(){
@@ -209,4 +204,3 @@ var drawOscilator =function(){
     )
   context.closePath()
 }
-
