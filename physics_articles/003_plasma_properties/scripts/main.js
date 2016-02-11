@@ -171,11 +171,11 @@ var shoState = {
 }
 
 var updateShoState = function(){
-  var newRho = 1*$('#plasma_density').val()
-  var newW = .1*Math.sqrt(newRho)
-  shoState.density = newRho
-  shoState.w0 = newW
-  shoState.phase = shoState.t*(shoState.w0-newW)+shoState.phase
+  var newRho = 1*$('#plasma_density').val();
+  var newW = .1*Math.sqrt(newRho);
+  shoState.density = newRho;
+  shoState.phase = (shoState.t*(shoState.w0-newW)+shoState.phase) % (2*MKS.pi);
+  shoState.w0 = newW;
 }
 
 var drawOscilator =function(){
