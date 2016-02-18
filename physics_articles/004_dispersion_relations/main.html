@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+      turtle
+    </h2>
+    <h3>
+      sub turtle
+    </h3>
+    <h4 class='date'>
+      2016-02-28
+    </h4>
+    <p>
+      Note: This article makes extensive use of sound in the examples, if you'd like to get the full experience, be in a place where it's not rude to have your speakers on, or have headphones available.
+    </p>
+    <p>
+      Waves are tremendously important part of physics research. Part of this is because the Fourier Transform is a ridiculously powerful mathematical tool that allows us to turn any kind of phenomenon into superposition of bunches of waves. Much like how a chord is a super position of several notes. When studying what kind of waves a system can support, one of the earliest questions we might try to answer is how does wavelength and frequency relate to each other.
+    </p>
+    <p>
+      Wait, some of you who have studied sound before, might say. How is that a question? These people might ask. Frequency times wavelength equals the speed of the wave, which is a constant for the wave, the particularly assertive and mathematically oriented members of this group go. And for sound waves in our atmosphere this is a fairly good approximation, but by no means a given. It is such a convenient feature of sound waves that we call waves with that relationship acoustic waves,
+      $&\omega = v_0 k&$. k in this case is called the wave <em>number</em>, as opposed wave length, it's got units of inverse length, because it's defined as $&k = \frac{2\pi}{\lambda}&$. Much like how angular frequency simplifies trig functions, wave number also simplifies trig functions.
+      Acoustic waves have in addition to the advantage of a simple mathematical relation describing their wave number, also have a constant velocity regardless of frequency, $&v_0&$ being the speed of that wave, say, 340 meters per second for sound, or around $&3*10^8&$ meters per second for light in a vacuum, which is amusingly also an acoustic wave.
+    </p>
+    <p>
+      So light and sound are acoustic waves, what's left? Well, acoustic waves are somewhat rarer than otherwise you might imagine. For example, light as it passes through nearly anything loses it's acoustic properties. Take glass, there's a slight difference in speed for every wavelength of light as it travels. This results in getting the famous scattering effect that prisms have, (selectively) slow down the rainbow, taste the rainbow. In fact most waves are not acoustic. Waves in deep water where the wave length is smaller than the water depth have the frequency grow like the square root of the the wave number.
+    </p>
+    <p>
+      The relationship between frequency and wave number is called the dispersion relation, and is sometimes denoted as $&\omega=\Omega(k)&$ or $&D(k,\omega)&$. Why does this matter beyond informing us of how the frequency depends on wave number? Well it turns out there are two kinds of velocity in waves, the phase velocity, $&v_p=\frac{\omega}{k}&$ and the group velocity $&v_g = \frac{d\Omega}{dk}&$. The physical significance of the group and phase velocities can rapidly get muddied, but one way to think of it that is often constructive is that the group velocity represents how fast a perturbation over all propagates. Like when a stone is dropped in a pond it creates ripples in a wide variety of frequencies that add together to make the ripples in the pond. The speed at which that collective ripple travels and deforms is the group velocity. I mention deformation because when the group velocity varies as a function of wave number, shorter waves and longer waves travel different distances over the same period of time.
+    </p>
+    <p>
+      Let's take an example.
+    </p>
+
+  </article>
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<!-- http://www.softsynth.com/webaudio/tone.php -->
