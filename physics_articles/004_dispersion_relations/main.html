@@ -22,20 +22,58 @@ Peter Haugen
       Note: This article makes extensive use of sound in the examples, if you'd like to get the full experience, be in a place where it's not rude to have your speakers on, or have headphones available.
     </p>
     <p>
-      Waves are tremendously important part of physics research. Part of this is because the Fourier Transform is a ridiculously powerful mathematical tool that allows us to turn any kind of phenomenon into superposition of bunches of waves. Much like how a chord is a super position of several notes. When studying what kind of waves a system can support, one of the earliest questions we might try to answer is how does wavelength and frequency relate to each other.
+      Let's talk about waves. They're really important, both from a research perspective and in your day to day life. You may be familiar with how sound you hear is a pressure wave traveling through air, and the light you see is an electromagnetic wave traveling through space. In fact there are ways to mathematically describe nearly anything as a collection of waves. What do I mean by collection of waves? Well, here's a single sound wave at 440 cycles per second, or hertz.
+      $&X = 1*sin(440*t)&$
     </p>
     <p>
+      single wave demo here.
+    </p>
+    <p>
+      People with a bit of musical background will know that that is a monotonic note A. People with a bit more musical background will know that an instrument of a given note has multiple tones present simultaneously.
+      $&A = \Sigma_{i=1}^7 a_i*sin(i*440*t)&$
+    </p>
+    <p>
+      richer note demo here.
+    </p>
+    <!-- a a+ b c c+ d d+ e -->
+    <!-- 0 1  2 3 4  5 6  7  -->
+    <p>
+      and a chord is made of several rich notes at once.
+      $&chord=A+C\#+E=
+      \Sigma_{i=1}^7 a_i*sin(i*440*t)
+      +\Sigma_{i=1}^7 b_i*sin(i*554*t)
+      +\Sigma_{i=1}^7 c_i*sin(i*659*t)&$.
+    </p>
+    <p>
+      chord demo here.
+    </p>
+    <p>
+      Not only are they increasingly complicated mathematically, aurally, but if you were to plot the pressure differences, you'd see the complexity in another way.
+    </p>
+    <p>
+      plots of 3 different functions.
+    </p>
+    <p>
+      Now you can see there is a complicated structure to any collection of waves that we get information or impressions from. And this structure persists over space! What I mean by that is say we have a guitarist on stage and they strum a chord. Someone in the front row will detect the chord, and quite easily because it will be load, but someone in the nose bleed section will detect <em>the same structure</em>, albeit with less amplitude because it's spread out over the entire sphere of that distance, but there's a special property of sound waves in environments that we're used to that enables that. Which is good, because our voices, every bit of spoken language depends on being the same when heard from a meter away and from a hundred meters away.
+    </p>
+    <p>
+      The special property I'm alluding to is that sound waves have a constant group velocity, low notes and high notes propagate at the same speed. What's the big deal, some people who remember there high school physics, might be saying, sound has a speed, light has a speed, that's that. The particularly retentive might even be as bold as to say that that speed is defined as $&v=f*\lambda&$, the product of the frequency and wavelength.
+    </p>
+    <p class = 'old'>
+      Waves are tremendously important part of physics research. Part of this is because the Fourier Transform is a ridiculously powerful mathematical tool that allows us to turn any kind of phenomenon into superposition of bunches of waves. Much like how a chord is a super position of several notes. When studying what kind of waves a system can support, one of the earliest questions we might try to answer is how does wavelength and frequency relate to each other.
+    </p>
+    <p class = 'old'>
       Wait, some of you who have studied sound before, might say. How is that a question? These people might ask. Frequency times wavelength equals the speed of the wave, which is a constant for the wave, the particularly assertive and mathematically oriented members of this group go. And for sound waves in our atmosphere this is a fairly good approximation, but by no means a given. It is such a convenient feature of sound waves that we call waves with that relationship acoustic waves,
       $&\omega = v_0 k&$. k in this case is called the wave <em>number</em>, as opposed wave length, it's got units of inverse length, because it's defined as $&k = \frac{2\pi}{\lambda}&$. Much like how angular frequency simplifies trig functions, wave number also simplifies trig functions.
       Acoustic waves have in addition to the advantage of a simple mathematical relation describing their wave number, also have a constant velocity regardless of frequency, $&v_0&$ being the speed of that wave, say, 340 meters per second for sound, or around $&3*10^8&$ meters per second for light in a vacuum, which is amusingly also an acoustic wave.
     </p>
-    <p>
+    <p class = 'old'>
       So light and sound are acoustic waves, what's left? Well, acoustic waves are somewhat rarer than otherwise you might imagine. For example, light as it passes through nearly anything loses it's acoustic properties. Take glass, there's a slight difference in speed for every wavelength of light as it travels. This results in getting the famous scattering effect that prisms have, (selectively) slow down the rainbow, taste the rainbow. In fact most waves are not acoustic. Waves in deep water where the wave length is smaller than the water depth have the frequency grow like the square root of the the wave number.
     </p>
-    <p>
+    <p class = 'old'>
       The relationship between frequency and wave number is called the dispersion relation, and is sometimes denoted as $&\omega=\Omega(k)&$ or $&D(k,\omega)&$. Why does this matter beyond informing us of how the frequency depends on wave number? Well it turns out there are two kinds of velocity in waves, the phase velocity, $&v_p=\frac{\omega}{k}&$ and the group velocity $&v_g = \frac{d\Omega}{dk}&$. The physical significance of the group and phase velocities can rapidly get muddied, but one way to think of it that is often constructive is that the group velocity represents how fast a perturbation over all propagates. Like when a stone is dropped in a pond it creates ripples in a wide variety of frequencies that add together to make the ripples in the pond. The speed at which that collective ripple travels and deforms is the group velocity. I mention deformation because when the group velocity varies as a function of wave number, shorter waves and longer waves travel different distances over the same period of time.
     </p>
-    <p>
+    <p class = 'old'>
       Let's take an example.
     </p>
 
