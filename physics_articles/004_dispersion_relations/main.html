@@ -26,15 +26,26 @@ Peter Haugen
       $&X = 1*sin(440*t)&$
     </p>
     <p>
-      <input type='button' id='farts'>
-      single wave demo here.
+      <div id ='440-0' class='audio_control'>
+        <span>
+          440 hz tone
+        </span>
+        <input type='button' value='play'>
+        <input type='button' value='stop'>
+      </div>
     </p>
     <p>
       People with a bit of musical background will know that that is a monotonic note A. People with a bit more musical background will know that an instrument of a given note has multiple tones present simultaneously.
       $&A = \Sigma_{i=1}^7 a_i*sin(i*440*t)&$
     </p>
     <p>
-      richer note demo here.
+      <div id ='440-all' class='audio_control'>
+        <span>
+          440 hz note
+        </span>
+        <input type='button' value='play'>
+        <input type='button' value='stop'>
+      </div>
     </p>
     <!-- a a+ b c c+ d d+ e -->
     <!-- 0 1  2 3 4  5 6  7  -->
@@ -46,10 +57,16 @@ Peter Haugen
       +\Sigma_{i=1}^7 c_i*sin(i*659*t)&$.
     </p>
     <p>
-      chord demo here.
+      <div id ='440-all&554-all&659-all' class='audio_control'>
+        <span>
+          440 hz note major chord
+        </span>
+        <input type='button' value='play'>
+        <input type='button' value='stop'>
+      </div>
     </p>
     <p>
-      Not only are they increasingly complicated mathematically, aurally, but if you were to plot the pressure differences, you'd see the complexity in another way.
+      Not only are they increasingly complicated mathematically and aurally, but if you were to plot the pressure differences, you'd see the complexity in another way.
     </p>
     <p>
       plots of 3 different functions.
@@ -90,6 +107,7 @@ Peter Haugen
   </div>
 </body>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='http://www.softsynth.com/webaudio/webaudio_tools.js'></script>
 <script src='../../scripts/public/jquery-1.11.2.min.js'></script>
 <script src='./scripts/main.js'></script>
 <link type="text/css" rel="stylesheet" href="./styles.css"/>
