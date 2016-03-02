@@ -7,6 +7,7 @@ $(document).on('ready', function(){
       tex2jax: {inlineMath: [["$&","&$"]]}
     });
   $('.audio_control').on('click', 'input', audioControlListener)
+  $('.example_control').on('click', 'input', exampleControlListener)
   prepsoundBoard()
 });
 var audCtxt = new window.AudioContext()
@@ -35,14 +36,13 @@ var audioControlListener = function(event){
   window[$target.val()](notes)
 }
 
+var exampleControlListener = function(event){
+  event.preventDefault()
+  var $target = $(event.target)
+}
+
 var play = function(notes){
   //notes should be [note, mode] pairs
-  // for(var note in soundBoard){
-  //   for(var mode = 0; mode < soundBoard[note].o.length; mode++){
-  //     soundBoard[note].g[mode].gain.value = (2+Math.cos(Math.PI*(mode+1)/2))/Math.pow(3*(mode+1), .5)
-  //     decay(note, mode)
-  //   }
-  // }
   for(var note = 0; note < notes.length; note++){
     var root = notes[note][0]
     var mode = notes[note][1]
@@ -83,6 +83,17 @@ var decay = function(note, mode){
   }
 }
 
+var k = function(omega){
+  return omega/340
+}
+
+var deepWaterV = function(k){
+  return Math.pow(680000/k, 0.5)
+}
+
+var matterV = function(k){
+  return 57.8 * k
+}
 var test = function(fundamental){
   tones = []
   gains = []
@@ -102,3 +113,8 @@ var test = function(fundamental){
   // gainNode.connect(audCtxt.destination)
   // osc.start(1)
 }
+
+// "notes
+// speed of sound 340
+// w/k = 340
+// k = w/340"

@@ -69,10 +69,27 @@ Peter Haugen
       Not only are they increasingly complicated mathematically and aurally, but if you were to plot the pressure differences, you'd see the complexity in another way.
     </p>
     <p>
-      plots of 3 different functions.
+      <span>
+        The simple monotone<br>
+      </span>
+      <span>
+        <img class='resize' src='./monotone.png'/><br>
+      </span>
+      <span>
+        A single note with it's harmonics<br>
+      </span>
+      <span>
+        <img class='resize' src='./note.png'/><br>
+      </span>
+      <span>
+        A major chord of 3 notes<br>
+      </span>
+      <span>
+        <img class='resize' src='./chord.png'/><br>
+      </span>
     </p>
     <p>
-      Now you can see there is a complicated structure to any collection of waves that we get information or impressions from. And this structure persists over space! What I mean by that is say we have a guitarist on stage and they strum a chord. Someone in the front row will detect the chord, and quite easily because it will be load, but someone in the nose bleed section will detect <em>the same structure</em>, albeit with less amplitude because it's spread out over the entire sphere of that distance, but there's a special property of sound waves in environments that we're used to that enables that. Which is good, because our voices, every bit of spoken language depends on being the same when heard from a meter away and from a hundred meters away.
+      Now you can see there is a complicated structure to any collection of waves that we get information or impressions from. And this structure persists over space! What I mean by that is say we have a guitarist on stage and they strum a chord. Someone in the front row will detect the chord, and quite easily because it will be loud, but someone in the nose bleed section will detect <em>the same structure</em>, albeit with less amplitude because it's spread out over the entire sphere of that distance, but there's a special property of sound waves in environments that we're used to that enables that. Which is good, because our voices, every bit of spoken language depends on being the same when heard from a meter away and from a hundred meters away.
     </p>
     <p>
       The special property I'm alluding to is that sound waves have a constant group velocity, low notes and high notes propagate at the same speed. What's the big deal, some people who remember there high school physics, might be saying, sound has a speed, light has a speed, that's that. The particularly retentive might even be as bold as to say that that speed is defined as $&v=f*\lambda&$, the product of the frequency and wavelength. They may feel slighted now and maybe even deceived that their teachers gave them a simplified version of the more complicated workings of things. This is however typical in physics and I can only imagine and dearly hope the same to be true in other disciplines for I trust that mitochondria is understood with more sophistication than as the powerhouse of the cell, among other things.
@@ -82,12 +99,27 @@ Peter Haugen
     </p>
     <p>
       example dispersion relations, deep water
-      $&\omega = \sqrt{g*k}&$
+      $&\omega = \sqrt{c*k}&$, $&\frac{d\omega}{d k} = \sqrt{\frac{c}{2k}}&$
       , de broglie waves of mass
-      $&\omega = c*k^2&$
-      , whistler mode
-      $&\frac{a^2k^2}{\omega^2}=1-\frac{\omega_p^2/\omega^2}{1+(\omega_c/\omega)}&$
-
+      $&\omega = c*k^2&$, $&\frac{d\omega}{d k} = 2*c*k&$
+      set constants so that frequency 2000 waves move at mach 1.
+    </p>
+    <p>
+      <div id ='440-all&554-all&659-all' class='example_control'>
+        <span>
+          major chord of deep water waves
+        </span>
+        <span>
+          Distance from source
+          <input type='range' id='deepwater_distance'
+            min='0'
+            max='340'
+            value='0'
+          >
+        </span>
+        <input type='button' value='play'>
+        <input type='button' value='stop'>
+      </div>
     </p>
 
   </article>

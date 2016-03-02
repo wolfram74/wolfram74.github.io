@@ -3,3 +3,10 @@ body {
   left: 10%;
   width: 80%;
 }
+
+img.resize{
+  width:50%;
+  height:auto;
+  border:1px solid black;
+
+}
