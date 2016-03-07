@@ -23,7 +23,7 @@ Peter Haugen
     </p>
     <p>
       Let's talk about waves. They're really important, both from a research perspective and in your day to day life. You may be familiar with how sound you hear is a pressure wave traveling through air, and the light you see is an electromagnetic wave traveling through space. In fact there are ways to mathematically describe nearly anything as a collection of waves. What do I mean by collection of waves? Well, here's a single sound wave at 440 cycles per second, or hertz.
-      $&X = 1*sin(440*t)&$
+      $&A = 1*sin(440*t)&$
     </p>
     <p>
       <div id ='440-0' class='audio_control'>
@@ -35,7 +35,7 @@ Peter Haugen
       </div>
     </p>
     <p>
-      People with a bit of musical background will know that that is a monotonic note A. People with a bit more musical background will know that an instrument of a given note has multiple tones present simultaneously.
+      People with a bit of musical background and a good ear will know that that was the monotonic note A, concert 440. People with a bit more musical background will know that an instrument of a given note has multiple tones present simultaneously.
       $&A = \Sigma_{i=1}^7 a_i*sin(i*440*t)&$
     </p>
     <p>
@@ -89,46 +89,62 @@ Peter Haugen
       </span>
     </p>
     <p>
-      Now you can see there is a complicated structure to any collection of waves that we get information or impressions from. And this structure persists over space! What I mean by that is say we have a guitarist on stage and they strum a chord. Someone in the front row will detect the chord, and quite easily because it will be loud, but someone in the nose bleed section will detect <em>the same structure</em>, albeit with less amplitude because it's spread out over the entire sphere of that distance, but there's a special property of sound waves in environments that we're used to that enables that. Which is good, because our voices, every bit of spoken language depends on being the same when heard from a meter away and from a hundred meters away.
+      Now you can see there is a complicated structure to any collection of waves that we get information or impressions from. And you can infer from the fact that conversations occur that this structure persists over space! What I mean by that is say we have a guitarist on stage and they strum a chord. Someone in the front row will detect the chord, and quite easily because it will be loud, but someone in the nose bleed section will detect <em>the same structure</em>, albeit with less amplitude because it's spread out over the entire sphere of that distance, but this is a special property of sound waves in environments that we're used to that enables this phenomenon. Which is good, because our voices, every bit of spoken language depends on being the same when heard from a meter away and from a hundred meters away.
     </p>
     <p>
       The special property I'm alluding to is that sound waves have a constant group velocity, low notes and high notes propagate at the same speed. What's the big deal, some people who remember there high school physics, might be saying, sound has a speed, light has a speed, that's that. The particularly retentive might even be as bold as to say that that speed is defined as $&v=f*\lambda&$, the product of the frequency and wavelength. They may feel slighted now and maybe even deceived that their teachers gave them a simplified version of the more complicated workings of things. This is however typical in physics and I can only imagine and dearly hope the same to be true in other disciplines for I trust that mitochondria is understood with more sophistication than as the powerhouse of the cell, among other things.
     </p>
     <p>
-      A more sophisticated treatment of waves reveals that wavelength and frequency can have a very complicated relationship, referred to as the dispersion relation. It's usually written in terms of the angular equivalents of frequency and wavelength, angular frequency and wave number. $&\omega = \Omega(k)&$ or $&D(\omega, k)&$. The wave number is defined as $&k=\frac{2\pi}{\lambda}&$, has units of 1 over length, and it makes trig functions simpler. Equipped with a dispersion relationship we can learn how these shapes spread through their mediums. This is because the group velocity is how fast that happens. It's $&\frac{d\Omega}{dk}&$, when you plot the dispersion relation, the slope of the line is how fast waves with that wavenumber travel. So you might see how in cases where $&\omega = v*k&$ you get out a constant, frequency independent wave like with light and sound as we're used to it. Waves with this constant relation are known as acoustic waves, because they were first observed as sound. Light in a vacuum is another example.
+      A more sophisticated treatment of waves reveals that wavelength and frequency can have a very complicated relationship, referred to as dispersion relations. It's usually written in terms of the angular equivalents of frequency and wavelength, angular frequency and wave number. $&\omega = \Omega(k)&$ or $&D(\omega, k)&$. The wave number is defined as $&k=\frac{2\pi}{\lambda}&$, has units of 1 over length, and it makes trig functions simpler. Equipped with a dispersion relationship we can learn how these shapes spread through their mediums. This is because the group velocity is how fast that occurs. It's $&\frac{d\Omega}{dk}&$, when you plot the dispersion relation, the slope of the line is how fast waves with that wavenumber travel. So you might see how in cases where $&\omega = v*k&$ you get out a constant, frequency independent wave like with light and sound as we're used to it. Waves with this constant relation are known as acoustic waves, because they were first observed as sound. Light in a vacuum is another example.
     </p>
     <p>
-      example dispersion relations, deep water
-      $&\omega = \sqrt{c*k}&$, $&\frac{d\omega}{d k} = \sqrt{\frac{c}{2k}}&$
-      , de broglie waves of mass
-      $&\omega = c*k^2&$, $&\frac{d\omega}{d k} = 2*c*k&$
-      set constants so that frequency 2000 waves move at mach 1.
+      So what are some examples of non-acoustic, or dispersive waves? We're going to take a look at de broglie, or matter waves, and deep water waves. De Broglie waves are the kind of waves that massive particles behave like. When we talk about electrons or atoms having a 'wave-like' nature, these are the kinds of waves that are probably being talked about. Their dispersion relation goes like
+      $&\omega = v*k^2&$,
+      in the low energy limit. This is good because k and momentum in these circumstances are linked very closely and we get the relationship that particles have a velocity that linearly depends on their momentum.
+      $&\frac{d\omega}{d k} = 2*v*k&$
+      Which is what you might remember from early physics as momentum for, say, a spherical cow, is mass times velocity. The example below lets you play the chord we made earlier as though the sound waves dispersed like De Broglie waves. The slider selects how far away the source is, either a distnace of 0 meters, or 680 meters, and the constants have been chosen so that a wave of 2000hz travels at the speed of sound. Play around with the slider and notice how at extreme distances it doesn't sound like a chord at all, but a series of notes played in sequence.
     </p>
     <p>
-      <div id ='440-all&554-all&659-all' class='example_control'>
+      <div id ='440-all&554-all&659-all' class='example_control matterV'>
         <span>
-          major chord of deep water waves
+          major chord of matter waves
         </span>
         <span>
           Distance from source
-          <input type='range' id='deepwater_distance'
+          <input type='range' class='distance'
             min='0'
-            max='340'
-            value='0'
+            max='680'
+            value='10'
           >
         </span>
         <input type='button' value='play'>
         <input type='button' value='stop'>
       </div>
     </p>
-
+    <p>
+      Deep water waves have a dispersion relation like
+      $&\omega = \sqrt{c*k}&$, which means that a water wave with a quarter of the wavelength, would only have twice the frequency. This results in a group velocity that actually gets slower the shorter the wavelength.
+      $&\frac{d\omega}{d k} = \sqrt{\frac{c}{2k}}&$
+      This is mildly counter intuitive compared with the debroglie waves as things with more "momentum" actually travel more slowly. You can hear it in the example below, it has much the same set up as the De Broglie waves, at extreme distances you'll hear a low note grow higher.
+    </p>
+    <p>
+      <div id ='440-all&554-all&659-all' class='example_control deepWaterV'>
+        <span>
+          major chord of deep water waves
+        </span>
+        <span>
+          Distance from source
+          <input type='range' class='distance'
+            min='0'
+            max='680'
+            value='10'
+          >
+        </span>
+        <input type='button' value='play'>
+        <input type='button' value='stop'>
+      </div>
+    </p>
   </article>
-  <div>
-    <h3>Exploration</h3>
-  </div>
-  <div>
-    <h3>Further Reading</h3>
-  </div>
 </body>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src='http://www.softsynth.com/webaudio/webaudio_tools.js'></script>

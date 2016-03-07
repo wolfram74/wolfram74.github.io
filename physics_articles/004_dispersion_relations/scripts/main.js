@@ -30,8 +30,6 @@ var audioControlListener = function(event){
   event.preventDefault()
   var $target = $(event.target)
   console.log('howdy')
-  console.log($target.val())
-  console.log($target.parent().attr('id'))
   var notes = parseNotes($target.parent().attr('id'))
   window[$target.val()](notes)
 }
@@ -39,17 +37,30 @@ var audioControlListener = function(event){
 var exampleControlListener = function(event){
   event.preventDefault()
   var $target = $(event.target)
+  var $div = $target.parent('div')
+  var type = $div.attr('class').split(' ')[1]
+  var notes = parseNotes($div.attr('id'))
+  var distance = 1*$div.find('.distance').val()
+  notes = timeCalculator(type, notes, distance)
+  window[$target.val()](notes)
 }
 
 var play = function(notes){
-  //notes should be [note, mode] pairs
+  //notes should be [note, mode, delay=0] pairs
   for(var note = 0; note < notes.length; note++){
     var root = notes[note][0]
     var mode = notes[note][1]
-    soundBoard[root].g[mode].gain.value = (2+Math.cos(Math.PI*(mode+1)/2))/Math.pow(3*(mode+1), .5)
-    decay(root, mode)
+    var delay = notes[note][2] || 0
+    setTimeout(
+      function(root, mode){
+        soundBoard[root].g[mode].gain.value = (2+Math.cos(Math.PI*(mode+1)/2))/Math.pow(3*(mode+1), .5)
+        decay(root, mode)
+      }.bind(null, root, mode),
+      delay
+    )
   }
 }
+
 var parseNotes = function(string){
   var notes = []
   var roots = string.split('&')
@@ -73,7 +84,7 @@ var stop = function(){
     }
   }
 }
-
+1234567890
 var decay = function(note, mode){
   if(soundBoard[note].g[mode].gain.value<.001){
     soundBoard[note].g[mode].gain.value = 0
@@ -94,6 +105,22 @@ var deepWaterV = function(k){
 var matterV = function(k){
   return 57.8 * k
 }
+
+var timeCalculator = function(waveType, notes, distance){
+  var times = []
+  minimum = 100
+  for(var i= 0; i < notes.length; i ++){
+    var ki = k( notes[i][0]*(notes[i][1]+1) )
+    times.push( distance / window[waveType](ki))
+    if (times[i] < minimum){minimum = times[i]}
+  }
+  for(var i= 0; i < notes.length; i ++){
+    times[i]-= minimum
+    notes[i].push(times[i]*1000)
+  }
+  return notes
+};
+
 var test = function(fundamental){
   tones = []
   gains = []
