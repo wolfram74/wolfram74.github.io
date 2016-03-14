@@ -10,10 +10,10 @@ Peter Haugen
 <body>
   <article>
     <h2>
-      tauon
+      Flash Mob
     </h2>
     <h3>
-      muon
+      Joining the Crowd
     </h3>
     <h4 class='date'>
       2016-03-13
@@ -22,7 +22,7 @@ Peter Haugen
       How do plasmas form between conductors? This is one of the simpler ways to approach phase transitions. We're going to talk about the Townsend discharge model of plasma formation. The model presumes we have a two parallel plates with a gas between them and we can fiddle with the voltage between the two plates. I'm going to build up a qualitative representation of the model throughout using cellular automata and we'll add elements to it as we go. So first our initial set up.
     </p>
     <p>
-      No nobs to turn yet, just the empty grid with two borders in gray to represent metal. Blue cells indicate electron density and red cells ion density. Keep in mind that many of these processes are often referred to as "avalanches" because they undergo a rapid transition after a threshold is reached, when you get controls, play around with them slowly to see how tiny changes can have large effects.
+      No knobs to turn yet, just the empty grid with two borders in gray to represent metal. Blue cells indicate electron density and red cells ion density. Keep in mind that many of these processes are often referred to as "avalanches" because they undergo a rapid transition after a threshold is reached, when you get controls, play around with them slowly to see how tiny changes can have large effects.
       <div class='discharge'>
         <canvas></canvas>
       </div>
@@ -55,14 +55,11 @@ Peter Haugen
               <input type='range' name='voltage' value='0'></input> voltage <span class='voltage_display'></span>
             </li>
             <li>
-              <input type='range' name='alpha' value='0'></input> alpha <span class='alpha_display'></span>
+              <input type='range' name='alpha' value='0'></input> $&\alpha&$ <span class='alpha_display'></span>
             </li>
           </ul>
         </form>
       </div>
-    </p>
-    <p>
-      Now some people might be noticing something odd at higher $&\alpha&$ values, we're getting gobs of electrons from seemingly nowhere, if charge is a conserved quantity, how is our space getting so negative? Where are the ions? We've been ignoring them so far. Here they are, red representing ions, blue being electrons. For simplicity we're having the ions move as fast as electrons, which is ludicrous, but it's a qualitative description we're going for.
     </p>
     <p>
       Now some people might be noticing something odd at higher $&\alpha&$ values, We start to get color changes, red starts dominating on the left as deeper blues and purples color the right. This is because whenever you knock an electron off of a gas atom, you also generate an ion to go with it. However, ions, having an opposite charge, move in the opposite direction of electrons, so they congregate to the left. For simplicity we're having the ions move as fast as electrons, which is ludicrous, but it's a qualitative description we're going for.
@@ -79,16 +76,18 @@ Peter Haugen
               <input type='range' name='voltage' value='0'></input> voltage <span class='voltage_display'></span>
             </li>
             <li>
-              <input type='range' name='alpha' value='0'></input> alpha <span class='alpha_display'></span>
+              <input type='range' name='alpha' value='0'></input> $&\alpha&$ <span class='alpha_display'></span>
             </li>
             <li>
-              <input type='range' name='gamma' value='0'></input> gamma <span class='gamma_display'></span>
+              <input type='range' name='gamma' value='0'></input> $&\gamma&$ <span class='gamma_display'></span>
             </li>
           </ul>
         </form>
       </div>
     </p>
-
+    <p>
+      During this whole conversation we've been neglecting pressure and how the concentration of the neutral gas impacts the plasma formation process. This is one of the several strengths of approaching the question from a more rigorous analytical approach. It's much easier to answer questions like what is the minimum voltage for breakdown, just how do $&alpha&$ and $&gamma&$ impact that threshold, how does pressure impact that threshold? This numerical simulation wouldn't show that as pressure goes to zero, the breakdown voltage goes to infinity. This doesn't quite bare out in experiment though, what happens is instead of the gas becoming plasma, the electrodes begin contributing atoms to the plasma.
+    </p>
 
   </article>
   <div>
