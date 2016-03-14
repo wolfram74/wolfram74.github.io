@@ -1,0 +1,13 @@
+body {
+  position: relative;
+  left: 10%;
+  width: 80%;
+}
+
+.controls ul li{
+  list-style-type: none;
+}
+
+canvas {
+  border:1px solid black;
+}

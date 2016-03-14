@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+      tauon
+    </h2>
+    <h3>
+      muon
+    </h3>
+    <h4 class='date'>
+      2016-03-13
+    </h4>
+    <p>
+      How do plasmas form between conductors? This is one of the simpler ways to approach phase transitions. We're going to talk about the Townsend discharge model of plasma formation. The model presumes we have a two parallel plates with a gas between them and we can fiddle with the voltage between the two plates. I'm going to build up a qualitative representation of the model throughout using cellular automata and we'll add elements to it as we go. So first our initial set up.
+    </p>
+    <p>
+      No controls, just the empty grid with two borders in gray to represent metal.
+      <div class='discharge'>
+        <canvas></canvas>
+      </div>
+    </p>
+    <p>
+      We'll use a periodic boundary condition along the y-axis (go past the top of the screen, come back up the bottom.) So we have two conductors separated by gas, but because the universe is just chock full of enormous thermo nuclear infernos (called stars, by some) these plates are being bombarded by a steady stream of radiation (like everyone is). This produces some electrons near the plates that will drift back into them if there's no voltage, or drift from negative to positive if there is.
+    </p>
+    <p>
+      Control for voltage, but alpha and gamma fixed at 0.
+      <div class='discharge'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='voltage' value='0'></input> voltage <span class='voltage_display'></span>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+    <p>
+      As you can see, more voltage, electrons drift faster, but there aren't really more of them, and plasmas are well known for their mobs and mobs of electrons. That's because we've been neglecting the fact that an electron that's moving fast enough can ionize an atom just as well as a cosmic ray. We're going to model our gases likelihood for ionizing with the coefficient
+      $&\alpha&$, higher $&\alpha&$ means the gas has a lower ionization energy, like trying to get a sofa up the front steps is more likely to happen than carrying it up to the third floor. In that example, the first floor sofa has a very high $&\alpha&$, and the third floor sofa has a very a low $&\alpha&$. Play around with $&\alpha&$ on this next example
+    </p>
+    <p>
+      Control for voltage and alpha, gamma fixed at 0.
+    </p>
+    <p>
+      Now some people might be noticing something odd at higher $&\alpha&$ values, we're getting gobs of electrons from seemingly nowhere, if charge is a conserved quantity, how is our space getting so negative? Where are the ions? We've been ignoring them so far. Here they are, red representing ions, blue being electrons. For simplicity we're having the ions move as fast as electrons, which is ludicrous, but it's a qualitative description we're going for.
+    </p>
+    <p>
+      Control for voltage and alpha, gamma fixed at 0. Ions included.
+      <div class='discharge'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='voltage' value='0'></input> voltage <span class='voltage_display'></span>
+            </li>
+            <li>
+              <input type='range' name='alpha' value='0'></input> alpha <span class='alpha_display'></span>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+    <p>
+      The Important thing to think about is how do the ions interact with the metal plate when they get to the cathode (negative electrode). Depending on how loosely held together the metal is, how tightly it holds onto it's own electrons, the ions may actually knock off an electron as it hits the plate. This is where the avalanche takes off and becomes self sustaining. When enough ions hit the cathode to replace the electrons that spawned the ions, this is when we've got a stable state plasma. We describe this likely hood for an ion to knock an electron loose with $&\gamma&$
+    </p>
+    <p>
+      <div class='discharge'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='voltage' value='0'></input> voltage <span class='voltage_display'></span>
+            </li>
+            <li>
+              <input type='range' name='alpha' value='0'></input> alpha <span class='alpha_display'></span>
+            </li>
+            <li>
+              <input type='range' name='gamma' value='0'></input> gamma <span class='gamma_display'></span>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+
+
+  </article>
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>
