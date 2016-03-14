@@ -22,7 +22,7 @@ Peter Haugen
       How do plasmas form between conductors? This is one of the simpler ways to approach phase transitions. We're going to talk about the Townsend discharge model of plasma formation. The model presumes we have a two parallel plates with a gas between them and we can fiddle with the voltage between the two plates. I'm going to build up a qualitative representation of the model throughout using cellular automata and we'll add elements to it as we go. So first our initial set up.
     </p>
     <p>
-      No controls, just the empty grid with two borders in gray to represent metal.
+      No nobs to turn yet, just the empty grid with two borders in gray to represent metal. Blue cells indicate electron density and red cells ion density. Keep in mind that many of these processes are often referred to as "avalanches" because they undergo a rapid transition after a threshold is reached, when you get controls, play around with them slowly to see how tiny changes can have large effects.
       <div class='discharge'>
         <canvas></canvas>
       </div>
@@ -31,7 +31,6 @@ Peter Haugen
       We'll use a periodic boundary condition along the y-axis (go past the top of the screen, come back up the bottom.) So we have two conductors separated by gas, but because the universe is just chock full of enormous thermo nuclear infernos (called stars, by some) these plates are being bombarded by a steady stream of radiation (like everyone is). This produces some electrons near the plates that will drift back into them if there's no voltage, or drift from negative to positive if there is.
     </p>
     <p>
-      Control for voltage, but alpha and gamma fixed at 0.
       <div class='discharge'>
         <canvas></canvas>
         <form class='controls'>
@@ -48,13 +47,6 @@ Peter Haugen
       $&\alpha&$, higher $&\alpha&$ means the gas has a lower ionization energy, like trying to get a sofa up the front steps is more likely to happen than carrying it up to the third floor. In that example, the first floor sofa has a very high $&\alpha&$, and the third floor sofa has a very a low $&\alpha&$. Play around with $&\alpha&$ on this next example
     </p>
     <p>
-      Control for voltage and alpha, gamma fixed at 0.
-    </p>
-    <p>
-      Now some people might be noticing something odd at higher $&\alpha&$ values, we're getting gobs of electrons from seemingly nowhere, if charge is a conserved quantity, how is our space getting so negative? Where are the ions? We've been ignoring them so far. Here they are, red representing ions, blue being electrons. For simplicity we're having the ions move as fast as electrons, which is ludicrous, but it's a qualitative description we're going for.
-    </p>
-    <p>
-      Control for voltage and alpha, gamma fixed at 0. Ions included.
       <div class='discharge'>
         <canvas></canvas>
         <form class='controls'>
@@ -70,7 +62,13 @@ Peter Haugen
       </div>
     </p>
     <p>
-      The Important thing to think about is how do the ions interact with the metal plate when they get to the cathode (negative electrode). Depending on how loosely held together the metal is, how tightly it holds onto it's own electrons, the ions may actually knock off an electron as it hits the plate. This is where the avalanche takes off and becomes self sustaining. When enough ions hit the cathode to replace the electrons that spawned the ions, this is when we've got a stable state plasma. We describe this likely hood for an ion to knock an electron loose with $&\gamma&$
+      Now some people might be noticing something odd at higher $&\alpha&$ values, we're getting gobs of electrons from seemingly nowhere, if charge is a conserved quantity, how is our space getting so negative? Where are the ions? We've been ignoring them so far. Here they are, red representing ions, blue being electrons. For simplicity we're having the ions move as fast as electrons, which is ludicrous, but it's a qualitative description we're going for.
+    </p>
+    <p>
+      Now some people might be noticing something odd at higher $&\alpha&$ values, We start to get color changes, red starts dominating on the left as deeper blues and purples color the right. This is because whenever you knock an electron off of a gas atom, you also generate an ion to go with it. However, ions, having an opposite charge, move in the opposite direction of electrons, so they congregate to the left. For simplicity we're having the ions move as fast as electrons, which is ludicrous, but it's a qualitative description we're going for.
+    </p>
+    <p>
+      The Important thing to think about is how do the ions interact with the metal plate when they get to the cathode (negative electrode). Depending on how loosely held together the metal is, how tightly it holds onto it's own electrons, the ions may actually knock off an electron as it hits the plate. This is where the avalanche takes off and becomes self sustaining. When enough ions hit the cathode to replace the electrons that spawned the ions, this is when we've got a stable state plasma. We describe this likely hood for an ion to knock an electron loose with $&\gamma&$. The full breakdown is shown here when the chamber has a uniform rich purple color.
     </p>
     <p>
       <div class='discharge'>
@@ -94,10 +92,13 @@ Peter Haugen
 
   </article>
   <div>
-    <h3>Exploration</h3>
-  </div>
-  <div>
     <h3>Further Reading</h3>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Townsend_discharge">The wikipedia article on this subject.</a>
+    </p>
+    <p>
+      <a href="http://plasma.szfki.kfki.hu/~zoli/research/avalanche/">An atomic scale simulation</a>
+    </p>
   </div>
 </body>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
