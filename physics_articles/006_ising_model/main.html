@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+    </h2>
+    <h3>
+    </h3>
+    <h4 class='date'>
+    </h4>
+    <p>
+      One of the simplest physical models has only two states, either it's pointing up or it's pointing down.
+    </p>
+    <p>
+      graphic establishing convention for up and down spins.
+    </p>
+    <p>
+      This might be electrons with their spin pointing one way or another, or atoms aligned with a magnetic field, or larger components. Now, the tricky thing in physics is that when you start getting to very fundamental levels, a lot of common language stops having meaning. What does up mean in space, for example? Down we are all aware means the enemy gate. This is not so silly a metaphor though! The Ising Model takes these bare binary-systems and defines their interactions by their orientation relative to their neighbors. So for a lone component, up and down are meaningless.
+    </p>
+    <p>
+      graphic illustrating up and down being indistinguishable
+    </p>
+    <p>
+      but if we had two, we can fiat that there's some interaction, simplest being $&U=-\mu s_ns_{n+1}&$ which means if two adjacent components differ in spin, they're at higher energy levels, but if they are pointing the same way, they are lower in energy. This results in an interesting symmetry we'll examine later.
+    </p>
+    <p>
+      graphic illustrating up-down being equal to down-up and up-up equaling down-down
+    </p>
+    <p>
+      Cool, so we've described our pieces and how they interact with each other. How do they evolve in time? Well, it's typical that enough of these are being talked about that statistical mechanics gets brought into the fray. This means that we're going to kind of toss a weighted coin to find out it evolves in time. The weighting is done based on the energy of each outcome. If being spin up has the same energy associated with it as being spin down, then both states are equally as likely. But when there's an energy difference, the lower energy state will be preferred, and the strength of that preference is based on the temperature that the system is in contact with.
+    </p>
+
+    <p>
+      <div class='grid'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='temperature' value='1' min='1', max='30'></input> temperature <span class='temperature_display'></span>
+            </li>
+            <li>
+              <input type='range' name='bField' value='50'></input> External Magnetic Field <span class='bField_display'></span>
+            </li>
+            <li>
+              <input type='checkbox' name='auto' value='0'></input> Cycle temperature? <span class='auto_display'></span>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+
+  </article>
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>

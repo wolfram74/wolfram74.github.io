@@ -156,7 +156,6 @@ Vessel.prototype.drawCells = function(context){
       context.closePath()
     }
   }
-
 }
 
 Vessel.prototype.drawGrid = function(context){

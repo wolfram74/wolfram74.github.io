@@ -1,0 +1,16 @@
+body {
+  position: relative;
+  left: 10%;
+  width: 80%;
+}
+
+img.resize{
+  width:50%;
+  height:auto;
+  border:1px solid black;
+}
+img.resize2{
+  width:33%;
+  height:300px;
+  border:1px solid black;
+}
