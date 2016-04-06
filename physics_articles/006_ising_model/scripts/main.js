@@ -17,7 +17,7 @@ var Grid = function(options){
   this.width = options.width
   this.cells = this.initCells()
   this.$div = options.div
-  this.temperature = 1
+  this.temperature = 20
   this.bField = 0
   this.mu = 5
   this.auto = false
@@ -167,7 +167,7 @@ var Cell = function(){
 };
 
 Cell.prototype.update = function(difference, temperature, mu, bField){
-  var eUp = -mu*(difference + bField)/temperature
+  var eUp = -mu*(difference - bField)/temperature
   var zUp = Math.pow(eCon, -eUp)
   var zDown = Math.pow(eCon, +eUp)
   var threshold = zUp/(zUp + zDown)
