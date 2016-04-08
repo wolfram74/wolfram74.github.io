@@ -10,10 +10,13 @@ Peter Haugen
 <body>
   <article>
     <h2>
+      Spin and Domains
     </h2>
     <h3>
+      I sing, You sing, We all sing for Ising
     </h3>
     <h4 class='date'>
+      2016-03-27
     </h4>
     <p>
       One of the simplest physical models has only two states, either it's pointing up or it's pointing down.
@@ -25,17 +28,17 @@ Peter Haugen
       This might be electrons with their spin pointing one way or another, or atoms aligned with a magnetic field, or larger components. Now, the tricky thing in physics is that when you start getting to very fundamental levels, a lot of common language stops having meaning. What does up mean in space, for example? Down we are all aware means the enemy gate. This is not so silly a metaphor though! The Ising Model takes these bare binary-systems and defines their interactions by their orientation relative to their neighbors. So for a lone component, up and down are meaningless.
     </p>
     <p>
-      but if we had two, we can fiat that there's some interaction, simplest being $&U=-\mu s_ns_{n+1}&$ which means if two adjacent components differ in spin, they're at positive energy levels, but if they are pointing the same way, they are negative in energy. This results in an interesting symmetry we'll examine later.
+      but if we had two, we can fiat that there's some interaction, simplest being $&U=-\mu s_ns_{n+1}&$ which means if two adjacent components differ in spin, they're at positive energy levels, $&(-\mu)*(-1)*(1)=\mu&$. However, if they are pointing the same way, they are negative in energy $&(-\mu)*(-1)*(-1)=(-\mu)*(1)*(1)=-\mu&$. This results in an interesting symmetry we'll visit later.
     </p>
     <p>
       <img src="symmetry.svg">
     </p>
     <p>
-      Cool, so we've described our pieces and how they interact with each other. How do they evolve in time? Well, it's typical that enough of these are being talked about that statistical mechanics gets brought into the fray. This means that we're going to kind of toss a weighted coin to find out it evolves in time. The weighting is done based on the energy of each outcome. If being spin up has the same energy associated with it as being spin down, then both states are equally as likely. But when there's an energy difference, the lower energy state will be preferred, and the strength of that preference is based on the temperature that the system is in contact with. This probability calculation is done rigorously with what's called ensembles of various levels of canonical-yness. This problem where we allow the total energy of our collection of spins to vary calls for the canonical ensemble. Which since our spin has 2 states, up and down, can be written as these two expressions,
+      Cool, so we've described our pieces and how they interact with each other. How do they evolve in time? Well, it's typical that enough of these are being talked about that statistical mechanics gets brought into the fray. This means that we're going to kind of toss a weighted coin to find out what state it's in next. The weighting is done based on the energy of each outcome. If being spin up has the same energy associated with it as being spin down, then both states are equally as likely. But when there's an energy difference, the lower energy state will be preferred, and the strength of that preference is based on the temperature that the system is in contact with and the size of the energy difference. This probability calculation is done rigorously with what's called ensembles of various levels of canonical-yness. This problem where we allow the total energy of our collection of spins to vary calls for the canonical ensemble. Which since our spin has 2 states, up and down, can be written as these two expressions,
       $&P(up)=\frac{e^{-U_{up}/\tau}}{e^{-U_{up}/\tau}+e^{-U_{down}/\tau}}&$
       and
       $&P(down)=\frac{e^{-U_{down}/\tau}}{e^{-U_{up}/\tau}+e^{-U_{down}/\tau}}&$
-      You can see by inspection that they add up to one. You can also see that as temperature get's much larger than the coupling energy, it approaches the coin toss case again, even though there is an energy difference between the states. Now, how the system behaves when it's cooler and the preferences for alignment are stronger is interesting. Play around with the demonstration below.
+      You can see by inspection that they add up to one, which is what you expect as our spins can't point left by definition. You can also see that as temperature gets much larger than the coupling energy, it approaches the fair coin toss case again, even though there is an energy difference between the states. Now, how the system behaves when it's cooler and the preferences for alignment are stronger is interesting. Play around with the demonstration below.
     </p>
     <p>
       <div class='grid'>
@@ -45,13 +48,7 @@ Peter Haugen
             <li>
               <input type='range' name='temperature' value='20' min='1', max='30'></input> temperature <span class='temperature_display'></span>
             </li>
-<!--             <li>
-              <input type='range' name='bField' value='50'></input> External Magnetic Field <span class='bField_display'></span>
-            </li>
-            <li>
-              <input type='checkbox' name='auto' value='0'></input> Cycle temperature? <span class='auto_display'></span>
-            </li>
- -->          </ul>
+          </ul>
         </form>
       </div>
     </p>
