@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+    </h2>
+    <h3>
+    </h3>
+    <h4 class='date'>
+    </h4>
+    <p>
+      content
+    </p>
+    <p>
+<!--
+  desired features of firing-range demo:
+    a free play mode where users select velocity and angle and see the arc generated
+    error mode, same as free play but introduce sigma feature and get a feel for how error propagates.
+    introduce a firing rate and targetX and see how many different paths exist that can arrive at the target at the same time.
+  ranges:
+    note that max_x is v0^2/g at theta=pi/4, and t_max = 2*v0/g
+    theta = range from 0 to 1 as a multiplier on pi/2
+    velocity = range from 0 to 10
+    if we want runs to last 2 seconds at most, it would make sense to set g at 10, g=2*v0/t_max
+    if we want the canvas to cover 200 pixels square then 1 meter = 20 pixels, as 100/10=max_x=10
+    targetX = range from 0 to 10 (or v0 produced max range)
+    firingRate = range from 0 to 10 (or 20 times in the v0 produced max time.)
+ -->
+      <div class='firing-range'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='theta' value='0' min='0' max='1.57' step='.0157'>
+              </input>
+              $&\theta&$ <span class='theta_display'></span>
+            </li>
+            <li>
+              <input type='range' name='velocity' value='0' min='0' max='10' step='.1'>
+              </input>
+              velocity <span class='velocity_display'></span>
+            </li>
+            <li>
+              <input type='range' name='sigmaV' value='0' min='0' max='1' step='.01'>
+              </input>
+              $&\sigma_v&$ <span class='sigmaV_display'></span>
+            </li>
+            <li>
+              <input type='range' name='sigmaTheta' value='0' min='0' max='1' step='.01'>
+              </input>
+              $&\sigma_{\theta}&$ <span class='sigmaTheta_display'></span>
+            </li>
+            <li>
+              <input type='range' name='targetX' value='0' min='0' max='10' step='.1'>
+              </input>
+              target-X <span class='targetX_display'></span>
+            </li>
+            <li>
+              <input type='range' name='firingRate' value='0' min='0' max='20' step='.01'>
+              </input>
+              firing rate <span class='firingRate_display'></span>
+            </li>
+            <li>
+              <input type='button' name='fire' value='fire'>
+            </li>
+            <li>
+              <input type='button' name='bombard' value='bombard'>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+
+  </article>
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>
