@@ -82,6 +82,9 @@ FiringRange.prototype.drawFiringRange = function(context){
   context.moveTo(0, this.height);
   context.lineTo(vx, this.height-vy)
   context.stroke();
+  context.beginPath();
+  context.arc(this.targetX*20, this.height, 5, 0, Math.PI*2)
+  context.stroke();
 };
 
 FiringRange.prototype.slideListener = function(event){
