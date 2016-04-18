@@ -10,14 +10,64 @@ Peter Haugen
 <body>
   <article>
     <h2>
+      Basic ballistics
     </h2>
     <h3>
+      Where things are thrown up and fall down.
     </h3>
     <h4 class='date'>
+      2016/04/10
     </h4>
     <p>
-      content
+      One of the first systems a burgeoning physicist tackles is idealized ballistic trajectories. This is where the only force considered to exist for a particle (say a baseball or cannon shell) is a constant force down down,
+      $&\vec{F}= -mg \hat{y}&$. <!-- This makes acceleration quite easy to find, -->
     </p>
+<p>
+      $&\vec{a}= -g \hat{y}&$
+</p>
+<p>
+      $&\vec{r}=
+        cos(\theta)v_0t\hat{x} +
+        sin(\theta)v_0t-\frac{g}{2}t^2 \hat{y}&$
+
+</p>
+<p>
+  <a href="https://en.wikipedia.org/wiki/Propagation_of_uncertainty">linear errors</a>
+  $&F(x,y,...)&$ produces
+      $&\sigma_F=\sqrt{(\frac{df}{dx}*\sigma_x)^2+(\frac{df}{dy}*\sigma_y)^2+...}&$
+</p>
+<p>
+  <table>
+    <tr>
+      <td>$&&$</td>
+      <td>$&x(\theta, v_0, t)&$</td>
+      <td>$&y(\theta, v_0, t)&$</td>
+    </tr>
+    <tr>
+      <td>$&\frac{d}{d\theta}&$</td>
+      <td>$&-sin(\theta) v_0 t&$</td>
+      <td>$&cos(\theta)v_0 t&$</td>
+    </tr>
+    <tr>
+      <td>$&\frac{d}{dv_0}&$</td>
+      <td>$&cos(\theta)t&$</td>
+      <td>$&sin(\theta)t&$</td>
+    </tr>
+  </table>
+</p>
+
+<p>
+  $&\sigma_x=\sqrt{(-sin(\theta) v_0 t \sigma_\theta)^2 + (cos(\theta)t \sigma_{v_0})^2}&$
+  $&=\sqrt{sin^2(\theta) v_0^2 t^2 \sigma_\theta^2 + cos^2(\theta)t^2 \sigma_{v_0}^2}&$
+</p>
+<p>
+  examine the case where $&\sigma_{v_0}=0&$ and $&\theta=\frac{\pi}{4}&$, a maximum for trajectory
+</p>
+<p>
+  $&\sigma_x = sin(\theta) v_0 t \sigma_\theta&$
+</p>
+<p>
+</p>
     <p>
 <!--
   desired features of firing-range demo:
