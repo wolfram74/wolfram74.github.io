@@ -19,22 +19,85 @@ Peter Haugen
       2016/04/10
     </h4>
     <p>
-      One of the first systems a burgeoning physicist tackles is idealized ballistic trajectories. This is where the only force considered to exist for a particle (say a baseball or cannon shell) is a constant force down down,
-      $&\vec{F}= -mg \hat{y}&$. <!-- This makes acceleration quite easy to find, -->
-    </p>
-<p>
-      $&\vec{a}= -g \hat{y}&$
-</p>
-<p>
+      One of the first systems a burgeoning physicist tackles is idealized ballistic trajectories. This is where the only force considered to exist for a particle (say a baseball or cannon shell) is a constant force in one direction, in this case down,
+      $&\vec{F}= -mg \hat{y}&$. This makes acceleration quite easy to find,
+      $&\vec{a}= -g \hat{y}&$. Which, after some straightforward integration produces
+      $&\vec{v}=
+        v_{x0}\hat{x} +
+        (v_{y0}-gt )\hat{y}&$ and
       $&\vec{r}=
         cos(\theta)v_0t\hat{x} +
-        sin(\theta)v_0t-\frac{g}{2}t^2 \hat{y}&$
-
-</p>
-<p>
+        (sin(\theta)v_0t-\frac{g}{2}t^2) \hat{y}&$
+      the little carrots over x and y are called hats and they indicate that x and y are unit vectors, specifying what direction the quantity is pointing in. The trig functions come into play because we can break down the initial velocity into it's x and y components based on where it was pointed. Play around with the initial angle and velocity and see how it they impact the path.
+    </p>
+    <p>
+      <div class='firing-range'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='theta' value='0' min='0' max='1.57' step='.0157'>
+              </input>
+              $&\theta&$ <span class='theta_display'></span>
+            </li>
+            <li>
+              <input type='range' name='velocity' value='0' min='0' max='10' step='.1'>
+              </input>
+              velocity <span class='velocity_display'></span>
+            </li>
+            <li>
+              <input type='button' name='fire' value='fire'>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+    <p>
+      So while this is a relatively simple system, there are some questions you could ask about it that are good exercises when a student is starting to learn how to explore a system theoretically. When does the particle hit the ground again? How far does it go? What angle sends it furthest? How do errors in measurement impact these results? Let's poke around and see what we find.
+    </p>
+    <p>
+      Let's start by answering how long is the object in the air for. We know how long it takes to start falling down again because our description of the velocity. If it's positive, it's going up, if it's negative, it's going down. So if $&v_y = v_{y0}-gt&$ this means that the particle will start falling down after it's velocity goes through 0, or at time $&v_{y0}/g=t_{apex}&$. Now how does that help us find out how long it takes to land? Well because the acceleration is constant, going up more and more slowly is not significantly different than going down faster and faster. This means that by the time our particle is traveling down as fast as it was traveling up it will also be at the same height. So if we found when it was traveling down at
+      $&v_{y0}&$, we'd also know when it was ground level. It'll take just as long to speed back up as it took to slow down, so we know it's time of flight was twice the time to apex,
+      $&t_f = 2t_{apex}=2\frac{v_{y0}}{g}=2sin(\theta)\frac{v_0}{g}&$. We can do two things to increase our confidence that this is the right answer, easiest is to check the units, we wanted an answer in units of time, and both 2 and trig functions are just numbers, but velocity is distance divided by time, and g, or acceleration, is distance over time squared. so dividing velocity by acceleration gets us (distance X time squared) divided by (distance X time), which comes out to units of time, cool. We're not measuring our time of flight in units of elephants, that's reassuring. This is called dimensional analysis and is an easy sanity check one can do anytime during a problem. Admittedly it is
+      <a href="https://xkcd.com/687/">no guarantee</a>
+      that things are working, but hey, any port in a storm, right? The other consideration which is considerably stronger, but not always available is we throw it into our solution for position and see if it churns out 0. so
+      $&y(t) = sin(\theta)v_0t-\frac{g}{2}t^2&$, set $&t=t_f&$ and we get
+      $&sin(\theta)v_0t_f-\frac{g}{2}t_f^2=
+      sin(\theta)v_02sin(\theta)\frac{v_0}{g}-\frac{g}{2}(2sin(\theta)\frac{v_0}{g})^2
+      &$ rearrange things and do some cancellation so it's a bit more obvious what we're looking at to come to
+      $&y_f = 2sin(\theta)^2\frac{v_0^2}{g}-2sin(\theta)^2\frac{v_0^2}{g}=0&$ which is how high off the ground something that's landed should be, so we're pretty sure we found the time of flight for this projectile.
+    </p>
+    <p>
+      So how far does it go in it's flight? This is sometimes referred to as range. Well, with time of flight, and our first expression for x as a function of time $&x(t)=cos(\theta)v_0t&$ we can just set $&t=t_f&$ again and get
+      $&cos(\theta)v_0t_f=
+      cos(\theta)v_0(2sin(\theta)\frac{v_0}{g})=
+      2sin(\theta)cos(\theta)\frac{v_0^2}{g}
+      &$
+      Which is relatively tidy, but if we look up some trig relations, we can simplify it further to get $&x_f=sin(2\theta)\frac{v_0^2}{g}&$. How you'd find that yourself involves actually some really elegant math involving the euler identity $&e^{ix}=cos(x)+isin(x)&$ and complex numbers. Some of the implications of that could easily be a satisfactory discussion of it's own, so we'll just take the result and keep going.
+    </p>
+    <p>
+      So now we have a range in terms of our initial velocity and the trajectory it started on. Now, that $&v_0^2&$ term is kind of boring, because it's always positive and always growing, but the
+      $&sin(2\theta)&$ term has some interesting properties. Namely it starts at 0 for $&\theta=0&$ and goes back to 0 at $&\theta=\pi/2&$. If we wanted to figure out what angle produces the furthest range, we would generally take a derivative and find where that equals 0, but this is a fairly simple expression and it's common to just remember that $&sin(x)=1&$ if $&x=\pi/2&$ so if $&2\theta = \pi/2&$ we see that range is maximized at $&\theta = \pi/4&$ where the range will be $&\frac{v_0^2}{g}&$
+    </p>
+    <p>
+      But what about errors? If you remember from the first article I wrote on <a href="../001_error_propogation/main.html">error propagation</a> if we have some uncertainty in some input values, how does that crop up in our final value? Well, applying the equation referenced in that article ( $&\sigma_F=\sqrt{\Sigma_1^n(\frac{df}{dx_i}*\sigma_{x_i})^2}&$ ), we have
+      $&\sigma_{x_f} = \sqrt{(\frac{dx_f}{d\theta}\sigma_{\theta})^2+(\frac{dx_f}{dv_0}\sigma_{v_0})^2}&$ which means <em>now</em> we take derivatives. And we're presented with
+      $&\sigma_{x_f} = \sqrt{
+        (2cos(2\theta)\frac{v_0^2}{g}\sigma_\theta)^2
+        +(2sin(2\theta)\frac{v_0}{g}\sigma_{v_0})^2
+      }&$ This is actually rather interesting because the contribution due to error in $&\theta&$ becomes vanishingly small at the optimal angle, as $&cos(\pi/2)=0&$. To see the implications of this I generated histograms of what happend when I introduced $&\sigma_\theta=\pi/40&$ noise when $&\frac{v_0^2}{g}=10&$ and the angle was either $&\pi/8&$, or $&\pi/4&$.
+    </p>
+    <p>
+      <img src="./1*pi:8.png">
+      <img src="./2*pi:8.png">
+    </p>
+    <p>
+      The y-scale is the same in both cases, so we can see that the relative expectation between getting the most likely case is over 30 times higher even with the same amount of variability in the initial values.
+    </p>
+<!-- <p>
   <a href="https://en.wikipedia.org/wiki/Propagation_of_uncertainty">linear errors</a>
-  $&F(x,y,...)&$ produces
-      $&\sigma_F=\sqrt{(\frac{df}{dx}*\sigma_x)^2+(\frac{df}{dy}*\sigma_y)^2+...}&$
+  $&F(x_1,...,x_n)&$ produces
+      $&\sigma_F=\sqrt{\Sigma_1^n(\frac{df}{dx_i}*\sigma_{x_i})^2}&$
 </p>
 <p>
   <table>
@@ -42,33 +105,40 @@ Peter Haugen
       <td>$&&$</td>
       <td>$&x(\theta, v_0, t)&$</td>
       <td>$&y(\theta, v_0, t)&$</td>
+      <td>$&x_f(\theta, v_0)=\frac{v_0^2}{g}sin(\theta)&$</td>
     </tr>
     <tr>
       <td>$&\frac{d}{d\theta}&$</td>
       <td>$&-sin(\theta) v_0 t&$</td>
       <td>$&cos(\theta)v_0 t&$</td>
+      <td>$&2\frac{v_0^2}{g}cos(2\theta)&$</td>
     </tr>
     <tr>
       <td>$&\frac{d}{dv_0}&$</td>
       <td>$&cos(\theta)t&$</td>
       <td>$&sin(\theta)t&$</td>
+      <td>$&2\frac{v_0}{g}sin(\theta)&$</td>
     </tr>
   </table>
 </p>
 
 <p>
-  $&\sigma_x=\sqrt{(-sin(\theta) v_0 t \sigma_\theta)^2 + (cos(\theta)t \sigma_{v_0})^2}&$
+  $&\sigma_x(t)=\sqrt{(-sin(\theta) v_0 t \sigma_\theta)^2 + (cos(\theta)t \sigma_{v_0})^2}&$
   $&=\sqrt{sin^2(\theta) v_0^2 t^2 \sigma_\theta^2 + cos^2(\theta)t^2 \sigma_{v_0}^2}&$
 </p>
 <p>
   examine the case where $&\sigma_{v_0}=0&$ and $&\theta=\frac{\pi}{4}&$, a maximum for trajectory
 </p>
 <p>
-  $&\sigma_x = sin(\theta) v_0 t \sigma_\theta&$
+  $&\sigma_x(t) = sin(\theta) v_0 t \sigma_\theta&$, should this be applied symmetrically even though there is a firmly derived maximum range of $&x_{max}=v_0^2/g&$?
 </p>
 <p>
+  $&\sigma_{xf} = 2\frac{v_0^2}{g}cos(2\theta)\sigma_\theta&$ in this case, but returns 0 at specified angle.
 </p>
-    <p>
+<p>
+  If executed repeatedly, one would expect $& \langle x \rangle < x_{max}&$
+</p>
+ -->
 <!--
   desired features of firing-range demo:
     a free play mode where users select velocity and angle and see the arc generated
@@ -83,7 +153,9 @@ Peter Haugen
     targetX = range from 0 to 10 (or v0 produced max range)
     firingRate = range from 0 to 10 (or 20 times in the v0 produced max time.)
  -->
-      <div class='firing-range'>
+ <!--
+ <p>
+  <div class='firing-range'>
         <canvas></canvas>
         <form class='controls'>
           <ul>
@@ -100,12 +172,12 @@ Peter Haugen
             <li>
               <input type='range' name='sigmaV' value='0' min='0' max='1' step='.01'>
               </input>
-              $&\sigma_v&$ <span class='sigmaV_display'></span>
+              $&\sigma_v\v&$ <span class='sigmaV_display'></span>
             </li>
             <li>
               <input type='range' name='sigmaTheta' value='0' min='0' max='1' step='.01'>
               </input>
-              $&\sigma_{\theta}&$ <span class='sigmaTheta_display'></span>
+              $&\sigma_{\theta}/\theta&$ <span class='sigmaTheta_display'></span>
             </li>
             <li>
               <input type='range' name='targetX' value='0' min='0' max='10' step='.1'>
@@ -127,14 +199,8 @@ Peter Haugen
         </form>
       </div>
     </p>
-
+ -->
   </article>
-  <div>
-    <h3>Exploration</h3>
-  </div>
-  <div>
-    <h3>Further Reading</h3>
-  </div>
 </body>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 <script src='../../scripts/public/jquery-1.11.2.min.js'></script>
