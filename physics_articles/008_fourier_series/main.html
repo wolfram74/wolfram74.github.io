@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+    </h2>
+    <h3>
+    </h3>
+    <h4 class='date'>
+
+    </h4>
+    <p>
+      content $&e^{ix}=cos(x)+isin(x)&$
+    </p>
+    <p>
+      <div class='demostring'>
+        <canvas class = 'raw'></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='alpha' value='.5' min='0', max='1' step='.01'></input> alpha <span class='alpha_display'></span>
+            </li>
+            <li>
+              <input type='range' name='sample' value='5' min='1' max='30'></input> Sample depth <span class='sample_display'></span>
+            </li>
+            <li>
+              <input type='button' name='pluck' value='pluck'>
+            </li>
+          </ul>
+        </form>
+        <canvas class = 'fourier'></canvas>
+        <canvas class = 'reconstruction'></canvas>
+      </div>
+    </p>
+  </article>
+<!--
+  demo description
+  the main component will be a graph of a line being plucked in a triangle shape.
+  user has control over where it is being plucked on, base is length 1, slide is alpha, 0-1
+  string is either displaced such that the string is always some fixed Length L (1.1 or something) or that the net tension is is always constant (some force gamma yhat and the resulting shape.)
+  if both situations are easy to calculate, maybe allow the user to explore either case.
+  in any regard, the use can control this parameter alpha and see that it changes the shape, but also changes the k-spectrum.
+  k-spectrum can be listened to using some of the code from the dispersion relation article, clean up the code a bit though.
+  entertain going both ways, too, where you give a slider ranging from 1 to, say, 30 that allows the user to select how much of the k-spectrum to include in reconstructing the original pluck.
+-->
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>
