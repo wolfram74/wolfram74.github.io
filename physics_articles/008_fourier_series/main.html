@@ -10,14 +10,27 @@ Peter Haugen
 <body>
   <article>
     <h2>
+      The Fourier Series
     </h2>
     <h3>
+      Building a function with all the colors of the rainbow.
     </h3>
     <h4 class='date'>
-
+      2016/04/24
     </h4>
     <p>
-      content $&e^{ix}=cos(x)+isin(x)&$
+      We're going to start with polynomials, bear with me. Most of this will apply to functions in general, but polynomials are something we're all fairly familiar with. Polynomials are things like $&y = x^2 - 4&$ in case you'd forgotten the word. That particular one is what we'd call a 2nd order polynomial, because it's got that $&x^2&$ term in there. In most cases working with higher order polynomials is not technically distinct from working with lower order ones, just a bit lengthier. Due to the fact that in many respects they behave the same way, it's often we might break an arbitrarily complicated function into it's parts, thinking about it instead of as one long collection, thinking about what part each order contributes, $&f(x) = \Sigma_{n=0}^{\infty} c_n *x^n = c_0 + c_1x+c_2x^2...&$ When we describe a function this way we call it a power series representation, because we've just pulled out the kernel each power contributes and start thinking about that. The first way students learn how to find this power series is with a Taylor expansion. For an arbitrary curve, not our tidy 2nd order polynomial we mentioned earlier, it involves an infinite number of derivatives. Then again, the curve goes out to infinite so it kind of makes sense.
+    </p>
+    <p>
+      Now, looking at the entire universe is all well and good, but sometime we're just looking at the inside of a box. Or even simpler, the string of a guitar. Yes, the wire on a acoustic guitar is being effected by the humidity in the air, the stage lights, even the relative position of Jupiter. But are these effects large? No. Are they even measurable with technology we have today? Maybe the humidity, but Jupiter can just faff off and go turn into a goose for all we the impact it's having. The biggest thing we care about is what shape it's starting off in. If you pull on the guitar string at some point you'll make it into a triangle shape, this isn't a natural shape for it though. The string's universe goes from nut to bridge some length L away and the string is fixed at those points. For certain reasons these rigid boundary conditions make it convenient to think about it as actually a string that stretches out forever, but repeats every length L, so that the height of the string position x, $&y(x)&$ is the same L away, $&y(x+l)=y(x)&$.
+    </p>
+    <p>
+      Periodic functions like these have building blocks the same way polynomials have building blocks. Sines and cosines can be used to build up these shapes. So, say we have a function $&f(x)&$ that is periodic over length L, we can reconstruct that function as
+      $&f(x)=\Sigma_{n=0}^{\infty}(a_n cos(\pi n \frac{x}{L})+b_n sin(\pi n \frac{x}{L}))&$ This is called the Fourier Series for the function. Cool. Good chat everybody, see you later.
+    </p>
+    <p> Hah, no, let's work an example case.</p>
+    <p>
+      So we'll revisit our example of the guiat string. Below we've got a generic triangle, length is 1 because hey, one less variable to drag around. Play around with the slider a bit and I'll explain more what we've got after that.
     </p>
     <p>
       <div class='demostring'>
@@ -25,19 +38,58 @@ Peter Haugen
         <form class='controls'>
           <ul>
             <li>
-              <input type='range' name='alpha' value='.5' min='0', max='1' step='.01'></input> alpha <span class='alpha_display'></span>
+              <input type='range' name='alpha' value='.5' min='0.01', max='.99' step='.01'></input> alpha <span class='alpha_display'></span>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+    <p>
+      So, the slider controls $&\alpha&$, which is where along the string you're pulling, very close to the nut or the bridge. The peak of the string we'll call $&y_0&$ and it does depend on $&\alpha&$, and deciding on a physically realistic function for that could get kind of involved, I've just chosen the top half an ellipse for the only reason that the over all length of the triangle is a constant, ultimately that's a purely cosmetic decision for the math we're going to get around to.
+    </p>
+    <p>
+      So we have our guitar string pulled out to a distance $&y_0&$ when we're $&\alpha&$ down from the guitar head. We can't describe it with one equation, but we can with two, for
+      $&x<\alpha&$ : $&f(x)=\frac{y_0}{\alpha}x&$ and for
+      $&x>\alpha&$ : $&f(x)=\frac{y_0}{\alpha-1}x - \frac{y_0}{\alpha-1}&$.
+      To find out what the a's and b's are that make up this function, we do not need to do infinite derivatives like we did for the taylor expansion, which is nice because I wanted to get around to lunch at some point and you don't often get to do infinite work in a finite amount of time. We can exploit the subtle fact that the integral between two trig functions $&\int_0^1cos(\pi n x)cos(\pi m x)dx&$ will be 0 for every integer pair of n and m <em>except</em> when they are the same number. At which point we just get 1. We'll also be exploiting the more straightforward fact that for some constant R $&\int(R*f)dx=R\int(f)dx&$. These two facts allow us to find functions for $&a_n&$ and $&b_n&$ instead of calculating them all individually. If we do the integral
+      $&\int_0^1cos(n\pi x)f(x)dx&$ we'll get a function for all the cosine terms with only a variable n$&a_n=A(n)&$, a similar integral can be done to get the sine terms by just replacing cosine with sine (some mathematically rigorous individuals will remark that any integral implicitly involves an infinite amount of addition, to which I respond, shoosh, this is a fun place.) But wait, our function was broken into parts; 3 of them in fact, if you count the constant term in the right part of the triangle.
+    </p>
+    <p>
+      This is fine, integrals are additive. Which means that
+      $&\int_0^1cos(n\pi x)f(x)dx =
+      \int_0^{\alpha}cos(n\pi x)\frac{y_0}{\alpha}xdx+
+      \int_{\alpha}^1cos(n\pi x)\frac{y_0}{\alpha-1}xdx -
+      \int_{\alpha}^1cos(n\pi x)\frac{y_0}{\alpha-1}dx&$ with a matching set of 3 for the sine terms. These are not, in absolute terms, particularly hard problems. They can be done by hand, but it's quite easy to make a mistake along the way of doing them, which I did. An easy check is to try to reconstruct the original function with your Fourier Series and see if it converges, my initial solutions were only even approximately right for $&\alpha=.5&$. At this point a computer algebra system  is appropriate, it's a simple well understood problem that has to be done multiple times, text book case for having a computer do it for you. The final results were
+      $&A(n) = \frac{ y_0*(\alpha(cos(n \pi) -1) - cos(n \pi \alpha) +1) }
+        {n^2\pi^2(\alpha-1)\alpha}&$ and
+      $&B(n) = \frac{y_0(\alpha sin(n \pi) - sin(n \pi \alpha))}
+      {n^2\pi^2(\alpha-1)\alpha}&$. The following demo lets you play around with the same string again, only now you can see how the sine terms contribute and how rapidly we retrieve the original function from sines and cosines.
+    </p>
+    <p>
+      <div class='demostring'>
+        <canvas class = 'raw'></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='alpha' value='.5' min='0.01', max='.99' step='.01'></input> alpha <span class='alpha_display'></span>
             </li>
             <li>
               <input type='range' name='sample' value='5' min='1' max='30'></input> Sample depth <span class='sample_display'></span>
             </li>
-            <li>
+<!--             <li>
               <input type='button' name='pluck' value='pluck'>
             </li>
-          </ul>
+ -->          </ul>
         </form>
         <canvas class = 'fourier'></canvas>
         <canvas class = 'reconstruction'></canvas>
       </div>
+    </p>
+    <p>
+      So in playing around with the example we might notice that even as few as 3 terms get's quite close the original function when $&\alpha$& is near .5, but including 30 terms we still get some persistent ringing at extreme values of $&\alpha&$. We can get a feeling for <em>why</em> this happens by looking at the behavior of the denominator, notice that there's an $&n^2&$ term, which means we'd expect that for larger n's, the associated coefficients would die down very quickly. At the same time, the extreme values of $&alpha&$, 1 and 0, both cause the denominator to go to 0, which is a notoriously bad thing to divide by.
+    </p>
+    <p>
+      Another thing worth mentioning is that this was relatively straight forward when working with straight lines. But most smooth functions we could break up like this into sections. Anybody who's ever seen a digital image (<em>like this very computer screen</em>) is aware of how complicated structures can be represented by simple blocks like pixels or lines.
     </p>
   </article>
 <!--

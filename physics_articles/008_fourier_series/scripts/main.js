@@ -62,11 +62,13 @@ DemoString.prototype.buttonListener = function(event){
 
 DemoString.prototype.draw = function(){
   var rawContext = this.$div.find('.raw')[0].getContext('2d')
-  var fourierContext = this.$div.find('.fourier')[0].getContext('2d')
-  var reconstructionContext = this.$div.find('.reconstruction')[0].getContext('2d')
   this.drawRaw(rawContext)
-  this.drawFourier(fourierContext)
-  this.drawReconstruction(reconstructionContext)
+  if(this.$div.find('.fourier').length){
+    var fourierContext = this.$div.find('.fourier')[0].getContext('2d')
+    var reconstructionContext = this.$div.find('.reconstruction')[0].getContext('2d')
+    this.drawFourier(fourierContext)
+    this.drawReconstruction(reconstructionContext)
+  }
   setTimeout(this.draw.bind(this), 35)
 }
 
@@ -84,8 +86,9 @@ DemoString.prototype.drawArc = function(context){
   for(var xi=0; xi< points; xi++){
     var rx = xi*dx
     var sx = rx * this.width
-    var theta = Math.acos((rx-this.x0)/this.a)
-    var ry =(this.b*Math.sin(theta))
+    // var theta = Math.acos((rx-this.x0)/this.a)
+    // var ry = (this.b*Math.sin(theta))
+    var ry = this.y0(rx)
     var sy = this.height - this.height*ry
     context.beginPath();
     context.arc(sx, sy, 1, 0, Math.PI*2)
@@ -107,11 +110,12 @@ DemoString.prototype.drawFourier = function(context){
   context.clearRect(0,0, this.width, this.height)
   var bars = 50;
   var bWidth = 1/bars;
+  var norm = this.aValue(0)
   for(var n=0; n <= bars; n++){
     context.fillStyle = n <= this.sample ? '#aad' : '#daa'
     // var an = this.aValue(n)
-    var an = Math.pow(this.bValue(n), 2)
-    var an = Math.pow(an, .5)
+    var an = Math.pow(this.aValue(n), 2)
+    var an = Math.pow(an, .5)/norm
     context.beginPath()
     context.fillRect(
       n*bWidth*this.width ,this.height-an*this.height,
@@ -131,7 +135,7 @@ DemoString.prototype.drawReconstruction = function(context){
     var ry = 0
     for(var n = 0; n <= this.sample; n ++){
       ry += this.bValue(n)*Math.sin(n*Math.PI*rx)*2
-      ry += this.aValue(n)*Math.cos(n*Math.PI*rx)/2
+      // ry += this.aValue(n)*Math.cos(n*Math.PI*rx)
     }
     var sy = this.height - this.height*ry
     context.beginPath();
@@ -143,41 +147,30 @@ DemoString.prototype.drawReconstruction = function(context){
 
 DemoString.prototype.bValue = function(n){
   var y0 = this.y0()
-  if(n===0){return y0/2}
+  if(n===0){return 0}
   var npi = n*Math.PI
   var al = 1*this.alpha
   var npia = npi * al
-  var c1 = y0/al
-  var c2 = y0/(1-al)
-  var bn1 = -(c1/npi)*(al*Math.cos(npia)+Math.sin(npia)/npi)
-  var bn2 = -(c2/npi)*((1-al)*Math.cos(npia)-Math.sin(npia)/npi)
-  // var bn2 = -(c2/npi)*((1)*Math.cos(npia)-Math.sin(npia)/npi)
-  if(al===1 || al === 0){
-    return al ? bn1 : bn2
-  }
-  return bn1 + bn2
+  var numer = y0*(al*Math.sin(npi) - Math.sin(npia))
+  var denom = (Math.pow(npi,2)*(al*al - al))
+  return numer/denom
 }
 DemoString.prototype.aValue = function(n){
   var y0 = this.y0()
-  if(n===0){return y0/2}
+  if(n===0){return y0/4}
   var npi = n*Math.PI
   var al = 1*this.alpha
   var npia = npi * al
-  var c1 = y0/al
-  var c2 = y0/(1-al)
-  var osc = Math.pow(-1, n+1)/npi
-  var an1 = (c1/npi)*(al*Math.sin(npia)+Math.cos(npia)/npi - 1/npi)
-  var an2 = (c2/npi)*((1-al)*Math.sin(npia)-Math.cos(npia)/npi + osc)
-  // var an1 = (c1/npi)*(al*Math.sin(npia)+Math.cos(npia)/npi )
-  // var an2 = (c2/npi)*((1)*Math.sin(npia)-Math.cos(npia)/npi )
-  if(al===1 || al === 0){
-    return al ? an1 : an2
-  }
-  return an1 + an2
+  var numer = y0*(al*(Math.cos(npi) - 1) - Math.cos(npia) + 1)
+  var denom = (Math.pow(npi,2)*(al*al - al))
+  return numer/denom
 }
 
-DemoString.prototype.y0 = function(){
-  var theta = Math.acos((this.alpha-this.x0)/this.a)
+DemoString.prototype.y0 = function(x){
+  var dx = x || this.alpha
+  var theta = Math.acos((dx-this.x0)/this.a)
   return (this.b*Math.sin(theta))
+  // if(x){ return 4*x*(1-x)}
+  // return 4*this.alpha*(1-this.alpha)
 }
 
