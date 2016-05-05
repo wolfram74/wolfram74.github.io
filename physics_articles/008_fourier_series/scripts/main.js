@@ -134,8 +134,8 @@ DemoString.prototype.drawReconstruction = function(context){
     var sx = rx*this.width
     var ry = 0
     for(var n = 0; n <= this.sample; n ++){
-      ry += this.bValue(n)*Math.sin(n*Math.PI*rx)*2
-      // ry += this.aValue(n)*Math.cos(n*Math.PI*rx)
+      ry += this.bValue(n)*Math.sin(n*Math.PI*rx)//*2
+      ry += this.aValue(n)*Math.cos(n*Math.PI*rx)//*2
     }
     var sy = this.height - this.height*ry
     context.beginPath();
