@@ -10,15 +10,63 @@ Peter Haugen
 <body>
   <article>
     <h2>
-
+      Resonant Oscillators
     </h2>
     <h3>
+      Hitting the sweet spot.
     </h3>
     <h4 class='date'>
       2016-05-08
     </h4>
     <p>
-      content
+      Today we're going to talk about what I think of as one of the most elegant results a young physicist might work through. I speak of the driven-damped simple harmonic oscillator. Note that there are three parts to this system, the driven part, the damped part, and the simple harmonic part. Like Merlin, we're gonna go about this donkey backwards.
+    </p>
+    <p>
+      So what is a simple harmonic oscillator? Well, we're gonna start with forces as a function of distance.
+      $&F(x)=c&$
+      is the dead simplest we can go, force is a constant, acceleration is constant, things just scoot off forever. Admittedly, even this simple approach can produce some interesting questions, if you remember
+      <a href="../007_cannon_balls/main.html">ideal ballistics.</a>
+      However, from there we can complicate things by one hair, and say
+      $&F(x)=\pm kx&$
+      Now, the plus version of that force will result in not just increasing speed forever, but increasingly increasing speed forever, you'll get an exponential which couldn't conceivably be accurate for very long. But the minus version, that's got some appeal. If the particle is a bit to the left, it gets pushed right, if it's a bit to the right, it gets pushed left, so it can't stray too far from the origin.
+    </p>
+    <p>
+      This comes down to an exercise in solving differential equations, and we make it easier on ourselves by defining a new variable
+      $&\omega_0&$ where
+      $&\omega_0^2=\frac{k}{m}&$ and is sometimes referred to as the natural frequency. This allows us to write our earlier force as
+      $&\ddot{x}+\omega_0^2x=0&$
+      where dots over variables means we've taken that many time derivatives,
+      $&a=\ddot x&$.
+      This class of differential equation, linear homogeneous, when it has this few terms, is basically solved by a process of slightly structured guessing. We'll skip that for the sake of brevity and talk about what shape the solutions take. The simple harmonic oscillator has a variety of equally valid forms, because it's trig functions, and they are a malleable and shifty lot. We'll be sticking with the form of
+      $&x(t) = B_1cos(\omega_0 t) + B_2sin(\omega_0 t)&$ where
+      $&B_1&$ and $&B_2&$ reflect the starting conditions, the initial velocity and initial position. In fact, with a little differentiation you could find those constants to be
+      $&B_1=x_0&$ and $&B_2=\frac{v_0}{\omega_0}&$
+    </p>
+    <p>
+      So that's the simple harmonic part, let's add damping to the mix. A damping force is one that is applied in the opposite direction that a particle is moving in. When this is the case you can see that energy is going down. It's most obvious when you phrase it as the vector expression
+      $&w=\vec F \cdot \vec v&$ where power is the energy change per unit time, watts. The dot product between force and velocity will be zero if they point at right angles of each other, positive if they're partially aligned, and negative if partially in opposite directions. So if you end up with
+      $&F(v)=-b v&$, you can see that the energy change of the system is always negative if b is positive. Introducing a new substitution
+      $&2\beta = \frac{b}{m}&$ we can take our new damping force with the restoring force,
+      $&F(v, x) = -b v - k x&$ we get a new differential equation when we include this linear damping
+      $&\ddot{x}+2\beta \dot{x}+\omega_0^2x=0&$
+    </p>
+    <p>
+      Had I not skipped over how we solved the undamped version, you'd be able to spot that this has 3 moderately distinct regimes. For now I'm just going to assert that it matters how $&\beta&$ compares with $&\omega_0&$. We're going to focus mostly on the case where $&\beta < \omega_0&$ which is referred to as under damping. In this regime we get a new frequency, $&\omega_1^2=\omega_0^2-\beta^2&$ Which lets us write the solution to the damped harmonic oscillator as
+      $&x(t) = e^{-\beta t}(B_1cos(\omega_1 t) + B_2sin(\omega_1 t))&$ where $&B_1&$ and $&B_2&$ behave again as knobs to reflect the initial conditions. $&B_1&$ is unchanged, but the exponential complicates things slightly for $&B_2&$ as it takes the form $&\frac{v_0 + \beta x_0}{\omega_1}&$
+    </p>
+    <p>
+      We've taken our time to get here, but let's introduce an external force into things.
+      $&F(v, x, t) = -b v - k x + F_0 cos(\omega_d t)&$, I call it an external force because that part isn't a function of the particles position or velocity, it's just being imposed over time. In reality whatever environment is imposing the restoring and damping forces might also be perceived as "external" to the particle, but it's a sometimes messy distinction to make rigorously. The take away is we now have a new, <em>inhomogeneous</em> differential equation
+      $&\ddot{x}+2\beta \dot x+\omega_0^2x=f_0 cos(\omega_d t)&$. The solution to this ends up being the combination of a transient term, of the form given by the damped oscillator, and a persistent term, or attractor, that regardless of initial conditions the oscillator settles into. The total solution is
+      $&x(t) = Acos(\omega_d t+\delta) +e^{-\beta t}(B_1cos(\omega_1 t) + B_2sin(\omega_1 t))&$.
+
+    </p>
+    <p>
+      So, definitions. Some derivatives and algebra would tell us that
+      $&A^2=\frac{f_0^2}{(\omega_0^2-\omega_d^2)^2+4\beta^2\omega_d^2}&$, take note of the denominator there, the punchline is hiding in it.
+      $&\delta = arctan(\frac{2\beta\omega_d}{\omega_0^2-\omega_d^2})&$, arctan being the inverse of tangent, putting in infinite gives $&\pi/2&$, negative infinite returns $&-\pi/2&$.
+      $&B_1 = x_0 - A cos(\delta)&$, a bit messier than previous, because the attractor term has some say. And
+      $&B_2 = (v_0 - \omega_d A sin(\delta) + \beta B_1)/\omega_1&$. Ok, that's a gob ton of math, so let's get down to some exploration before explanations. Below is a little interactive where you can play around with the driving frequency, I've set $&\omega = 1&$, $&\beta=.05&$ and $&f_0=10&$. The red lines show you the bounds of the attractor solution.
     </p>
     <p>
       <div class='resonator'>
@@ -26,19 +74,20 @@ Peter Haugen
         <form class='controls'>
           <ul>
             <li>
-              <input type='range' name='w' value='.5' min='0.01', max='2' step='.01'></input> $&\omega&$ <span class='w_display'>.5</span>
+              <input type='range' name='w' value='.5' min='0.01', max='2' step='.01'></input> $&\omega_d&$ <span class='w_display'>.5</span>
             </li>
           </ul>
         </form>
       </div>
     </p>
-
+    <p>
+      So, one thing you'll notice as you shift driving frequency towards $&\omega_0&$ the guidelines go out past the range of the screen. When the driving frequency approaches the natural frequency, it's what's referred to as being resonantly driven. You can see that by looking at how calculate A, and taking note that the denominator has that $&\omega_0^2-\omega_d^2&$ term in it, when that goes to zero, the denominator is at it's smallest, making the amplitude the largest. An interesting feature/engineering problem is that if you had more driving forces at different frequencies, you'd have more attractors just being added together. Now remember how from the
+      <a href="../008_fourier_series/main.html">Fourier series conversation</a> we found that arbitrary shapes can be made from adding together frequencies. Why does this matter? Imagine you have some kind of stimulus, say, going over a bumpy road or being walked on, if that stimulus is occurring at an even fraction frequency of the natural frequency, say one half, or one third, or one fifty seventh, some portion of the stimulus will be resonantly driving the system. Now in practice we don't need to care about much past those very high harmonics because Fourier series tend to converge incredibly fast, all said and done, but it does mean you'll start to get some significant problems with resonance before you actually hit the natural frequency.
+    </p>
   </article>
   <div>
-    <h3>Exploration</h3>
-  </div>
-  <div>
     <h3>Further Reading</h3>
+      <a href="http://www.sosmath.com/tables/diffeq/diffeq.html">Solving differential equations</a>
   </div>
 </body>
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>

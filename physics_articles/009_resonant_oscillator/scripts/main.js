@@ -73,7 +73,7 @@ Resonator.prototype.draw = function(){
 }
 
 Resonator.prototype.timeStep = function(){
-  this.t += .035
+  this.t += .07
   this.xs.push(this.xt())
   this.vi = this.vt()
   if( this.xs.length > 400){this.xs.shift()}
