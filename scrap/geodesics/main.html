@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+<body>
+
+<p>
+  problem statement: 6.07, given a cylinder of radius R, find the shortest path from $&\theta_1, z_1&$ to $&\theta_2, z_2&$
+</p>
+<ol>
+  <li>
+    <p>$&\frac{\delta f}{\delta y}-\frac{d}{dx}\frac{\delta f}{\delta y'}=0&$</p>
+    <p>Euler lagrange equation, if x is an independent variable that defines y, and f is a curve defined by x, y and $&y'=\frac{dy}{dx}&$ then satisfying that differential equation means f is a stationary solution to $&\int_{p_1}^{p_2}fdx&$, some kind of local extrema or saddle point.</p>
+  </li>
+  <li>
+    <p>$&ds = \sqrt{\Sigma_1^k (de_i)^2}&$</p>
+    <p>The infinitesimal displacement in a space with k orthonormal basis vectors is calculable as a pythagorean-ish displacement of the infinitesimal displacements in the k dimensions (is this referred to as a euclidean metric?) </p>
+  </li>
+  <li>
+    <p>$&ds = \sqrt{dz^2 + R^2d\theta^2}&$</p>
+    <p>z being a normal euclidean coordinate has no special form for it's infinitesimal form, $&\theta&$ being an angle measurement needs the distance from the axis of rotation R to figure define it's infinitesimal displacement</p>
+  </li>
+  <li>
+    <p>$&\int_{p_1}^{p_2}ds=\int_{p_1}^{p_2}\sqrt{dz^2 + R^2d\theta^2}&$</p><p>An expression for length between two arbitrary points, at this point it doesn't seem a non-straight line solution is permissible.</p>
+  </li>
+  <li>
+    <p>$&\frac{d\theta}{dz}=\theta' \implies d\theta = \theta' dz&$</p>
+    <p>because it's a full derivative as opposed to a partial derivative ($&\frac{\delta \theta}{\delta z}&$) the infinitesimal portions can be separated and manipulated as though they are free standing variables. This irritates some mathematicians?</p>
+  </li>
+  <li>
+    <p>$&\int_{p_1}^{p_2}\sqrt{dz^2 + R^2d\theta^2}=
+      \int_{z_1}^{z_2}\sqrt{dz^2 + R^2dz^2\theta'^2}=
+      \int_{z_1}^{z_2}\sqrt{1 + R^2\theta'^2}dz=
+      R\int_{z_1}^{z_2}\sqrt{1/R^2 + \theta'^2}dz&$</p>
+      <p>Using the result from 5 to turn a multivariable curve into a curve of the form described in 1</p>
+  </li>
+  <li>
+    <p>$&f(\theta, \theta', z) = \sqrt{1 + R^2\theta'^2} \implies
+      \frac{\delta f}{\delta \theta}-\frac{d}{dz}\frac{\delta f}{\delta \theta'}=
+      0 - \frac{d}{dz} \frac{R\theta'}{\sqrt{1/R^2 + \theta'^2}}=0 \implies
+      \frac{R\theta'}{\sqrt{1/R^2 + \theta'^2}} = C&$</p>
+        <p>The euler lagrange equation dictates that curves that will generate stationary values for length of paths between two points on a cylinder, when differentiated with respect to $&\theta'&$, will have no z dependence</p>
+  </li>
+  <li>
+    <p>$&\frac{R\theta'}{\sqrt{1/R^2 + \theta'^2}} = C_1 \implies
+      \frac{R^2\theta'^2}{1/R^2 + \theta'^2} = C_2 \implies
+      R^2\theta'^2  = C_2/R^2 + C_2 \theta'^2 \implies \\
+      (R^2-C_2)\theta'^2 = C_2/R^2 \implies
+      \theta'^2 = \frac{C_2/R^2}{R^2-C_2} \implies
+      \theta' = \sqrt{ \frac{C_2/R^2}{R^2-C_2} } = C_3 \implies
+      \theta(z) = m z + C_3&$</p>
+      <p>Which is concerning because it implies at $&R < C_2&$ the slope is complex. Otherwise it seems like a valid solution.</p>
+  </li>
+<!--
+  <li>
+    <p>$&math&$</p><p>description</p>
+  </li>
+ -->
+</ol>
+
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./script.js'></script>
+<link type="text/css" rel="stylesheet" href="styles.css"/>
+</html>
