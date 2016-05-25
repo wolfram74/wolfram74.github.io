@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+      Electric Stars
+    </h2>
+    <h3>
+      Not exactly shocking when you think about it.
+    </h3>
+    <h4 class='date'>
+      2016-05-22
+    </h4>
+    <p>
+      content
+    </p>
+    <p>
+      <div class='container'>
+        <canvas></canvas>
+        <form class='controls'>
+          <ul>
+            <li>
+              <input type='range' name='mass' value='0.5' min='.01' max='1' step='.01'>
+              </input>
+              mass <span class='velocity_display'></span>
+            </li>
+            <li>
+              <input type='button' name='reset' value='reset'>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </p>
+
+  </article>
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>
+<!--
+flow of article
+start with helium as an example
+multi species gasses of equal temperature but different masses
+mass changes energy/velocity distribution
+https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution
+given tau:= energy-temperature (kbT), k:= kinetic energy
+F(k) = 2*(k/pi)^.5 * (1/tau)^1.5 e^(-k/tau)
+F(v) =  (m/(2pi tau))^1.5 4*pi v^2 e^(-mv^2/2*tau)
+ -->
