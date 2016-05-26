@@ -6,6 +6,7 @@ body {
 
 ul.found{
     list-style-type: none;
+    margin-left:10px;
 }
 ul.found li{
   max-width:28%;
