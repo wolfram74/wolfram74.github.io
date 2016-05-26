@@ -3,3 +3,15 @@ body {
   left: 10%;
   width: 80%;
 }
+
+ul.found{
+    list-style-type: none;
+}
+ul.found li{
+  max-width:28%;
+  margin: 1em .5em;
+  float: left;
+  min-height: 12em;
+  padding:1px;
+  border: 1px dashed;
+}
