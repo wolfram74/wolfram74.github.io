@@ -8,6 +8,15 @@ ul.found{
     list-style-type: none;
     margin-left:10px;
 }
+
+td {
+  width: 28%;
+  vertical-align: top;
+  border: 1px dashed;
+  padding: 0em .5em;
+  /*display: block;*/
+}
+
 ul.found li{
   max-width:28%;
   margin: 1em .5em;
