@@ -8,6 +8,18 @@ $(document).on('ready', function(){
   $('.container').each(Container.createFromElement)
 });
 
+function gaussianBoxMuller(mean, sigma){
+  mean = Number(mean) || 0
+  sigma = Number(sigma) || 1
+  var twoPi = 2* 3.141592
+  var thet = twoPi*Math.random()
+  var rad = Math.pow(-2* Math.log(Math.random()), .5)
+  var normalDistribution = rad* Math.sin(thet)
+  return mean + normalDistribution*sigma
+};
+
+
+
 var Container = function(options){
   options = this.defaults(options)
   this.height = options.height
@@ -15,7 +27,7 @@ var Container = function(options){
   this.$div = options.div
   this.center = [this.height/2, this.width/2]
   this.radius = options.radius
-  this.mass = options.mass
+  this.centerMass = options.centerMass
   this.bodies = []
 }
 
@@ -32,8 +44,8 @@ Container.prototype.defaults = function(options){
   if(options.radius === undefined){
     options.radius = 75
   }
-  if(options.mass === undefined){
-    options.mass = 400
+  if(options.centerMass === undefined){
+    options.centerMass = 400
   }
   return options
 };
@@ -80,7 +92,7 @@ Container.prototype.draw = function(){
 Container.prototype.drawCenter = function(context){
   context.beginPath();
   context.arc(this.center[0], this.center[1], this.radius, 0, Math.PI*2)
-  context.arc(this.center[0], this.center[1], 4, 0, Math.PI*2)
+  // context.arc(this.center[0], this.center[1], 4, 0, Math.PI*2)
   context.stroke()
 };
 
@@ -99,10 +111,11 @@ Container.prototype.reset = function(){
 
 Container.prototype.updateBodies = function(){
   for(var index=0; index < this.bodies.length; index++){
-    this.bodies[index].update(this.mass)
+    this.bodies[index].update(this.centerMass)
   }
 }
 // Container.prototype. = function(){}
+
 
 var Body = function(options){
   this.position = Body.initPosition(options.radius)
@@ -143,11 +156,8 @@ Body.prototype.accelerate = function(mass){
   var distSquared = Math.pow(this.position[0],2)+Math.pow(this.position[1],2)
   var dist = Math.pow(distSquared, .5)
   var distCube = Math.pow(distSquared, 1.5)
-  // console.log(this.position, dist, distSquared, distCube)
   var ox = this.velocity[0]
   var oy = this.velocity[1]
-  // var nx = ox*Math.cos(.03) -oy*Math.sin(.03)
-  // var ny = ox*Math.sin(.03) +oy*Math.cos(.03)
 
   var nx = ox-(mass/distCube)*this.position[0]
   var ny = oy-(mass/distCube)*this.position[1]
