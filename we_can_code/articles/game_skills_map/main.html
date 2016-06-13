@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    From 0 to basic games
+  </title>
+  <link type="text/css" rel="stylesheet" href="./styles.css"/>
+  <script src="./../../../scripts/public/jquery-1.11.2.min.js"></script>
+  <script src="./source.js"></script>
+</head>
+
+<body>
+  <article>
+    <h1>From 0 to Basic Games</h1>
+    <h3>Fundamental Javascript skills to make games</h2>
+    <h2>Over View</h2>
+    <p>
+      It is a common desire to make games, after all, playing games is one of the fundamental things humans do, and a game has to be invented before it can be played. People do it with friends all the time, while bored in the car or with a deck of cards. The rules are explained briefly and everybody just kind of runs with it. Computers are kind pretty bad at ambiguity though, so to make a game that a computer can run for people and take care of all the details, we have to be very explicit about what's going on. This is explicitness is handled by programming languages, we give instructions to the computer and it takes it from there. To make a game in a way that can be handled by a programming language we'll need to start breaking games down into more basic parts and figure out what skills allow us to deal with those parts. Now as a caveat, games are a pretty wide area of human thought, so any set of criteria specific enough to be a useful starting point is also likely going to be so specific as to rule some things out that are often referred to as games. Finding the short coming in basic descriptions is what we do after our skills have grown past the basics, so we'll put those details aside for now.
+    </p>
+    <h2>
+      Components of a Game.
+    </h2>
+    <p>
+      The following broad components make up games and using the classic game pong to provide an example.
+      <ul>
+        <li>
+          <span>
+            <b>STATE</b>: a collection of information
+          </span>
+        </li>
+        <li>
+          <span>
+            <b>MECHANICS</b>: a collection of rules that dictate how STATE changes
+          </span>
+        </li>
+        <li>
+          <span>
+            <b>CONTROLS</b>: a collection of methods for a user to change STATE
+          </span>
+        </li>
+        <li>
+          <span>
+            <b>INTERFACE</b>: a means for a user or player to get feedback on what the STATE is
+          </span>
+        </li>
+      </ul>
+      In Pong, the location of the ball and the players' paddles, the score of the players, this makes up the STATE of the game. The fact that the ball bounces off the walls and paddles, that a player score increases when the ball gets behind another players paddle, these are MECHANICS. That the players can move the paddles by key presses or moving the mouse are CONTROLS. The visual representation of where the paddles and the ball is the INTERFACE. Interface and graphics are often interchangeable, but not necessarily, many early games had a purely text based interface, so it is important understand that STATE and INTERFACE are different parts of a game.
+    </p>
+    <h2>Basic Skills related to STATE</h2>
+    <p>
+      State in a computer program is data stored in variables. A given piece of data is of a particular type, different languages support different types by default. Javascript's basic types include Number, String, Boolean, Array and Object.
+      <ul>
+        <li>
+          <span>
+            Numbers you are most likely familiar with, things like 1, 4.3, -27.
+          </span>
+        </li>
+        <li>
+          <span>
+           Strings are any collection of letters and characters, denoted as being between single or double quotes, 'one string', "another string"
+          </span>
+        </li>
+        <li>
+          <span>
+            Booleans are just true and false, but they are used in for many parts of program flow.
+          </span>
+        </li>
+        <li>
+          <span>
+            Arrays are ordered collections of other kinds of data, like several numbers, several strings, or mixtures of both.
+          </span>
+        </li>
+        <li>
+          <span>
+            Objects are labeled collections of other kinds of data, a number labeled age and a string labeled name that are associated together, for example.
+          </span>
+        </li>
+      </ul>
+    </p>
+    <p>
+      <h3>Resources to learn and practice basic skills in STATE</h3>
+      <a href="https://www.codecademy.com/learn/javascript">codecademy</a>,
+      <a href="https://github.com/mrdavidlaing/javascript-koans">Javascript Koans</a>,
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types">MDN Javascript Guide</a>
+    </p>
+    <p>
+      <h2>Advance Skills related to STATE</h2>
+      It is common that in making a game, some things occur multiple times. Take, for example, a Goomba in mario brothers. Each goomba would have the same kinds of state, but different values. Javascript allows you to, in effect, make your own data types. Creating your own data types involves writing a constructor function and running it prefixed with the 'new' keyword. It is a nuanced subject for people new to programming, but allows you to make your code much easier to conceptualize and work with. These datatypes you define are sometimes referred to as prototypes.
+      <a href="http://www.w3schools.com/js/js_object_prototypes.asp">W3Schools Javascript prototypes</a>
+      <a href="http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes">Guide to Javascript prototypes</a>
+    </p>
+    <p>
+      <h2>Basic skills related to MECHANICS</h2>
+    </p>
+    <p>
+      <h2>Advanced skills related to MECHANICS</h2>
+    </p>
+  </article>
+</body>
+
+</html>
