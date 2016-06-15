@@ -101,20 +101,44 @@
       <h2>Advanced skills related to MECHANICS</h2>
       Functions that accomplish particular abstract goals are sometimes referred to as algorithms. For example, if you had many different players, but wanted to order them based on score, you would use a sorting algorithm to order them. If you had a non-player character decide it's own path through a map, it would use a path finding algorithm. Learning about algorithm design will help you to make complicated mechanics in games.
       <a href="https://www.hackerrank.com/domains/algorithms/warmup">Hacker Rank</a> has a large collection of challenges set up for lots of different languages, and it checks your answer for correctness with automated testing.
-      <br>
-      Automated testing is an important part of making more complicated programs
+    </p>
+    <p>
+      Automated testing is an important part of making more complicated programs. Proving that a function does the correct thing for all inputs is a difficult exercise in formal proofs, if it's possible at all. Fortunately it's often  comparitively easy to imagine one or two cases, figure out by hand what the results should be and then compare those against the results of what you've programmed. When you set up a program to do these comparisons for you automatically, this is called automated testing. When you think of test cases before you've written your functions, this is called test driven development, and usually leads to more understandable code.
+      <a href="https://www.smashingmagazine.com/2012/06/introduction-to-javascript-unit-testing/">Introduction to Unit Testing javascript</a>, and
+      <a href="http://stackoverflow.com/questions/300855/javascript-unit-test-tools-for-tdd">A discussion on unit testing frameworks for Javascript</a>, and
+      <a href="https://medium.com/javascript-scene/what-every-unit-test-needs-f6cd34d9836d#.40et51f0u">Important features of a unit test</a>
+    </p>
+    <p>
+      Finally, the passage of time in the game system is often an important consideration. If you're playing the game 60 frames per second, then every frame, the screen might change, but more importantly, the location of enemies might change. SetTimeout and SetInterval are the built in methods for dealing with executing functions based on time like this. SetInterval is easier to implement, but SetTimeout is more flexible and safer.
+      <a href="http://javascript.info/tutorial/settimeout-setinterval">Documentation on timers</a> and
+      <a href="http://reallifejs.com/brainchunks/repeated-events-timeout-or-interval/"> comparing interval and timeout</a> for repeated events.
     </p>
     <p>
       <h2>Basic skills related to CONTROLS</h2>
+      The web browser makes handling userinput considerably easier than most other languages. It's constantly listening for input already, and javascript allows you to observe or listen to this input and have functions respond to it. The simplest kind of input might be clicking on a button. This is relatively straight forward, and could be used to mimic the effects of a menu in some turn based games. A slightly more complicated listener would be to do things based on keyboard presses. This is slightly more complicated because if you wanted to do one thing if the 'w' key was pressed, and a different thing if 's' key was pressed, you'd have to have a piece of your program distinguish between those two values. This is a small increase in complexity, but entirely surmountable with if statements or a number of other options.
+      <a href="http://www.w3schools.com/js/js_htmldom_eventlistener.asp">W3Schools listeners</a>, and
+
+      <a href="http://idratherbewriting.com/events-and-listeners-javascript/">Events and listeners in javascript</a>
+
     </p>
     <p>
       <h2>Advanced skills related to CONTROLS</h2>
+      Clicking on discrete elements of a web page or listening to key presses are relatively straight forward because there is only a very limited range of things that you might be comparing. making decisions on mouse position and movement is potentially much more complicated as the mouse can be anywhere on the screen, moving in any number of ways, clicking or dragging any number of things. Implementing good controls that make use of this versatility is a taller order than for simply handling key presses.
+      <a href="http://javascript.info/tutorial/mouse-events">Documentation on Mouse events</a>
     </p>
     <p>
       <h2>Basic skills related to INTERFACE</h2>
+      The easiest form of interface you can make is a textual description of state, take for example in older turn based games where a portion of the screen was just a collection of numbers corresponding to health and energy levels. Even many modern games take this approach for some information, like rounds of ammunition in shooters. The recent game Papers, Please was incredibly evocative even though a great deal of it's information was conveyed through text. Javascript was initially made for manipulating web pages, which makes text modification fairly straightforward.
+      <a href="http://www.w3schools.com/js/js_htmldom_html.asp">W3schools on Changing HTML</a>, and
+
+      <a href="http://javascript.info/tutorial/modifying-document">Documentation on DOM manipulation</a>
     </p>
     <p>
       <h2>Advanced skills related to INTERFACE</h2>
+      With the dawn of HTML5, the canvas element was introduced. The canvas makes implementing graphical interfaces much easier. This ranges from basic shapes like
+      <a href="http://wolfram74.github.io/perfect_shuffle.html">lines</a> or rectangles and
+      <a href="http://wolfram74.github.io/canvas_play.html">direct pixel editing</a>, to more advanced techniques like <a href="http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/">sprite manipulation.</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">Basic canvas documentation</a>
     </p>
   </article>
 </body>
