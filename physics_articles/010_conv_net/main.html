@@ -62,10 +62,28 @@ Peter Haugen
       $&\ _2widthX\ _2heightX\ _2depth&$ elements going out where $&_2length =\ _1length-l+1&$. This is again only if you slide over one element at a time, this is referred to as the stride length, it is usually 1, but can be set higher to effect a much larger reduction in dimensionality.
     </p>
     <p>
-      After the input has been passed through the filter layer, it is run through a non-linearity function and the process is repeated until the input data has been reduced in dimensionality until satisfactory.
+      After the input has been passed through the filter layer, it is run through a non-linearity function and the process is repeated until the input data has been reduced in dimensionality until satisfactory. At which point a 2 or 3 layer neural network could be applied to finish off the process.
     </p>
     <p>
       For comparison of memory costs, the first filter layer may have $&3x3x3x20=540&$ free parameters 20 different filters on an 3 channel image. If you were to use a fully connected neural network as your first layer it would likely be 10's of millions free parameters.
+    </p>
+    <p>
+      A concrete example might be
+      <br>
+      $&\ _1 \vec x \cdot \ _1 \vec f = \ _2 \vec x&$ <br>
+      $&\ _1 g(\ _2 \vec x ) = \ _3 \vec x&$ <br>
+      $&\ _3 \vec x \cdot \ _2 \vec f = \ _4 \vec x&$ <br>
+      $&\ _2 g(\ _4 \vec x ) = \ _5 \vec x&$ <br>
+      $&\ _5 \vec x \cdot \ _3 \vec f = \ _6 \vec x&$ <br>
+      $&\ _3 g(\ _6 \vec x ) = \ _7 \vec x&$ <br>
+      $&\ _7 \vec x \cdot \ _4 \vec f = \ _8 \vec x&$ <br>
+      $&\ _4 g(\ _8 \vec x ) = \ _9 \vec x&$ <br>
+      $&\ _9 \vec x \ _1 \widehat T = \ _{10} \vec x&$ <br>
+      $&\ _5 g(\ _{10} \vec x ) = \ _{11} \vec x&$ <br>
+      $&\ _{11} \vec x \ _2 \widehat T = \ _{12} \vec x&$ <br>
+      $&\ _6 g(\ _{12} \vec x ) = \ _{13} \vec x&$ <br>
+      $&\ _{13} \vec x \ _3 \widehat T = \ _{14} \vec x&$ <br>
+      This list of operations describes a convolutional neural network that has 4 convolutional layers and 2 fully connected (neural network) layers and 1 output layer, the result of which is $&_{14}\vec x&$
     </p>
   </article>
 <!--
