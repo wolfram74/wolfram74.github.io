@@ -46,7 +46,7 @@ function pad(n, width, z) {
 
 function critterSeperation(crit1, crit2){
   var delX = crit1.pX - crit2.pX
-  var delY = crit1.pY - crit2.pY  
+  var delY = crit1.pY - crit2.pY
   var magSqr = Math.pow(delX,2)+Math.pow(delX,2);
   var mag = Math.pow(magSqr, 0.5);
   return mag
@@ -87,8 +87,8 @@ Field.prototype.averageDistance = function(){
 
 Field.prototype.addMoth = function(color){
   var args = {
-    field: this, 
-    colorVec: color, 
+    field: this,
+    colorVec: color,
     idNum: this.mothCount
   };
   var f0Moth = new Moth(args);
@@ -167,7 +167,7 @@ Field.prototype.changeMoths = function(){
   for(var index in this.liveMoths){
     this.liveMoths[index].chooseDirection()
   };
-  setTimeout(this.changeMoths.bind(this), 3000)  
+  setTimeout(this.changeMoths.bind(this), 3000)
 };
 
 Field.prototype.movePredators = function(){
@@ -207,7 +207,7 @@ var Moth = function(args){
   this.timeOfDeath = 0
   this.diameter = 17;
   var divID = 'moth_'+this.idNum;
-  this.$el = $("<div id='"+divID+"'></div>");  
+  this.$el = $("<div id='"+divID+"'></div>");
   this.view = mothView(this)
 }
 
@@ -280,13 +280,13 @@ var Predator = function(args){
   this.vY = 0;
   this.killCount = 0;
   var divID = 'pred_'+this.initTarget.idNum;
-  this.$el = $("<div id='"+divID+"'></div>");  
+  this.$el = $("<div id='"+divID+"'></div>");
   this.view = predView(this)
 };
 
 Predator.prototype.homeIn = function(){
   var delX = this.currentTarge.pX - this.pX
-  var delY = this.currentTarge.pY - this.pY  
+  var delY = this.currentTarge.pY - this.pY
   var mag = critterSeperation(this, this.currentTarge);
   if (mag != 0){
     this.vX = delX/mag
@@ -296,7 +296,7 @@ Predator.prototype.homeIn = function(){
 
 Predator.prototype.chooseSpeed = function(){
   var delX = this.currentTarge.pX - this.pX
-  var delY = this.currentTarge.pY - this.pY  
+  var delY = this.currentTarge.pY - this.pY
   var mag = critterSeperation(this, this.currentTarge);
   if (mag > 7.5) {
     this.vX = this.vX*7.5
