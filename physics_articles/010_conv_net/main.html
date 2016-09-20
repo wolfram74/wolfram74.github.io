@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+      Convolutional Neural Networks for physicists
+    </h2>
+    <h3>
+      gobs and gobs of linear algebra
+    </h3>
+    <h4 class='date'>
+      02016-09-20
+    </h4>
+    <p>
+      This is a brief over view on some of the math involved in the machine learning approach known as convolutional neural networks. To start I'm going to explain some notation that is perhaps particular to me.
+      <ul>
+        <li>
+          $&\vec v&$ is a vector like object, it can do dot products element wise with anything that has matching dimensionality.
+        </li>
+          $&\widehat T&$ is a matrix like object, it will take vector like objects of the appropriate dimensionality and do linear transformation/combination of it's terms to produce a new vector like object of arbitrary dimension.
+        <li>
+          $&_i\vec v&$ subscripts to the left an object denote a specific member of a set of objects to distinguish say one vector from another or one matrix from another. $&_j\vec f_k&$ a subscript to the right indicates specific elements in a specific object.
+        </li>
+        <li>
+          $&k(_i\vec v)&$ is a function that operates element wise on a vector to produce a new vector of the same dimension while $& g(_i\vec v_l,\ _j\vec v_n,\ ...) &$ is a function that takes multiple numbers as input and returns a single number.
+        </li>
+      </ul>
+    </p>
+    <p>
+      A 1-layer neural network for classification consists of 1 of connection layer, $&_1\widehat T&$ that combines an input layer $&_1\vec x&$ to produce $&_2 \vec x&$ often of equal or smaller dimension, it feeds this through a function $&g(_2\vec x)=\ _3\vec x&$ this function is usually referred to as a nonlinearity, or activation function. Sigmoid functions $&\frac{1}{1+e^{-x}}&$ are common, but a whole menagerie are known to work. $&_3 \vec x\ _2\widehat T&$ is then used to reduce dimensionality to your result, which if the intent is a classifier is a single number between 0 and 1 to indicate how likely your input belongs to set of abstract objects you are trying to identify.
+    </p>
+    <p>
+      A single layer network though is limited in scope as it was proven several decades ago unable to reproduce a rule as simple as logical XOR. However iterating the simple process described above can allow for very complicated combinations. Only a second layer is required to be able to do XOR.
+    </p>
+    <p>
+      training these networks involves sets of pairs, a collection of M $&\vec{in}&$ and $&\vec{out}&$ where m is as large as you can manage. The important thing about the activation function is that it is differentiable, this allows errors in calculated outputs to change the weights in layers that produced them by means of gradient ascent.
+    </p>
+    <p>
+      Of note is the size of the first connection layer $&_1\widehat T&$, as a matrix with as many elements as the length of the input vector times it's output's length $&_2\vec x&$. With input data containing even a hundred parameters, this is not so challenging, but as many images have millions of pixels, this is impractical. It becomes necessary to compress the information in some way.
+    </p>
+    <p>
+      A filter layer with a 1-d vector with k elements and 1 filter stepping one element at a time would work as
+      $&_2\vec x_i =\ _1\vec x_{i,i+l} \cdot \vec f&$ where l is the number of elements in the filter object. without padding this would mean the output has l-1 elements fewer than the input layer.
+    </p>
+    <p>
+      If you were working with a gray scale picture the input would now be a 2-d vector like object with length and width matching the dimensions of the picture. likewise a 2-d vector like object for a filter would be needed, it would be l by l.
+    </p>
+    <p>
+      If you had a multi-layered picture, such as a red-green-blue (3 layers) or a picture overlaying the EM 4-vector (potential, Ax, Ay, Az, 4 layers) or generally d number of layers. you would have a filter that is lxlxd elements.
+    </p>
+    <p>
+      A filter layer need not have only 1 filter in it. The number of filters in a filter layer are sometimes referred to as the depth of the layer. So if your input layer has
+      $&\ _1widthX\ _1heightX\ _1channels&$
+      elements in it, after going through a filter layer it will have
+      $&\ _2widthX\ _2heightX\ _2depth&$ elements going out where $&_2length =\ _1length-l+1&$. This is again only if you slide over one element at a time, this is referred to as the stride length, it is usually 1, but can be set higher to effect a much larger reduction in dimensionality.
+    </p>
+    <p>
+      After the input has been passed through the filter layer, it is run through a non-linearity function and the process is repeated until the input data has been reduced in dimensionality until satisfactory.
+    </p>
+    <p>
+      For comparison of memory costs, the first filter layer may have $&3x3x3x20=540&$ free parameters 20 different filters on an 3 channel image. If you were to use a fully connected neural network as your first layer it would likely be 10's of millions free parameters.
+    </p>
+  </article>
+<!--
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+ -->
+</body>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>
