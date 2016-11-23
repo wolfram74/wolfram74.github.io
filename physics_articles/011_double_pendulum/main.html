@@ -87,6 +87,124 @@ Peter Haugen
       )
       +g(m_1+m_2)cos(\theta_1)
       +gm_2l_2cos(\theta_2)
+      &$ Which lets us now find the equations of motion
+      $&\frac{d}{dt}(\frac{dL}{d\dot q})=\frac{dL}{dq}&$. However the observant individual might have noticed earlier how similar that is to newton's equations of motions $&F=ma=m\ddot x&$. If you missed it, though, let me cast it into a different form.
+      $&m\ddot x = \frac{d}{dt}(p_x) = \frac{d-U}{dx}=F&$ Seeing it put this way the idea of defining an abstract momentum as $&\frac{dL}{d\dot q}&$ doesn't seem like much of a stretch. So if that's the definition we have for what we'll call the conjugate momentum then we get the pair of momenta
+      $&p_1=
+      l_{1}^2  (m_{1} + m_{2})\dot \theta_{1}
+      + l_{1}l_{2} m_{2}  \cos (\theta_{1} - \theta_{2}) \dot \theta_{2}&$ and
+      $&p_2=
+      l_{1} l_{2} m_{2}  \cos(\theta_{1} - \theta_{2}) \dot \theta_{1}
+      + l_{2}^2m_2 \dot \theta_{2}&$. These two equations form what is known as a linear relationship between angular velocity and the momentum, because we could simplify it as
+      $&p_1=
+      a \dot \theta_{1}
+      + b \dot \theta_{2}&$ and
+      $&p_2=
+      c \dot \theta_{1}
+      + d \dot \theta_{2}&$, now, the coefficients a through d might be complicated functions angles, and constants, but the angular velocity only varies with the first power. This means we could make a matrix to turn angular velocities. And in this case as long as
+      $&\cos(\theta_{1} - \theta_{2})^2 \neq \frac{m_1+m_2}{m_2}&$ we can invert the matrix and find expressions for the angular velocities in terms of the momenta and rewrite the kinetic energy. This is nice because notice that
+      $&\frac{m_1+m_2}{m_2} > 1&$ for all combinations where the masses aren't 0 and
+      $&\cos(\theta_{1} - \theta_{2})^2 \le 1 &$.
+      The results are
+      $&\dot \theta_{1}= \frac{l_{1}l_{2} p_{2} \cos{\left (\theta_{1} - \theta_{2} \right )} - l_{2}^2 p_{1}}{l_{1}^{2} l_{2}^2 \left(- m_{1} + m_{2} \cos^{2}{\left (\theta_{1} - \theta_{2} \right )} - m_{2}\right)}&$ and
+      $&\dot \theta_{2}= \frac{- l_{1}^2 p_{2} \left(m_{1} + m_{2}\right) + l_{2}l_{1} m_{2} p_{1} \cos{\left (\theta_{1} - \theta_{2} \right )}}{l_{1}^2 l_{2}^{2} m_{2} \left(- m_{1} + m_{2} \cos^{2}{\left (\theta_{1} - \theta_{2} \right )} - m_{2}\right)}&$ getting us to
+      $&T = \frac{
+       (m_{1} + m_{2}) l_{1}^{2} p_{2}^{2}
+       - 2 l_{1} l_{2} m_{2} p_{1} p_{2} \cos{\left (\theta_{1} - \theta_{2} \right )} + l_{2}^{2} m_{2} p_{1}^{2}
+    }
+      {2 l_{1}^{2} l_{2}^{2} m_{2} \left(m_{1} - m_{2} \cos^{2}{\left (\theta_{1} - \theta_{2} \right )} + m_{2}\right)}&$. With this we can find the Hamiltonian easily as in this case it is simply the kinetic energy plus the potential energy. In general $&H=p\dot q - L&$ but because our lagrangian doesn't explicitly have time show up in it's definition, or is constant in time,
+      $&H=T+U=
+       \frac{l_{1}^{2} m_{1} p_{2}^{2} + l_{1}^{2} m_{2} p_{2}^{2} - 2 l_{1} l_{2} m_{2} p_{1} p_{2} \cos{\left (\theta_{1} - \theta_{2} \right )} + l_{2}^{2} m_{2} p_{1}^{2}}{2 l_{1}^{2} l_{2}^{2} m_{2} \left(m_{1} - m_{2} \cos^{2}{\left (\theta_{1} - \theta_{2} \right )} + m_{2}\right)}
+       - g m_{2} \cos{\left (\theta_{2} \right )} - g \left(m_{1} + m_{2}\right) \cos{\left (\theta_{1} \right )}
+      &$ So we've now found two constructs, the Lagrangian and the Hamiltonian, but why?
+    </p>
+    <h3>Properties of H</h3>
+    <p>
+      Well, first, with a Lagrangian you end up with 2nd order differential equations $&\frac{d}{dt}(\frac{dL}{d\dot q})=\frac{dL}{dq}&$, there are 2 time derivatives implied on the left side of the equal sign. This can be nasty to deal with. With a Hamiltonian, you instead have twice as many equations, but they're first order, which offers a few advantages in approximating them,
+      $&\dot q = \frac{dH}{dp}&$ and $&\dot p = -\frac{dH}{dq}&$. But also the Hamiltonian has a number of useful mathematical features. Two that I will mention but not elaborate on are the Poisson Bracket and Liouville's theorem. We'll touch on Liouville's theorem in a different article with a system that's easier to draw.
+    </p>
+    <h3>Equations of motion</h3>
+    <p>
+      Before we find the Hamiltonian equations of motion, I'm gonna make some substitutions that I think clean up the system algebra a bit. I'm going to say $&m_1 = m&$ and $&m_2 = am&$ and do the same for the lengths, saying $&l_2 = bl&$, these substitutions leave us with
+      $&H=
+      \frac{
+      a b^{2} p_{1}^{2} + a p_{2}^{2} + p_{2}^{2}
+      - 2 a b p_{1} p_{2} \cos{\left (\theta_{1} - \theta_{2} \right )}
+      }{
+      2 a b^{2} l^{2} m \left(
+       1 + a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )}
+      \right)
+    }
+      - g m \left(a \cos{\left (\theta_{2} \right )} + \left(a + 1\right) \cos{\left (\theta_{1} \right )}\right) &$ So, let's get down to the equations of motion now.
+      <ul>
+        <li>$&\dot \theta_1 = \frac{dH}{dp_1} = \frac{b p_{1} - p_{2} \cos{\left (\theta_{1} - \theta_{2} \right )}}{b l^{2} m \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right)}&$</li>
+        <li>$&\dot \theta_2 = \frac{dH}{dp_2}=
+          \frac{- a b p_{1} \cos{\left (\theta_{1} - \theta_{2} \right )} + (1+a) p_{2}}{a b^{2} l^{2} m \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right)}
+          &$</li>
+        <li>$&\dot p_1 = -\frac{dH}{d\theta_1}=
+          - \frac{1}{b^{2} l^{2} m \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right)^{2}}
+          \left(b^{2} g l^{2} m^{2} \left(a + 1\right) \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right)^{2} \sin{\left (\theta_{1} \right )}
+          + C_1
+          - C_2
+          \right )
+          &$</li>
+        <li>$&\dot p_2 = -\frac{dH}{d\theta_2}=
+          - \frac{1}{b^{2} l^{2} m \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right)^{2}}
+          \left(a b^{2} g l^{2} m^{2} \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right)^{2} \sin{\left (\theta_{2} \right )}
+          - C_1
+          + C_2
+          \right )
+          &$
+        </li>
+        <li>
+          $&C_1 = b p_{1} p_{2} \left(a \sin^{2}{\left (\theta_{1} - \theta_{2} \right )} + 1\right) \sin{\left (\theta_{1} - \theta_{2} \right )}&$
+        </li>
+        <li>
+          $&C_2 = \left(a b^{2} p_{1}^{2} - 2 a b p_{1} p_{2} \cos{\left (\theta_{1} - \theta_{2} \right )} + a p_{2}^{2} + p_{2}^{2}\right) \sin{\left (\theta_{1} - \theta_{2} \right )} \cos{\left (\theta_{1} - \theta_{2} \right )}&$
+        </li>
+      </ul>
+      This is a ridiculous mess and non-linear nightmare. But, by inspection we see that if the angles and the momenta are 0, all the derivatives are 0 as well, so we can choose that point as an a place to expand at first order and see what happens. We'll do this equation by equation, taking the first derivative with respect to the angles and momenta, evaluating them at the equilibrium point and adding them together. For example
+      $&\dot \theta_1 = \frac{dH}{dp_1} \approx
+      \frac{d^2H}{dp_1d\theta_1}|_{\Gamma_0} \theta_1 +
+      \frac{d^2H}{dp_1d\theta_2}|_{\Gamma_0} \theta_2 +
+      \frac{d^2H}{dp_1^2}|_{\Gamma_0} p_1 +
+      \frac{d^2H}{dp_1dp_2}|_{\Gamma_0} p_2 &$ where $&|_{\Gamma_0}&$ implies the function is evaluated at the point in phase space $&\Gamma_0&$ where all the momenta and angles are 0. When we do this for all 4 equations of motion what we'd end up with is something representable as the matrix equation
+      $&
+      \begin{bmatrix}
+      \dot \theta_1 \\
+      \dot \theta_2 \\
+      -\dot p_1 \\
+      -\dot p_2
+      \end{bmatrix}
+      \approx
+      \begin{bmatrix}
+      \frac{d^2H}{dp_1d\theta_1} & \frac{d^2H}{dp_1d\theta_2} & \frac{d^2H}{dp_1dp_1} & \frac{d^2H}{dp_1dp_2} \\
+      \frac{d^2H}{dp_2d\theta_1} & \frac{d^2H}{dp_2d\theta_2} & \frac{d^2H}{dp_2dp_1} & \frac{d^2H}{dp_2dp_2} \\
+      \frac{d^2H}{d\theta_1d\theta_1} & \frac{d^2H}{d\theta_1d\theta_2} & \frac{d^2H}{d\theta_1dp_1} & \frac{d^2H}{d\theta_1dp_2} \\
+      \frac{d^2H}{d\theta_2d\theta_1} & \frac{d^2H}{d\theta_2d\theta_2} & \frac{d^2H}{d\theta_2dp_1} & \frac{d^2H}{d\theta_2dp_2}
+      \end{bmatrix}|_{\Gamma_0}
+      \begin{bmatrix}
+      \theta_1 \\
+      \theta_2 \\
+      p_1 \\
+      p_2
+      \end{bmatrix}
+      &$ evaluating it at the equilibrium point get's rid of a lot of the complexity because it ends up reducing the monstrous mess from earlier into
+      $&
+      \begin{bmatrix}
+      \dot \theta_1 \\
+      \dot \theta_2 \\
+      -\dot p_1 \\
+      -\dot p_2
+      \end{bmatrix}
+      \approx
+      \left[\begin{matrix}0 & 0 & \frac{1}{l^{2} m} & - \frac{1}{b l^{2} m}\\0 & 0 & - \frac{1}{b l^{2} m} & \frac{2 a + 2}{2 a b^{2} l^{2} m}\\g m \left(a + 1\right) & 0 & 0 & 0\\0 & a g m & 0 & 0\end{matrix}\right]
+      \begin{bmatrix}
+      \theta_1 \\
+      \theta_2 \\
+      p_1 \\
+      p_2
+      \end{bmatrix}
       &$
     </p>
   </article>
