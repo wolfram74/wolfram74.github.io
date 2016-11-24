@@ -173,15 +173,15 @@ Peter Haugen
       \begin{bmatrix}
       \dot \theta_1 \\
       \dot \theta_2 \\
-      -\dot p_1 \\
-      -\dot p_2
+      \dot p_1 \\
+      \dot p_2
       \end{bmatrix}
       \approx
       \begin{bmatrix}
       \frac{d^2H}{dp_1d\theta_1} & \frac{d^2H}{dp_1d\theta_2} & \frac{d^2H}{dp_1dp_1} & \frac{d^2H}{dp_1dp_2} \\
       \frac{d^2H}{dp_2d\theta_1} & \frac{d^2H}{dp_2d\theta_2} & \frac{d^2H}{dp_2dp_1} & \frac{d^2H}{dp_2dp_2} \\
-      \frac{d^2H}{d\theta_1d\theta_1} & \frac{d^2H}{d\theta_1d\theta_2} & \frac{d^2H}{d\theta_1dp_1} & \frac{d^2H}{d\theta_1dp_2} \\
-      \frac{d^2H}{d\theta_2d\theta_1} & \frac{d^2H}{d\theta_2d\theta_2} & \frac{d^2H}{d\theta_2dp_1} & \frac{d^2H}{d\theta_2dp_2}
+      -\frac{d^2H}{d\theta_1d\theta_1} & -\frac{d^2H}{d\theta_1d\theta_2} & -\frac{d^2H}{d\theta_1dp_1} & -\frac{d^2H}{d\theta_1dp_2} \\
+      -\frac{d^2H}{d\theta_2d\theta_1} & -\frac{d^2H}{d\theta_2d\theta_2} & -\frac{d^2H}{d\theta_2dp_1} & -\frac{d^2H}{d\theta_2dp_2}
       \end{bmatrix}|_{\Gamma_0}
       \begin{bmatrix}
       \theta_1 \\
@@ -194,11 +194,11 @@ Peter Haugen
       \begin{bmatrix}
       \dot \theta_1 \\
       \dot \theta_2 \\
-      -\dot p_1 \\
-      -\dot p_2
+      \dot p_1 \\
+      \dot p_2
       \end{bmatrix}
       \approx
-      \left[\begin{matrix}0 & 0 & \frac{1}{l^{2} m} & - \frac{1}{b l^{2} m}\\0 & 0 & - \frac{1}{b l^{2} m} & \frac{2 a + 2}{2 a b^{2} l^{2} m}\\g m \left(a + 1\right) & 0 & 0 & 0\\0 & a g m & 0 & 0\end{matrix}\right]
+      \left[\begin{matrix}0 & 0 & \frac{1}{l^{2} m} & - \frac{1}{b l^{2} m}\\0 & 0 & - \frac{1}{b l^{2} m} & \frac{2 a + 2}{2 a b^{2} l^{2} m}\\- g m \left(a + 1\right) & 0 & 0 & 0\\0 & - a g m & 0 & 0\end{matrix}\right]
       \begin{bmatrix}
       \theta_1 \\
       \theta_2 \\
