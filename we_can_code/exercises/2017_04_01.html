@@ -15,7 +15,7 @@
   function buttonHandler(event){
     event.preventDefault();
     const inputText = textIn.value;
-    const moddedText = inputText.replace('e', '<span>e</span>');
+    const moddedText = inputText.replace(/e/g, '<span>e</span>');
     console.log(moddedText);
     textOut.innerHTML = moddedText;
   }
