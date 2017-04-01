@@ -16,12 +16,10 @@
     event.preventDefault();
     const inputText = textIn.value;
     const moddedText = inputText.replace(/e/g, '<span>e</span>');
-    console.log(moddedText);
     textOut.innerHTML = moddedText;
   }
 
   button.addEventListener('click', buttonHandler)
-
 </script>
 <style type="text/css">
   span {
