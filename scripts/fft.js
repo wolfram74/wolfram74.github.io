@@ -38,7 +38,7 @@ var FFTJS = function() {
     function initAudioContext() {
         console.log("in init");
         try {
-            ctx = new webkitAudioContext(); //is there a better API for this?
+            ctx = new AudioContext(); //is there a better API for this?
         } catch (e) {
             alert('you need webaudio support' + e);
         }
