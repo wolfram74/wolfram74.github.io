@@ -6,6 +6,7 @@ var FFTJS = function() {
     var buf; //audio buffer
     var fft; //fft audio node
     var samples;
+    var timeSampleRate;
     var isSetup = false; //indicate if audio is set up yet
 
     API.mappings = [];
@@ -22,6 +23,8 @@ var FFTJS = function() {
             },
             gotStream, error
         );
+        // console.log(timeSampleRate, samples)
+        this.binWidth = ((timeSampleRate|| 44100)/2)/(samples/2)
     };
 
     API.fft = function() {
@@ -51,7 +54,8 @@ var FFTJS = function() {
 
         // Create an AudioNode from the stream.
         var mediaStreamSource = ctx.createMediaStreamSource(stream);
-
+        // debugger
+        timeSampleRate = mediaStreamSource.context.sampleRate
         //create fft
         fft = ctx.createAnalyser();
         fft.fftSize = samples;
@@ -63,6 +67,5 @@ var FFTJS = function() {
     var error = function(err) {
         console.log("The following error occured: " + err);
     };
-
     return API;
 };
