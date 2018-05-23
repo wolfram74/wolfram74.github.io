@@ -5,7 +5,7 @@ $('document').ready(function(){
 
 var areaHandler = function(event){
   var text = event.target.value
-  console.log(text)
+  // console.log(text)
   var spaces = text.split(' ').length
   $('#present').attr('value', spaces)
   var progress = spaces / $('#goal').attr('value')
