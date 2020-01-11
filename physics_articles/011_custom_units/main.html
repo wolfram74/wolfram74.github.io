@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>
+Peter Haugen
+</title>
+</head>
+
+<body>
+  <article>
+    <h2>
+      Custom Units
+    </h2>
+    <h3>
+      Or: You Want to Justify Setting Something to 1.
+    </h3>
+    <h4 class='date'>
+
+    </h4>
+    <p>
+      Algebra and calculus wonderful and we like using them as much as we can because when we get exact solutions, they're just that. Exact. In a two-body gravitational system, we can tell you where both bodies will be at any point in the future <em>or the past</em> if we know where they are and where they're going at just one instance in time. It's a positively delightful result. But what about when we can't do that? For example, if we had even a one more gravitationally significant object in the universe, we're forced to make some approximations.
+    </p>
+
+    <p>
+      There are quite a few different symbolic approximations we can do if the circumstances fit and they can be quite efficient with the work we do, but we're going to assume we're doing a numerical approximation. If we're doing gravity still, that means calculating
+      $& \vec F = G \frac{m_1 m_2}{r^2}\hat r&$
+      over and over again. Now, either you're just poking around with numerical methods and using this as an example to cut your teeth on, in which case you can set G to 1 and ignore it. But what if you want to simulate the solar system? If you set G to 1 and then use actual values for bodies and locations, things will go very, very wrong because real G $&~=6.674E-11 \frac{m^3}{kg*s^2}&$ or, in otherwords, a trillion times weaker than what you're estimating.
+    </p>
+    <p>
+       So what are we to do? While the masses, positions and velocities are ours to choose, G is a constant, isn't it? No! It's a consequence of our measurement system! notice the units at the end of that value I listed earlier, $&\frac{m^3}{kg*s^2}&$ so if we switched to some unit with twice the mass, say, the dkg for double kilogram, G would go up by a factor of two. Or specifically, if we invented some units such that $&L=a*m&$, $&M=b*kg&$ and $&T=c*s&$ we would get a new gravitational constant $&G^*=G_{mks} \frac{b c^2}{a^3}&$.
+    </p>
+    <p>
+      So, we have a new problem, more choices than we have decisions made. All we want is $&G^*=1&$ whichwill happen if
+      $&\frac{a^3}{b c^2} ~= 6.674E-11&$ but we have three knobs to turn. We could keep length and time the same and just choose a very large mass, but let's play around with the other units.
+    </p>
+
+    <p>
+      An astronomical Unit is the average distance earth is from the sun, we could use that as a yard stick, but then things like Mercury or the Parker solar probe will have kind of a small average radius, might cause some
+    </p>
+    <p></p>
+    <p></p>
+
+  </article>
+  <div>
+    <h3>Exploration</h3>
+  </div>
+  <div>
+    <h3>Further Reading</h3>
+  </div>
+</body>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src='../../scripts/public/jquery-1.11.2.min.js'></script>
+<script src='./scripts/main.js'></script>
+<link type="text/css" rel="stylesheet" href="./styles.css"/>
+</html>
+<math></math>
