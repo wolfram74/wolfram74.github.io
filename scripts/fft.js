@@ -17,12 +17,9 @@ var FFTJS = function() {
 
     API.init = function(s) {
         samples = s;
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-        navigator.getUserMedia({
-                audio: true
-            },
-            gotStream, error
-        );
+        // navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mediaDevices.getUserMedia;
+        navigator.mediaDevices.getUserMedia({audio: true})
+        .then(gotStream).catch(error);
         // console.log(timeSampleRate, samples)
         this.binWidth = ((timeSampleRate|| 44100)/2)/(samples/2)
     };
@@ -50,6 +47,7 @@ var FFTJS = function() {
 
     // success callback when requesting audio input stream
     function gotStream(stream) {
+        console.log('contextual')
         initAudioContext();
 
         // Create an AudioNode from the stream.
